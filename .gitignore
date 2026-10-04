@@ -1,0 +1,21 @@
+# Local tool config (machine-specific paths)
+.mcp.json
+
+# Python / notebooks
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# Model artifacts and run outputs
+*.pt
+*.bin
+*.safetensors
+checkpoints/
+outputs/
+wandb/
+
+# OS
+.DS_Store
+Thumbs.db
