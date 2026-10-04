@@ -10,3 +10,4 @@ source: project-setup
 Append a concise dated line after substantive vault work. Link the relevant session or knowledge note. For trivial exchanges, no entry is needed.
 
 - 2026-10-05 — Vault initialised from the Obsidian Memory Starter; seeded decisions, open questions and sources; hooks configured. [[Projects/Sessions/2026-10-05 Vault setup]]
+- 2026-10-05 — Concepts lecture (L1–L8) and learner profile added. [[Projects/Sessions/2026-10-05 Concepts lecture]]

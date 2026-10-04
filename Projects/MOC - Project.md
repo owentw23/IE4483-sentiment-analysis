@@ -10,9 +10,11 @@ source: project-setup
 - [[Projects/Scope decisions]]
 - [[Projects/Open questions]]
 - [[Resources/Source register]]
+- [[MOC - ML Training Lecture]]
 
 Use the [roadmap](../../PROJECT_PLAN.md) for sequence and [handoff](../../PROGRESS.md) for live state. Add only useful decision and session links here; create a separate session index if the list grows.
 
 ## Sessions
 
 - [[Projects/Sessions/2026-10-05 Vault setup]]
+- [[Projects/Sessions/2026-10-05 Concepts lecture]]
