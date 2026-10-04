@@ -67,3 +67,7 @@ Projected Ettin-400M fine-tuned + class weights: ~96–97.5% acc, ~0.92–0.95 m
    label smoothing as the three approaches for (h); zero-shot + domain-adaptive pretraining + SetFit for (g).
 
 See `docs/research_notes.md` for how every model/technique works and the source papers.
+Report drafts: `docs/report_draft_abc.md` (questions a–c, Ettin; [TBD] items filled after training runs).
+Verified for the report: Ettin-400m uses `classifier_pooling: mean`; token lengths (Ettin tokenizer, deduped train)
+median 54 / p95 181 / p99 346 / max 1,293 → max_length 512 covers 99.67%; train split 839 neg / 4,909 pos →
+class weights neg 3.426, pos 0.585.
