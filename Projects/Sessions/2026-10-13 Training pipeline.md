@@ -23,6 +23,13 @@ Prepare (b), (c) and (d): explain them in detail and show what to change to find
 - Checks (measured): sanity PASS (initial loss 0.555; 16 reviews overfitted within 10 steps). fp32 AdamW filled VRAM at 7.9 GB and stalled. Full default run: macro-F1 0.924 / **0.926** / 0.924 over 3 epochs, acc 0.962, neg-F1 0.874, 11.8 min, peak 5.6 GB.
 - Limits: raw, uncleaned data; single seed; `predict.py` not yet run (no saved model).
 
+## Later the same day
+
+- **Ablation (measured):** without class weights, macro-F1 = **0.947** (acc 0.973, neg-F1 0.909, best epoch 3) vs 0.926 with balanced weights. Neg precision and recall both improved (0.890/0.929 vs 0.858/0.891). Single seed.
+- **Agreed:** pretrained models are allowed by the brief (it names pretrained embeddings and BERT). Keep Ettin, and add a from-scratch arm (BiLSTM with random embeddings) for question (f).
+- **Deadline found in the brief:** Fri 13 Nov 2026, 11:59 pm.
+- **Proposed by owner:** per-epoch class-weight adjustment driven by validation results ("reward model"). Claude advised against adapting on the current validation split (leakage) and offered (A) a fixed-weight sweep or (B) adaptive weighting with a 3-way split. Awaiting the choice.
+
 ## Next action
 
 LR sweep `src/sweep.py --tag lr --lr 1e-5 3e-5`. Rerun on the cleaned data when it arrives.
