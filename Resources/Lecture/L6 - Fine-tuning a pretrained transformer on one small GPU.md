@@ -53,7 +53,7 @@ With 8-bit AdamW, the static part becomes about 4 + 4 + 2 = 10 bytes/parameter, 
 
 ## 3. Software setup specifics for this laptop
 
-- **GPU.** The RTX 5060 (Blackwell) needs a PyTorch build for **CUDA 12.8+**: `pip install torch --index-url https://download.pytorch.org/whl/cu128`. Older builds won't see the GPU.
+- **GPU.** RTX 4060 Laptop (Ada, 8 GB; verified 2026-10-13), which supports bf16. The installed PyTorch 2.11 + CUDA 12.6 build works. Measured: plain fp32 AdamW on Ettin-400M filled VRAM (7.9 GB) and slowed to a crawl, while 8-bit AdamW + checkpointing peaked at about 5.4–6.1 GB.
 - **Fallback.** Colab free T4 (16 GB, no bf16 tensor-core support, so use fp16 there; no FlashAttention 2).
 - **Libraries.** `transformers` (models, `Trainer`), `datasets`, `scikit-learn` (splits, metrics, TF-IDF), `bitsandbytes` (8-bit optimizer), optionally `accelerate`.
 

@@ -18,3 +18,4 @@ Use the [roadmap](../../PROJECT_PLAN.md) for sequence and [handoff](../../PROGRE
 
 - [[Projects/Sessions/2026-10-05 Vault setup]]
 - [[Projects/Sessions/2026-10-05 Concepts lecture]]
+- [[Projects/Sessions/2026-10-13 Training pipeline]]
