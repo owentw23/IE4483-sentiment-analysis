@@ -87,7 +87,7 @@ Review text
 - **Precision:** bf16 mixed precision, plus gradient checkpointing to save memory.
 - **Epochs:** up to 3. Evaluate on validation after each epoch and keep the checkpoint with the **best validation macro-F1**, which acts as early stopping.
 - **Final model:** the best checkpoint predicts `test.json` → `submission.csv`.
-- **Hardware:** RTX 5060 laptop GPU, 8 GB. [TBD: training time]
+- **Hardware:** RTX 4060 Laptop GPU, 8 GB. [TBD: training time from the final run]
 
 **Reproducibility**
 - Fixed seed 42 for Python, NumPy and PyTorch (`transformers.set_seed(42)`), plus a deterministic split (`random_state=42`).
@@ -95,7 +95,16 @@ Review text
 - Single run per configuration. Differences under ~1 point are within validation noise (±1 point at n = 1,437) and are not claimed as significant.
 
 **Code and run instructions**
-- [TBD: `train_ettin.py` plus the commands to run it]
+- Code: `src/data.py` (loading, deduplication, split, class weights), `src/train.py` (fine-tuning; Hugging Face `Trainer` with a class-weighted loss), `src/sweep.py` (hyperparameter grid), `src/predict.py` (test predictions → `submission.csv`), `src/sanity_check.py` (initial-loss and overfit checks).
+- Environment: Python 3.14, PyTorch 2.11 (CUDA 12.6), transformers 5.19, bitsandbytes 0.50 (`requirements.txt`); RTX 4060 Laptop GPU, 8 GB.
+- Run:
+  ```
+  python -m venv --system-site-packages .venv
+  .venv/Scripts/python -m pip install -r requirements.txt
+  .venv/Scripts/python src/train.py --run-name FINAL --lr <chosen> --save-model --predict-test
+  ```
+- Sanity checks before training (measured): initial weighted loss 0.555 (≈ ln 2 = 0.693, as expected for an untrained head); a 16-review batch was overfitted to loss ≈ 0 within 10 steps, confirming the pipeline learns.
+- Memory (measured): plain fp32 AdamW filled the 8 GB GPU (7.9 GB) and stalled; 8-bit AdamW with gradient checkpointing peaked at about 6 GB.
 
 ## (c) How parameters were chosen
 

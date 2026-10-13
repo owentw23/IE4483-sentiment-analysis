@@ -13,9 +13,20 @@ venv/
 *.bin
 *.safetensors
 checkpoints/
-outputs/
+# Run outputs: keep the small findings (ledger, per-run config/metrics/history), ignore models, checkpoints, logs
+outputs/*
+!outputs/results.csv
+!outputs/runs/
+outputs/runs/*/*
+!outputs/runs/*/config.json
+!outputs/runs/*/metrics.json
+!outputs/runs/*/history.json
 wandb/
 
 # OS
 .DS_Store
 Thumbs.db
+
+# Personal memory vault (own local git repo) and personal Claude Code settings
+Knowledge/
+.claude/settings.local.json

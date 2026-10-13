@@ -1,0 +1,23 @@
+{
+  "run_name": "cwsweep_negw1.5",
+  "model": "jhu-clsp/ettin-encoder-400m",
+  "lr": 2e-05,
+  "epochs": 3,
+  "batch_size": 8,
+  "grad_accum": 2,
+  "warmup_ratio": 0.1,
+  "weight_decay": 0.01,
+  "scheduler": "linear",
+  "max_length": 512,
+  "class_weights": "balanced",
+  "neg_weight": 1.5,
+  "seed": 42,
+  "optim": "adamw_bnb_8bit",
+  "no_bf16": false,
+  "no_grad_ckpt": false,
+  "train_file": "train.json",
+  "test_file": "test.json",
+  "limit": 0,
+  "save_model": false,
+  "predict_test": false
+}

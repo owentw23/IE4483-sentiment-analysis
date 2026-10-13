@@ -1,0 +1,5 @@
+run,model,lr,epochs,eff_batch,warmup,wd,sched,max_len,cw,seed,limit,accuracy,macro_f1,neg_f1,neg_precision,neg_recall,best_epoch,train_minutes,peak_gpu_gb
+ettin400m_lr2e-5_default,jhu-clsp/ettin-encoder-400m,2e-05,3,16,0.1,0.01,linear,512,balanced,42,0,0.9624,0.9259,0.8738,0.8578,0.8905,2.0,11.77,5.63
+ettin400m_lr2e-5_noweights,jhu-clsp/ettin-encoder-400m,2e-05,3,16,0.1,0.01,linear,512,none,42,0,0.9729,0.9466,0.9091,0.8904,0.9286,3.0,11.9,5.63
+cwsweep_negw1.5,jhu-clsp/ettin-encoder-400m,2e-05,3,16,0.1,0.01,linear,512,neg1.5,42,0,0.968,0.9361,0.891,0.8868,0.8952,3.0,11.82,5.63
+cwsweep_negw2.0,jhu-clsp/ettin-encoder-400m,2e-05,3,16,0.1,0.01,linear,512,neg2.0,42,0,0.9687,0.9383,0.8951,0.8767,0.9143,3.0,11.66,5.63
