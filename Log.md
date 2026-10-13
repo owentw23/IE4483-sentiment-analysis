@@ -13,3 +13,4 @@ Append a concise dated line after substantive vault work. Link the relevant sess
 - 2026-10-05 — Concepts lecture (L1–L8) and learner profile added. [[Projects/Sessions/2026-10-05 Concepts lecture]]
 - 2026-10-13 — Training pipeline built; first Ettin-400M run macro-F1 0.926 (raw data). [[Projects/Sessions/2026-10-13 Training pipeline]]
 - 2026-10-13 — No-class-weight Ettin run: macro-F1 0.947 (beats weighted 0.926); deadline 13 Nov recorded. [[Projects/Sessions/2026-10-13 Training pipeline]]
+- 2026-10-13 — Class-weight sweep done: no weights best (0.947); transformer default switched to none. [[Projects/Sessions/2026-10-13 Training pipeline]]

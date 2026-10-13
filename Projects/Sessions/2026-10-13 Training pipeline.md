@@ -28,7 +28,7 @@ Prepare (b), (c) and (d): explain them in detail and show what to change to find
 - **Ablation (measured):** without class weights, macro-F1 = **0.947** (acc 0.973, neg-F1 0.909, best epoch 3) vs 0.926 with balanced weights. Neg precision and recall both improved (0.890/0.929 vs 0.858/0.891). Single seed.
 - **Agreed:** pretrained models are allowed by the brief (it names pretrained embeddings and BERT). Keep Ettin, and add a from-scratch arm (BiLSTM with random embeddings) for question (f).
 - **Deadline found in the brief:** Fri 13 Nov 2026, 11:59 pm.
-- **Proposed by owner:** per-epoch class-weight adjustment driven by validation results ("reward model"). Claude advised against adapting on the current validation split (leakage) and offered (A) a fixed-weight sweep or (B) adaptive weighting with a 3-way split. Awaiting the choice.
+- **Proposed by owner:** per-epoch class-weight adjustment driven by validation results ("reward model"). Claude advised against adapting on the current validation split (leakage) and offered (A) a fixed-weight sweep or (B) adaptive weighting with a 3-way split. Owner chose **A**. Result (measured, single seed each): none **0.947**, neg 2.0 0.938, neg 1.5 0.936, balanced 0.926. **Agreed decision rule applied:** the fixed sweep found nothing better than no weights by more than 0.01, so the transformer default is now `--class-weights none` (CLAUDE.md updated).
 
 ## Next action
 
