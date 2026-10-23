@@ -38,16 +38,20 @@ def _drop_duplicates(df):
     return df[~conflicting].drop_duplicates(TEXT).reset_index(drop=True)
 
 
-def load_splits(train_file="train.json", val_size=0.2, seed=SEED, normalize=False):
+def load_splits(train_file="train.json", val_size=0.2, seed=SEED, normalize=False, normalize_text_only=False):
     """Deduplicate, then stratified split (default 80/20). Returns (train_df, val_df).
 
     normalize=True applies the groupmate's preprocessing (whitespace normalisation before
     dedup, conflicting-label removal). normalize=False reproduces the original protocol.
+    normalize_text_only=True keeps the original split and only normalises the text afterwards,
+    so preprocessing is the only difference from the original protocol (controlled check).
     """
     df = _read(train_file, normalize)
     df[LABEL] = df[LABEL].astype(int)
     df = _drop_duplicates(df) if normalize else df.drop_duplicates(TEXT).reset_index(drop=True)
     tr, va = train_test_split(df, test_size=val_size, stratify=df[LABEL], random_state=seed)
+    if normalize_text_only:
+        tr, va = (d.assign(**{TEXT: d[TEXT].map(normalize_text)}) for d in (tr, va))
     return tr.reset_index(drop=True), va.reset_index(drop=True)
 
 

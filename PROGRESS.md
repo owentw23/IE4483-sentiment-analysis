@@ -32,6 +32,8 @@ Updated: 2026-10-13. This file is the authoritative current implementation statu
 
 Gap 0.0005 macro-F1 — well inside noise (±1 / ±1.3 pt), so neither split is better on score. Both are ~1.2 pt below the raw-data reference (0.947), but the normalised 80/20 val set shares only 1,143 of 1,437 reviews with the old one, so that drop is not attributable to preprocessing alone. Split choice still to be recorded by the owner.
 
+Controlled check (`ettin400m_8020_normtext_origsplit`, `--normalize-text-only`: original 5,748 / 1,437 split, whitespace normalised afterwards, so preprocessing is the only change): acc 0.972, macro-F1 0.943, neg-F1 0.903, neg P/R 0.901 / 0.905, best ep 3 (0.919 / 0.935 / 0.943), 12.6 min. vs raw 0.947: 41 vs 39 errors on the same 1,437 reviews (29 shared, 10 only raw, 12 only normalised; McNemar exact p = 0.83). **Whitespace normalisation neither helps nor hurts**; the earlier 1.2-pt drop was the changed validation set.
+
 Each Ettin run: ~11.9 min for 3 epochs, peak GPU 5.6 GB, 395.8M params. Weighted: neg P/R 0.858/0.891. Unweighted: neg P/R 0.890/0.929, so it is better on **both** precision and recall (not just a shifted boundary). Single seed each, so part of the gap may be seed variance. Unweighted was still improving at epoch 3 (0.926 → 0.942 → 0.947).
 
 ## Next action

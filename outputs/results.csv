@@ -5,3 +5,4 @@ cwsweep_negw1.5,jhu-clsp/ettin-encoder-400m,2e-05,3,16,0.1,0.01,linear,512,neg1.
 cwsweep_negw2.0,jhu-clsp/ettin-encoder-400m,2e-05,3,16,0.1,0.01,linear,512,neg2.0,42,0,0.9687,0.9383,0.8951,0.8767,0.9143,3.0,11.66,5.63
 ettin400m_8020_norm,jhu-clsp/ettin-encoder-400m,2e-05,3,16,0.1,0.01,linear,512,none,42,0,0.968,0.9351,0.8889,0.902,0.8762,2.0,12.72,5.64
 ettin400m_9010_norm,jhu-clsp/ettin-encoder-400m,2e-05,3,16,0.1,0.01,linear,512,none,42,0,0.9694,0.9356,0.8889,0.9462,0.8381,1.0,13.47,5.63
+ettin400m_8020_normtext_origsplit,jhu-clsp/ettin-encoder-400m,2e-05,3,16,0.1,0.01,linear,512,none,42,0,0.9715,0.9429,0.9026,0.9005,0.9048,3.0,12.62,5.63

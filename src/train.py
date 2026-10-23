@@ -60,6 +60,8 @@ def parse_args(argv=None):
     p.add_argument("--val-size", type=float, default=0.2, help="validation fraction (0.2 = 80/20, 0.1 = 90/10)")
     p.add_argument("--normalize", action="store_true",
                    help="groupmate preprocessing: whitespace normalisation + dedup on normalised text")
+    p.add_argument("--normalize-text-only", action="store_true",
+                   help="keep the original split, normalise whitespace afterwards (isolates preprocessing)")
     p.add_argument("--limit", type=int, default=0, help="subsample N train/val rows for smoke tests")
     p.add_argument("--save-model", action="store_true", help="keep the best checkpoint in run dir/model")
     p.add_argument("--predict-test", action="store_true", help="write run dir/submission.csv")
@@ -111,7 +113,8 @@ def run(args):
     (run_dir / "config.json").write_text(json.dumps(vars(args), indent=2))
     set_seed(args.seed)
 
-    tr, va = load_splits(args.train_file, val_size=args.val_size, normalize=args.normalize)
+    tr, va = load_splits(args.train_file, val_size=args.val_size, normalize=args.normalize,
+                         normalize_text_only=args.normalize_text_only)
     if args.limit:
         tr = tr.sample(min(args.limit, len(tr)), random_state=args.seed).reset_index(drop=True)
         va = va.sample(min(args.limit, len(va)), random_state=args.seed).reset_index(drop=True)
@@ -173,7 +176,7 @@ def run(args):
     (run_dir / "history.json").write_text(json.dumps(trainer.state.log_history, indent=2))
 
     if args.predict_test:
-        te = load_test(args.test_file, normalize=args.normalize)
+        te = load_test(args.test_file, normalize=args.normalize or args.normalize_text_only)
         test_out = trainer.predict(TextDataset(te[TEXT], None, tok, args.max_length))
         pd.DataFrame({"id": range(len(te)), LABEL: test_out.predictions.argmax(-1)}) \
             .to_csv(run_dir / "submission.csv", index=False)
