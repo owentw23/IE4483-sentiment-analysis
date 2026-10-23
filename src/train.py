@@ -52,10 +52,14 @@ def parse_args(argv=None):
     # Memory / hardware settings
     p.add_argument("--optim", default="adamw_bnb_8bit", help="adamw_bnb_8bit | adamw_torch | adamw_torch_fused")
     p.add_argument("--no-bf16", action="store_true")
+    p.add_argument("--fp16", action="store_true", help="fp16 mixed precision (for GPUs without bf16, e.g. Colab T4)")
     p.add_argument("--no-grad-ckpt", action="store_true")
     # Data and outputs
     p.add_argument("--train-file", default="train.json")
     p.add_argument("--test-file", default="test.json")
+    p.add_argument("--val-size", type=float, default=0.2, help="validation fraction (0.2 = 80/20, 0.1 = 90/10)")
+    p.add_argument("--normalize", action="store_true",
+                   help="groupmate preprocessing: whitespace normalisation + dedup on normalised text")
     p.add_argument("--limit", type=int, default=0, help="subsample N train/val rows for smoke tests")
     p.add_argument("--save-model", action="store_true", help="keep the best checkpoint in run dir/model")
     p.add_argument("--predict-test", action="store_true", help="write run dir/submission.csv")
@@ -107,7 +111,7 @@ def run(args):
     (run_dir / "config.json").write_text(json.dumps(vars(args), indent=2))
     set_seed(args.seed)
 
-    tr, va = load_splits(args.train_file)
+    tr, va = load_splits(args.train_file, val_size=args.val_size, normalize=args.normalize)
     if args.limit:
         tr = tr.sample(min(args.limit, len(tr)), random_state=args.seed).reset_index(drop=True)
         va = va.sample(min(args.limit, len(va)), random_state=args.seed).reset_index(drop=True)
@@ -126,7 +130,8 @@ def run(args):
         gradient_accumulation_steps=args.grad_accum,
         warmup_steps=args.warmup_ratio,  # transformers 5: a float in [0, 1) is a ratio of total steps
         weight_decay=args.weight_decay, lr_scheduler_type=args.scheduler,
-        optim=args.optim, bf16=not args.no_bf16 and torch.cuda.is_available(),
+        optim=args.optim, bf16=not args.no_bf16 and not args.fp16 and torch.cuda.is_available(),
+        fp16=args.fp16,
         gradient_checkpointing=not args.no_grad_ckpt,
         eval_strategy="epoch", save_strategy="epoch", save_total_limit=1,
         load_best_model_at_end=True, metric_for_best_model="macro_f1", greater_is_better=True,
@@ -168,7 +173,7 @@ def run(args):
     (run_dir / "history.json").write_text(json.dumps(trainer.state.log_history, indent=2))
 
     if args.predict_test:
-        te = load_test(args.test_file)
+        te = load_test(args.test_file, normalize=args.normalize)
         test_out = trainer.predict(TextDataset(te[TEXT], None, tok, args.max_length))
         pd.DataFrame({"id": range(len(te)), LABEL: test_out.predictions.argmax(-1)}) \
             .to_csv(run_dir / "submission.csv", index=False)

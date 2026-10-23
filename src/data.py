@@ -3,6 +3,7 @@
 Every model must use load_splits() so that all arms are compared on the identical split.
 If a cleaned dataset is used, pass its path; the same file must then be used for every arm.
 """
+import re
 from pathlib import Path
 
 import numpy as np
@@ -12,30 +13,47 @@ from sklearn.model_selection import train_test_split
 ROOT = Path(__file__).resolve().parent.parent
 TEXT, LABEL = "reviews", "sentiments"
 SEED = 42
+_WHITESPACE = re.compile(r"\s+")
 
 
-def _read(path):
+def normalize_text(text: str) -> str:
+    """Collapse newlines, tabs and repeated spaces to one space (PreProcessingPipeline/preprocess.py rule)."""
+    return _WHITESPACE.sub(" ", text).strip()
+
+
+def _read(path, normalize=False):
     path = Path(path)
     if not path.is_absolute():
         path = ROOT / path
     df = pd.read_json(path) if path.suffix == ".json" else pd.read_csv(path)
     if TEXT not in df.columns:
         raise ValueError(f"{path} has no '{TEXT}' column (columns: {list(df.columns)})")
-    df[TEXT] = df[TEXT].astype(str).str.strip()
+    df[TEXT] = df[TEXT].astype(str).map(normalize_text if normalize else str.strip)
     return df
 
 
-def load_splits(train_file="train.json", val_size=0.2, seed=SEED):
-    """Deduplicate, then stratified 80/20 split. Returns (train_df, val_df)."""
-    df = _read(train_file).drop_duplicates(TEXT).reset_index(drop=True)
+def _drop_duplicates(df):
+    """Keep one copy of each review; drop texts that appear with both labels (ambiguous)."""
+    conflicting = df.groupby(TEXT)[LABEL].transform("nunique") > 1
+    return df[~conflicting].drop_duplicates(TEXT).reset_index(drop=True)
+
+
+def load_splits(train_file="train.json", val_size=0.2, seed=SEED, normalize=False):
+    """Deduplicate, then stratified split (default 80/20). Returns (train_df, val_df).
+
+    normalize=True applies the groupmate's preprocessing (whitespace normalisation before
+    dedup, conflicting-label removal). normalize=False reproduces the original protocol.
+    """
+    df = _read(train_file, normalize)
     df[LABEL] = df[LABEL].astype(int)
+    df = _drop_duplicates(df) if normalize else df.drop_duplicates(TEXT).reset_index(drop=True)
     tr, va = train_test_split(df, test_size=val_size, stratify=df[LABEL], random_state=seed)
     return tr.reset_index(drop=True), va.reset_index(drop=True)
 
 
-def load_test(test_file="test.json"):
+def load_test(test_file="test.json", normalize=False):
     """Test reviews in their original order (no dedup, no shuffling)."""
-    return _read(test_file).reset_index(drop=True)
+    return _read(test_file, normalize).reset_index(drop=True)
 
 
 def class_weights(labels, mode="balanced"):
