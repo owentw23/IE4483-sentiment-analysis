@@ -15,3 +15,4 @@ Append a concise dated line after substantive vault work. Link the relevant sess
 - 2026-10-13 — No-class-weight Ettin run: macro-F1 0.947 (beats weighted 0.926); deadline 13 Nov recorded. [[Projects/Sessions/2026-10-13 Training pipeline]]
 - 2026-10-13 — Class-weight sweep done: no weights best (0.947); transformer default switched to none. [[Projects/Sessions/2026-10-13 Training pipeline]]
 - 2026-10-23 — Split comparison (normalised data): 80/20 macro-F1 0.935 vs 90/10 0.936 — no meaningful difference; split decision pending. See PROGRESS.md.
+- 2026-10-23 — Controlled check (normalised text, original split): macro-F1 0.943 vs raw 0.947, McNemar p 0.83 — preprocessing has no measurable effect. See PROGRESS.md.
