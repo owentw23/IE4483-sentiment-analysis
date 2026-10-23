@@ -27,6 +27,8 @@ Each Ettin run: ~11.9 min for 3 epochs, peak GPU 5.6 GB, 395.8M params. Weighted
 
 ## Next action
 
+0. **Now (2026-10-23):** run the 80/20 vs 90/10 split comparison with the groupmate's preprocessing on branch `exp/split-comparison` — steps in `docs/split_comparison.md`. Groupmate's `PreProcessingPipeline/submission.csv` is a placeholder (all 0) — do not submit it.
+
 1. Class-weight question settled (owner chose the fixed sweep): **no weights** is best (0.947 vs 0.936 / 0.938 / 0.926 for neg weight 1.5 / 2.0 / balanced). `src/train.py` now defaults to `--class-weights none`.
 2. Next: `--epochs 4` (best epoch was the last one), then the LR sweep `src/sweep.py --tag lr --lr 1e-5 3e-5` (`docs/training_guide.md` §3). Rerun everything on the groupmate's cleaned file once it arrives (`--train-file`).
 
