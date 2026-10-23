@@ -23,6 +23,15 @@ Updated: 2026-10-13. This file is the authoritative current implementation statu
 | Ettin-400M, neg weight 1.5 / pos 1.0 (best ep 3) — `cwsweep_negw1.5` | 0.968 | 0.936 | 0.891 |
 | Ettin-400M, neg weight 2.0 / pos 1.0 (best ep 3) — `cwsweep_negw2.0` | 0.969 | 0.938 | 0.895 |
 
+### Split comparison with groupmate preprocessing (`--normalize`, no weights, lr 2e-5, 3 ep) — 2026-10-23
+
+| Run | Split (train / val) | Acc | Macro-F1 | Neg-F1 | Neg P/R | Best ep | Per-epoch macro-F1 | Min |
+|---|---|---|---|---|---|---|---|---|
+| `ettin400m_8020_norm` | 80/20 (5,745 / 1,437) | 0.968 | 0.935 | 0.889 | 0.902 / 0.876 | 2 | 0.932 / 0.935 / 0.932 | 12.7 |
+| `ettin400m_9010_norm` | 90/10 (6,463 / 719) | 0.969 | 0.936 | 0.889 | 0.946 / 0.838 | 1 | 0.936 / 0.928 / 0.931 | 13.5 |
+
+Gap 0.0005 macro-F1 — well inside noise (±1 / ±1.3 pt), so neither split is better on score. Both are ~1.2 pt below the raw-data reference (0.947), but the normalised 80/20 val set shares only 1,143 of 1,437 reviews with the old one, so that drop is not attributable to preprocessing alone. Split choice still to be recorded by the owner.
+
 Each Ettin run: ~11.9 min for 3 epochs, peak GPU 5.6 GB, 395.8M params. Weighted: neg P/R 0.858/0.891. Unweighted: neg P/R 0.890/0.929, so it is better on **both** precision and recall (not just a shifted boundary). Single seed each, so part of the gap may be seed variance. Unweighted was still improving at epoch 3 (0.926 → 0.942 → 0.947).
 
 ## Next action
