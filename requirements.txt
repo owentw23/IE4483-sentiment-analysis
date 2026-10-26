@@ -1,6 +1,7 @@
 # Verified 2026-10-13 on RTX 4060 Laptop (8 GB), Windows 11, Python 3.14
 --extra-index-url https://download.pytorch.org/whl/cu126
 accelerate==1.15.0
+matplotlib==3.10.8
 bitsandbytes==0.50.2
 numpy==2.4.3
 pandas==3.0.2
