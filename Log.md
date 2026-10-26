@@ -21,3 +21,4 @@ Append a concise dated line after substantive vault work. Link the relevant sess
 - 2026-10-26 — Split fixed at 80/20 by owner; exp branches merged into main; LR sweep + 4-epoch run started.
 - 2026-10-26 — Tuning: lr 1e-5 0.935, 3e-5 0.933, 4 ep 0.936 vs baseline 0.947 (none significant); final = lr 2e-5, 3 ep.
 - 2026-10-26 — Final model trained: val macro-F1 0.940; submission.csv written (1,851 rows).
+- 2026-10-26 — submission.csv (from ettin400m_final, val macro-F1 0.940) set as current submission at repo root.
