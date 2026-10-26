@@ -32,3 +32,4 @@ Append a concise dated line after substantive vault work. Link the relevant sess
 - 2026-10-26 — Verified cascade with threshold chosen on OOF (0.99): Ettin + Qwen3-8B kNN val macro-F1 0.946 vs 0.940 (13 fixed / 8 broke, p = 0.38); kNN vote 0.937, embedding LogReg 0.930 (no gain). Test cascade submission in outputs/runs/cascade_qwen3-8b/ (not adopted; root submission unchanged).
 - 2026-10-26 — Owner decision: submission.csv stays plain Ettin (ettin400m_final); cascade (val 0.946) used for report (e) and further work, not submitted.
 - 2026-10-26 — Drafted report (e) in docs/report_draft_e.md: strength case test id 276 (mild complaint in context; TF-IDF wrong), weakness case test id 82 (praise outweighs dealbreaker, cascade fixes), limit case id 1479.
+- 2026-10-26 — Pushed main to origin (a74294c exp cascade/decoder, de2fcea docs incl. docs/model_architecture_bc.md for (b)/(c)); report drafting handed to groupmate.
