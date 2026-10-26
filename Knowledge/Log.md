@@ -33,3 +33,4 @@ Append a concise dated line after substantive vault work. Link the relevant sess
 - 2026-10-26 — Owner decision: submission.csv stays plain Ettin (ettin400m_final); cascade (val 0.946) used for report (e) and further work, not submitted.
 - 2026-10-26 — Drafted report (e) in docs/report_draft_e.md: strength case test id 276 (mild complaint in context; TF-IDF wrong), weakness case test id 82 (praise outweighs dealbreaker, cascade fixes), limit case id 1479.
 - 2026-10-26 — Pushed main to origin (a74294c exp cascade/decoder, de2fcea docs incl. docs/model_architecture_bc.md for (b)/(c)); report drafting handed to groupmate.
+- 2026-10-26 — Vault merged into the project repo with history (learner profile stripped from history, kept local and git-ignored); old vault .git backed up at ../_vault-git-backup; rules, CLAUDE.md and hook text updated.

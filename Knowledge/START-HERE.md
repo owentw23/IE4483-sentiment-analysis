@@ -14,6 +14,6 @@ Read [current progress](../PROGRESS.md) and [roadmap](../PROJECT_PLAN.md) first 
 - [[Resources/Source register]]
 - [[Log]]
 - [[MOC - ML Training Lecture]] (concepts lecture, 8 modules)
-- [[Areas/Learner profile]]
+- [[Areas/Learner profile]] (owner's machine only; not in the shared repo)
 
 Open this `Knowledge/` folder as an Obsidian vault. No community plugin is required.
