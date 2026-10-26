@@ -37,6 +37,9 @@ Single fixed seed (42). Report accuracy, **macro-F1**, and negative-class F1.
 - **Techniques: class-weighted loss + LLM-generated synthetic negatives (with/without ablation) only.**
   Measured 2026-10-13: on Ettin-400M, class weights *hurt* (macro-F1 none 0.947 > neg 2.0 0.938 > neg 1.5 0.936 > balanced 0.926), so the
   transformer default is no weights; class weights stay for TF-IDF and as the reported ablation.
+  Measured 2026-10-26 (instructor approved synthetic data): +800 Claude-written negatives 0.925, hand-reviewed
+  label fixes 0.930, both 0.931 vs baseline 0.947 — both hurt (style shortcut; star-rating label convention).
+  Details in `PROGRESS.md`. Do not clean validation/test labels.
   Dropped by the owner: R-Drop, model soups/weight averaging, multiple seeds, threshold tuning.
 - Explicitly rejected: chain-of-thought prompting, LLM2Vec, xLSTM/Jamba/Zamba, LoRA on 7B LLMs,
   LFM2.5 encoders (worse SST-2 than ModernBERT-large), NeoBERT, mmBERT.

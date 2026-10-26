@@ -26,7 +26,7 @@ from transformers import (AutoModelForSequenceClassification, AutoTokenizer, Dat
                           Trainer, TrainingArguments, set_seed)
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from data import LABEL, ROOT, TEXT, class_weights, load_splits, load_test  # noqa: E402
+from data import LABEL, ROOT, TEXT, _read, class_weights, load_splits, load_test  # noqa: E402
 
 OUT = ROOT / "outputs"
 
@@ -62,6 +62,10 @@ def parse_args(argv=None):
                    help="groupmate preprocessing: whitespace normalisation + dedup on normalised text")
     p.add_argument("--normalize-text-only", action="store_true",
                    help="keep the original split, normalise whitespace afterwards (isolates preprocessing)")
+    p.add_argument("--extra-train", default=None,
+                   help="JSON/CSV of extra labelled reviews appended to the training split only (e.g. synthetic)")
+    p.add_argument("--label-fixes", default=None,
+                   help="CSV (reviews, new_label) applied to the training split only; new_label -1 drops the row")
     p.add_argument("--limit", type=int, default=0, help="subsample N train/val rows for smoke tests")
     p.add_argument("--save-model", action="store_true", help="keep the best checkpoint in run dir/model")
     p.add_argument("--predict-test", action="store_true", help="write run dir/submission.csv")
@@ -105,6 +109,22 @@ def metrics_from_logits(logits, labels):
             "neg_f1": f[0], "neg_precision": p[0], "neg_recall": r[0], "pos_f1": f[1]}
 
 
+def apply_label_fixes(tr, va, path):
+    """Relabel (or drop, new_label -1) training reviews listed in path. Validation labels are never changed."""
+    fixes = _read(path).set_index(TEXT)["new_label"].astype(int)
+    leaked = fixes.index.intersection(va[TEXT])
+    if len(leaked):
+        sys.exit(f"{len(leaked)} label fixes target validation reviews; fixes must only touch training data")
+    missing = fixes.index.difference(tr[TEXT])
+    if len(missing):
+        sys.exit(f"{len(missing)} label fixes match no training review")
+    new = tr[TEXT].map(fixes)
+    hit = new.notna()
+    tr = tr.assign(**{LABEL: np.where(hit, new, tr[LABEL]).astype(int)})
+    print(f"label fixes: {int((new == 0).sum() + (new == 1).sum())} relabelled, {int((new == -1).sum())} dropped")
+    return tr[tr[LABEL] >= 0].reset_index(drop=True)
+
+
 def run(args):
     run_dir = OUT / "runs" / args.run_name
     if run_dir.exists():
@@ -115,6 +135,12 @@ def run(args):
 
     tr, va = load_splits(args.train_file, val_size=args.val_size, normalize=args.normalize,
                          normalize_text_only=args.normalize_text_only)
+    if args.label_fixes:
+        tr = apply_label_fixes(tr, va, args.label_fixes)
+    if args.extra_train:
+        extra = _read(args.extra_train)[[TEXT, LABEL]]
+        tr = pd.concat([tr[[TEXT, LABEL]], extra.astype({LABEL: int})], ignore_index=True) \
+            .sample(frac=1, random_state=args.seed).reset_index(drop=True)
     if args.limit:
         tr = tr.sample(min(args.limit, len(tr)), random_state=args.seed).reset_index(drop=True)
         va = va.sample(min(args.limit, len(va)), random_state=args.seed).reset_index(drop=True)

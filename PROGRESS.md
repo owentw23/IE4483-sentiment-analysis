@@ -1,6 +1,6 @@
 # IE4483 Sentiment Analysis progress and handoff
 
-Updated: 2026-10-13. This file is the authoritative current implementation status. The sequence and gates are in [PROJECT_PLAN.md](PROJECT_PLAN.md).
+Updated: 2026-10-26. This file is the authoritative current implementation status. The sequence and gates are in [PROJECT_PLAN.md](PROJECT_PLAN.md).
 
 ## Current state
 
@@ -34,11 +34,27 @@ Gap 0.0005 macro-F1 — well inside noise (±1 / ±1.3 pt), so neither split is 
 
 Controlled check (`ettin400m_8020_normtext_origsplit`, `--normalize-text-only`: original 5,748 / 1,437 split, whitespace normalised afterwards, so preprocessing is the only change): acc 0.972, macro-F1 0.943, neg-F1 0.903, neg P/R 0.901 / 0.905, best ep 3 (0.919 / 0.935 / 0.943), 12.6 min. vs raw 0.947: 41 vs 39 errors on the same 1,437 reviews (29 shared, 10 only raw, 12 only normalised; McNemar exact p = 0.83). **Whitespace normalisation neither helps nor hurts**; the earlier 1.2-pt drop was the changed validation set.
 
+### Synthetic negatives and label cleaning (original 80/20 split, no weights, lr 2e-5, 3 ep) — 2026-10-26
+
+Instructor approved synthetic data. 800 negatives written by Claude from 16 personas (`data/synthetic/`, 330 mixed / 107 implicit / 363 plain, formatting matched to real negatives, max TF-IDF cosine to any real review 0.34). Label fixes from 5-fold out-of-fold Ettin predictions on the training split (`src/cv_flag.py`; OOF acc 0.975): 146 flagged, each read by hand → 9 relabelled to positive, 23 to negative, 64 mixed/off-topic dropped, 50 kept (`data/label_fixes.csv`). Validation labels never touched. McNemar = paired test vs the baseline on the same 1,437 reviews.
+
+| Run | Train rows | Acc | Macro-F1 | Neg-F1 | Neg P/R | Missed neg / missed pos | vs baseline (only base wrong / only run wrong, p) |
+|---|---|---|---|---|---|---|---|
+| baseline `ettin400m_lr2e-5_noweights` | 5,748 | 0.973 | **0.947** | 0.909 | 0.890 / 0.929 | 15 / 24 | — |
+| `ettin400m_syn800` (+800 synthetic) | 6,548 | 0.963 | 0.925 | 0.872 | 0.887 / 0.857 | 30 / 23 | 7 / 21, p = 0.013 |
+| `ettin400m_labelfix` | 5,684 | 0.965 | 0.930 | 0.882 | 0.860 / 0.905 | 20 / 31 | 8 / 20, p = 0.036 |
+| `ettin400m_labelfix_syn800` | 6,484 | 0.965 | 0.931 | 0.882 | 0.857 / 0.909 | 19 / 32 | 8 / 20, p = 0.036 |
+
+**Both techniques hurt; the plain baseline stays best.** Single training seed each.
+- Synthetic: a TF-IDF + LogReg detector tells the synthetic negatives from real ones at 0.918 (5-fold), on style cues (contractions, present-tense stories, "two weeks", wedding/dress personas vs real "was", "item", "product", "Amazon", "you"). Half the negative class then carried a non-real style, so real-customer style became a cue for positive: missed negatives doubled (15 → 30), both with blunt words (2 → 7 of 98) and without (13 → 23 of 112). The synthetic set has fewer blunt words than real negatives (19% vs 38%), so "too blunt" is ruled out.
+- Label fixes: the "mislabels" are mostly the dataset's star-rating convention (mild complaints labelled positive, praise-then-flaw labelled negative), which validation (and presumably test) labels share. Relabelling to the text's sentiment and dropping mixed cases moved the model off that convention: new errors are mostly mild-complaint positives (missed positives 24 → 31).
+
 Each Ettin run: ~11.9 min for 3 epochs, peak GPU 5.6 GB, 395.8M params. Weighted: neg P/R 0.858/0.891. Unweighted: neg P/R 0.890/0.929, so it is better on **both** precision and recall (not just a shifted boundary). Single seed each, so part of the gap may be seed variance. Unweighted was still improving at epoch 3 (0.926 → 0.942 → 0.947).
 
 ## Next action
 
-0. **Now (2026-10-23):** run the 80/20 vs 90/10 split comparison with the groupmate's preprocessing on branch `exp/split-comparison` — steps in `docs/split_comparison.md`. Groupmate's `PreProcessingPipeline/submission.csv` is a placeholder (all 0) — do not submit it.
+0. **2026-10-26:** synthetic negatives and label cleaning measured — both hurt (table above). Options left to the owner: synthetic data in the same voice for both classes (removes the style cue), a style-matched rewrite filtered by the detector, a small dose (100–200), or report as a negative result. Richie's `preprocess.py` verified step by step: identical splits to `--normalize`; only deliberate differences are max length 256 vs our 512 and his unused class weights.
+0. **2026-10-23:** run the 80/20 vs 90/10 split comparison with the groupmate's preprocessing on branch `exp/split-comparison` — steps in `docs/split_comparison.md`. Groupmate's `PreProcessingPipeline/submission.csv` is a placeholder (all 0) — do not submit it.
 
 1. Class-weight question settled (owner chose the fixed sweep): **no weights** is best (0.947 vs 0.936 / 0.938 / 0.926 for neg weight 1.5 / 2.0 / balanced). `src/train.py` now defaults to `--class-weights none`.
 2. Next: `--epochs 4` (best epoch was the last one), then the LR sweep `src/sweep.py --tag lr --lr 1e-5 3e-5` (`docs/training_guide.md` §3). Rerun everything on the groupmate's cleaned file once it arrives (`--train-file`).
@@ -46,7 +62,7 @@ Each Ettin run: ~11.9 min for 3 epochs, peak GPU 5.6 GB, 395.8M params. Weighted
 ## Open questions (owner: instructor)
 
 - `submission.csv` column format is unspecified.
-- Whether LLM-generated synthetic negatives are allowed (the brief says to train only on the training set).
+- ~~Whether LLM-generated synthetic negatives are allowed~~ — instructor said yes (reported by owner 2026-10-26).
 
 ## Recent evidence
 

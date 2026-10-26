@@ -1,0 +1,201 @@
+@@ p=P11 t=mixed
+I want to start by saying the costume photographs beautifully. In the picture on the website, it's a majestic pirate captain's coat with gold trim. In real life it's a shiny black trash bag with a gold ribbon hot glued to the edges. The hat is a cardboard triangle. The sword is a pool noodle with aspirations. My kid was thrilled for about four minutes, until the sleeve tore off while he was waving at the neighbors. Arrr, indeed
+@@ p=P02 t=mixed
+For many years I have relied on this particular wool sock for winter walks with the dog, and I have recommended them to friends. I regret that I must now retract that recommendation. The latest pairs are thinner, shorter at the cuff, and the heel has worn through on three of six pairs before the end of January. The packaging still advertises the same "lifetime guarantee," but when I wrote to claim it I was told the guarantee does not cover "normal wear." I would have thought a sock that wears through in eight weeks is anything but normal.
+@@ p=P13 t=mixed
+I had high hopes for this wedding guest dress. It's a beautiful deep blue, the fabric has a nice weight, and it photographs really well. The problem is the fit across the shoulders: it's cut so narrow that I couldn't lift my arms to hug anyone without hearing the seams pull. At the reception, during the first dance when everyone was invited on the floor, the left sleeve seam split about two inches. I spent the rest of the night with my arm pinned to my side. I'll get it repaired but I wouldn't buy from this brand again
+@@ p=P08 t=plain
+Hello, I want to write about my experience. I order this watch to Malaysia. The shipping take 5 weeks. When arrive, the box is open and the watch is inside but the strap is missing. I contact the seller many time, they say they will send the strap. After one month nothing come. Now I have watch with no strap. I cannot use it. Please be careful with this seller
+@@ p=P04 t=mixed
+I've been looking for a good plus size raincoat for years and the reviews for this one were great, so I ordered it in my usual size. The good: it's actually waterproof, the hood is a nice size, and the color is beautiful. The bad: it's cut like a box, completely straight from the shoulders down, so it hangs on me like a tent, and the sleeves are so long I had to roll them twice. I'm short, but not that short. I looked like a kid in her dad's raincoat. I can't bring myself to wear it in public
+@@ p=P01 t=mixed
+I was so pleased when these Halloween costumes arrived because they looked even cuter than the photos. My twins were bouncing off the walls to try them on. Unfortunately one of the costumes had a zipper that wouldn't stay up and the other had a seam open under the arm. I fixed both the night before Halloween with a sewing kit and some safety pins. By the end of trick-or-treating, the fixes had come apart and both kids were cold. I'll make them myself next year
+@@ p=P07 t=mixed
+I was looking for a waterproof case for my MP3 player so I could listen while swimming, and this one is very reasonably priced. The seal around the lid is tight and I'll give it credit for keeping the water out the first few times. But the earphones that come with it are terrible, the sound is muffled even out of the water, and on my fourth swim the seal failed and water got in. The player is dead. Not worth the risk
+@@ p=P10 t=plain
+I'm an avid hiker and I bought this rain shell for a trip in the Pacific Northwest. Within the first hour of steady rain it was soaked through at the shoulders and the hood. The pit zips let in more water than they let out sweat. By the end of the day my base layer was soaked. I've had cheap ponchos that worked better. This is not a rain jacket
+@@ p=P12 t=mixed
+Let me be precise about what works and what doesn't with these compression stockings.
+
+Works:
+1. The color matches my skin well
+2. The top band stays up without rolling
+
+Doesn't:
+1. The compression is uneven; tighter at the calf than the ankle, which is the opposite of how graduated compression is supposed to work
+2. Two pairs developed runs within a week
+3. The toe seam is thick and rubs
+
+My doctor looked at them and said to buy a medical brand instead. I'll follow that advice
+@@ p=P06 t=plain
+I ORDERED THIS COAT IN SEPTEMBER SO I WOULD HAVE IT FOR WINTER. IT IS NOW FEBRUARY. THEY KEEP SAYING IT'S ON BACKORDER. THEY STILL HAVE IT LISTED AS "IN STOCK" ON THE WEBSITE. I'VE ASKED FOR A REFUND THREE TIMES. NOTHING. I'M REPORTING THEM
+@@ p=P15 t=mixed
+I fell in love with these ballet flats the moment I opened the box, they're so delicate and pretty and the bow is perfect. But by the end of my first day wearing them to work I had blisters on the backs of both heels and on my pinky toes. I've worn them four more times hoping they'd break in and they haven't. Now they're sitting in my closet looking pretty and doing nothing
+@@ p=P14 t=mixed
+I'm a hairstylist and I bought this apron because it has a lot of pockets and it's supposed to be water and chemical resistant. The pockets are handy and it's comfortable around the neck. But it stains if any hair color touches it, and after a few weeks it looks like a Jackson Pollock painting. The straps also started fraying. Not professional enough for a salon
+@@ p=P16 t=plain
+Returned. Cheap.
+@@ p=P09 t=mixed
+I bought my sister a pair of these leather gloves for Christmas because she's always cold. They look really elegant and the lining is soft. But the stitching between the fingers came apart within a week of wearing them, and now her thumb pokes out of the left glove. Not the kind of gift I want to give
+@@ p=P05 t=plain
+The breast pump bag is supposed to fit a standard pump and accessories. It doesn't even fit my pump, which is one of the most common models. The zipper won't close over it. I've had to carry everything in a separate tote, which defeats the purpose
+@@ p=P03 t=mixed
+the hat looks cool and the embroidery is clean, not gonna lie. but its one size fits all and one size does NOT fit my big head lol. its like sitting on top of my head. my roommate can wear it fine, so i gave it to him
+@@ p=P02 t=implicit
+This brand of shoe polish once came in a tin that lasted me a year. The new tin is smaller and the polish is thinner. I suppose that is progress of a sort.
+@@ p=P11 t=implicit
+These leggings are "squat proof." I squatted. The people behind me in the gym can confirm they are not
+@@ p=P13 t=plain
+I bought this crinoline to go under my wedding dress and it's so stiff and scratchy that I had to wear leggings underneath it to keep it from tearing up my legs. It also had a strong chemical smell that didn't go away after airing it out for a week. Uncomfortable all day
+@@ p=P01 t=plain
+The swim diapers we bought for our vacation leaked the very first time our daughter got in the pool. The lifeguard had to clear the kids' pool. I've never been so embarrassed. They don't work
+@@ p=P07 t=plain
+The watch's water resistance seal failed the first time I went swimming. The face fogged up and the digital display is now garbled. It's rated to 50 meters, I was in a hotel pool. Junk
+@@ p=P04 t=implicit
+I'm a 1X. I ordered a 1X. I'm currently wearing it as a scarf, because it doesn't go anywhere else
+@@ p=P08 t=mixed
+I like the style of the boots, it is nice and fashionable. But after one week the heel break when I walk on the street, I almost fall. The quality is not good, the heel is only plastic. I am lucky I was not hurt
+@@ p=P10 t=mixed
+I'll give these soccer shin guards credit for being lightweight and breathable. But the straps are too short to wrap around my calf with socks over them, and they slide down during the game every single time. I've had to tape them in place. Not worth buying
+@@ p=P15 t=plain
+This necklace is so much smaller than it looks in the photo. The pendant is about the size of my pinky nail. And the chain is so thin it already kinked and tangled the first time I put it in my purse. Totally underwhelming
+@@ p=P06 t=mixed
+THE SHIRT IS FINE QUALITY BUT IT IS NOT THE SHIRT IN THE PICTURE. THE PICTURE SHOWS A COLLAR, THE SHIRT HAS NO COLLAR. WHEN I COMPLAINED THEY SAID IT WAS "A NEW VERSION." THEN UPDATE YOUR PICTURE
+@@ p=P12 t=plain
+I bought this belt because the description says it is "full grain leather." It is not. The edges show a fabric core, and the surface has the plastic sheen of corrected grain with a coating. After three weeks, the coating has begun to crack at the second hole. I'm returning it as not as described.
+@@ p=P14 t=plain
+These pants are sold as "teacher pants" and claim to be comfortable for long days. The waistband digs in when I sit, the fabric is so thin you can see through it in the classroom light, and they started fraying at the hem by week two. My students noticed. Not great
+@@ p=P05 t=mixed
+I liked how lightweight this stroller blanket was and that it has clips to attach it to the stroller. But the clips are so weak that the blanket falls off every time we hit a bump on the sidewalk, and I've run over it twice. It's dirty and torn now. Good idea, bad design
+@@ p=P03 t=implicit
+i wore the 'waterproof' boots to class in the snow. spent the whole lecture with wet socks. thanks
+@@ p=P09 t=plain
+I bought this scarf for my aunt who loves purple. What arrived is a muddy brownish gray. I don't know how anyone could call this purple. I had to explain to her that the website looked different. She was confused and so was I
+@@ p=P16 t=plain
+Not worth the money. Too thin.
+@@ p=P11 t=mixed
+I'll admit these socks are incredibly soft. They are also incredibly good at producing holes. I have a pair that went from brand new to swiss cheese in twelve days. If you like the feeling of air on your toes, these are for you
+@@ p=P02 t=plain
+This tie clip I purchased has a spring so weak that the tie slips out of it within an hour. I expected a tie clip to clip. I have had better results with a paper clip.
+@@ p=P13 t=mixed
+I'll say the clutch is pretty and it holds my phone, lipstick, and keys, which is all I needed. But the chain strap is so cheap it broke on the dance floor and the clutch went flying across the room. Somebody stepped on it. Lovely to look at, but it didn't last a single evening
+@@ p=P07 t=implicit
+The box says "universal fit." Apparently the universe they had in mind doesn't include any phone I've ever owned
+@@ p=P01 t=mixed
+My son was so excited to get these light-up sneakers and they really do look awesome. But the lights stopped working in the left shoe after two days and in the right shoe after a week. He's now wearing regular sneakers that cost twice as much as regular sneakers. Disappointed
+@@ p=P04 t=plain
+The plus size bra I ordered has cups that are so pointed I look like I'm wearing a costume from the 1950s. The band also rides up my back even on the tightest hook. I can't wear this under any of my shirts
+@@ p=P10 t=implicit
+Took these new hiking boots on a ten mile day hike. Got back to the car with eight miles of blisters
+@@ p=P08 t=plain
+I buy this for my mother in Vietnam. The bag is very small, not like in picture. Also the leather is very hard and smell strange. My mother does not like it. Very expensive for the shipping
+@@ p=P15 t=mixed
+The dress is gorgeous in the pictures and honestly in person too. But it's so delicate that it snagged on my bracelet the first time I wore it and now there's a pull right on the front. I can't wear it without someone noticing. Too fragile to be practical
+@@ p=P06 t=plain
+THIS COMPANY SENT ME A DAMAGED ITEM AND THEN TOLD ME I HAD TO PAY FOR RETURN SHIPPING BECAUSE "WE CAN'T VERIFY THE DAMAGE OCCURRED IN TRANSIT." I SENT PHOTOS OF THE BOX. THEY STILL WON'T HELP
+@@ p=P12 t=mixed
+I will be fair: this duffel bag has a smart layout with a separate shoe compartment, and the shoulder strap is padded. But after the first weekend trip:
+1. The shoe compartment zipper split
+2. The bottom feet came off
+3. A seam at the corner opened up and my socks fell out
+For a weekend bag, it lasted one weekend
+@@ p=P14 t=mixed
+These are nice-looking office heels and they're a reasonable height for wearing all day. But the inside lining started peeling off in the first week, and now there's sticky glue rubbing against my foot. I tried covering it with a liner but it still hurts. I'm disappointed
+@@ p=P09 t=implicit
+My husband opened his birthday present and said, "Oh, a wallet." Then he tried to put his cards in it
+@@ p=P03 t=plain
+the stitching on these shorts came apart at the crotch the first time i sat down. in public. never ordering these again
+@@ p=P05 t=plain
+These sleep sacks are supposed to be 6-12 months. My 7 month old's feet already push at the bottom and the zipper has a sharp edge that scratched his chin. Not safe and too small
+@@ p=P11 t=mixed
+To be fair, this sweater is very warm. It's warm because it's lined with what I can only describe as steel wool. Wearing it is like being hugged by a cactus. Warm cactus, sure, but still a cactus
+@@ p=P16 t=plain
+Poorly made. Don't buy.
+@@ p=P02 t=mixed
+The tweed sport coat is handsome and the lining is a fine paisley. But the shoulder pads are so stiff and pronounced that I look as though I am wearing a coat hanger under my jacket. The sleeves are also cut very wide. I am returning it.
+@@ p=P13 t=implicit
+The website said this veil was "cathedral length." I had my wedding in a small chapel and it still didn't reach the floor
+@@ p=P07 t=mixed
+I like the idea of this Bluetooth speaker clip for my bike, it's small and easy to attach. But the sound is tinny, the volume tops out way too low to hear over traffic, and the clip snapped off my handlebar on a bumpy road and the speaker went into a ditch. Nice concept, bad execution
+@@ p=P01 t=plain
+I ordered three of these school uniform polos and the collars all curled up after one wash. My son looks like a little cartoon character. The fabric also faded unevenly. Not what we need for a school dress code
+@@ p=P10 t=mixed
+The gym bag is a good size and the separate shoe compartment is nice. But the zippers are so stiff that I have to brace the bag with my knee to open it, and one of the handles started tearing loose after two weeks. Not the quality I expected from a sports brand
+@@ p=P08 t=implicit
+I order this jacket because the picture is very nice. When I open, I think they send me picture only
+@@ p=P04 t=mixed
+I love that this dress has pockets and the fabric is soft. But the side zipper is so short I have to squeeze into it, and the bust is cut for someone much smaller. I can't get it zipped over my chest. So close to perfect
+@@ p=P06 t=plain
+I WAS SENT TWO LEFT SHOES. TWO. LEFT. SHOES. AND THEY WANTED ME TO MAIL THEM BACK AT MY OWN EXPENSE BEFORE THEY'D SEND THE RIGHT ONE. UNBELIEVABLE
+@@ p=P15 t=plain
+The color in the picture is a soft blush pink. The color I got is bright bubblegum. It looks like a toddler's party dress. Not at all what I ordered
+@@ p=P12 t=implicit
+The product description lists the weight as "lightweight, only 6 ounces." My kitchen scale says 14. My back agrees with my kitchen scale.
+@@ p=P14 t=plain
+These chef jackets are labeled as breathable, but after twenty minutes on the line I'm drenched. The buttons also popped off two of them in the wash. Not built for a commercial kitchen
+@@ p=P03 t=mixed
+the slides are comfy i'll give them that and the color is cool. but the strap broke off the sole after like 3 weeks. now i have one slide and a strap. can't even walk to the shower
+@@ p=P09 t=plain
+I bought this tie as a gift for my boss. The tie arrived with a stain on the back and a frayed edge. I didn't notice until after he opened it. Mortifying
+@@ p=P05 t=implicit
+The box says these baby shoes "stay on." My son proved otherwise in the parking lot. I found one shoe. We're still looking for the other
+@@ p=P16 t=plain
+Ripped the first time I wore it.
+@@ p=P11 t=implicit
+If you've ever wanted to know what it's like to have a zipper attack you, this jacket is your chance. Mine took a chunk out of my chin
+@@ p=P02 t=plain
+The silk tie I ordered, described as "hand-rolled," has a machine-stitched edge, and the tip has already begun to fray after two wearings. I have bought ties from this house before and am surprised they would sell this.
+@@ p=P13 t=plain
+The bridesmaid jewelry set looked lovely in the pictures. When it arrived, the necklaces were tangled together so badly that it took us an hour to separate them, and one broke in the process. The earrings were also missing their backs. Not a good look for a wedding
+@@ p=P07 t=plain
+The fitness tracker counts steps when I'm sitting in the car. It counted 3,000 steps on my commute. It also doesn't count steps when I'm actually walking with my arms still. Completely useless data
+@@ p=P01 t=mixed
+I'll say these kids' raincoats are cute and the colors are bright, which makes them easy to see. But the hoods don't stay on in the wind, and the seams leak at the shoulders. Both my kids came home damp. Not much better than a sweatshirt
+@@ p=P04 t=implicit
+I bought these "stretchy" plus size jeans. They stretched exactly once. Now they're stuck that way, sagging at the knees and the seat
+@@ p=P10 t=plain
+The water bottle that came with this running vest leaks from the cap no matter how tight I screw it on. I ended up with wet shorts every run. Annoying and poorly made
+@@ p=P15 t=mixed
+I love the style of this hat and it's really chic. But the brim is floppy in all the wrong ways and it blows right off in the slightest breeze. I lost it twice on my first walk on the beach. Cute in pictures, useless outside
+@@ p=P08 t=plain
+The shirt is very small, like for children. I order size XL and it fit my 12 year old daughter. The size chart is completely wrong. I cannot return because the shipping is very expensive to my country
+@@ p=P06 t=mixed
+THE SNEAKERS ARE OK BUT THEY TOOK A MONTH TO SHIP, AND THE BOX WAS ALL BEAT UP. ONE SHOE HAD A DENT IN THE TOE. I'M NOT GOING TO BOTHER RETURNING BUT I'M ALSO NOT GOING TO ORDER AGAIN
+@@ p=P12 t=plain
+The jacket claims to be "rated to minus 20." I wore it on a minus 5 morning walk and was shivering within fifteen minutes. The fill is noticeably sparse in the sleeves and back. That rating is optimistic at best.
+@@ p=P14 t=mixed
+I'll say these work gloves have a decent grip. That's where the positives end. The seams at the fingertips split on the first day of moving lumber, and by the end of the week both palms had holes. Not work gloves, just gloves
+@@ p=P09 t=mixed
+My girlfriend loves these slippers in the store, so I ordered her a pair online for her birthday. They look identical. They're not. The ones I received are much thinner, with a hard plastic sole instead of the soft one. She said she loves them, but she's back to wearing her old ones
+@@ p=P03 t=plain
+these headphones sound like they're underwater. like everything is muffled. tried 3 different phones. its them not me
+@@ p=P16 t=plain
+Way too big and cheaply made.
+@@ p=P05 t=mixed
+I liked this diaper backpack because it frees up my hands, and the bottle pockets are insulated. But the straps are so narrow that they dig into my shoulders after just a few minutes, and there's no chest strap. It slides off constantly when I'm carrying my baby. Not comfortable at all
+@@ p=P11 t=mixed
+I'll give the rain boots this much: they're very good at keeping the water in. Once it gets in through the crack in the heel, it stays there all day, sloshing gently. My feet have never been so moisturized
+@@ p=P13 t=plain
+The wedding garter I ordered had a big piece of lace missing on one side. I didn't notice until the morning of the wedding. There was no time to replace it. I wore it inside out
+@@ p=P02 t=implicit
+I note with interest that the product photo shows a full grain leather wallet with hand stitching. What I received had neither. Perhaps there are two products with the same name.
+@@ p=P07 t=mixed
+I'll give this car mount credit for holding my phone steady on smooth roads. But on anything bumpy it rattles loose and the phone falls into my lap or under the seat. That's dangerous when I'm using it for directions. Back to holding it in my hand at red lights
+@@ p=P01 t=plain
+The baby's first shoes I ordered have a sole so slippery that my daughter keeps falling on our wood floors. She was walking fine barefoot. These shoes made her worse. Disappointing
+@@ p=P10 t=mixed
+The windbreaker is light and packs small, I liked that for travel. But the hood has no drawstring so it flies off in any real wind, which is kind of the whole point of a windbreaker. I wore it once on a breezy day and the hood was useless
+@@ p=P04 t=plain
+The 3X tank top I ordered is made of such thin fabric that it shows every roll and line. The armholes are also cut so low that my bra shows from the side. I can't wear it anywhere
+@@ p=P15 t=implicit
+The jeans are described as "boyfriend fit." I think they mean the boyfriend is twelve
+@@ p=P06 t=plain
+I'VE NEVER HAD A COMPANY HANG UP ON ME BEFORE. I CALLED TO ASK WHY MY ORDER WASN'T SHIPPED AFTER 3 WEEKS AND THEY HUNG UP. TWICE. GET YOUR ACT TOGETHER
+@@ p=P12 t=mixed
+In fairness, the jeans are a nice dark wash and the fabric feels substantial. However, the measurements are inconsistent: the waist is 1.5 inches larger than labeled, the inseam 2 inches shorter. Two pairs of the same size measured differently from each other. Quality control is lacking.
+@@ p=P14 t=plain
+These scrubs started fading after only a few washes, and the color is now completely uneven. I look like I'm wearing a tie-dye shirt in the hospital. Not professional at all
+@@ p=P08 t=mixed
+The material of this sweater is very soft and warm, I like it. But after I wash in cold water with hand, it become very big, the sleeve come to my fingers. I don't understand how it is possible. Now it look like a dress
+@@ p=P03 t=implicit
+the description said 'premium quality.' the shirt came in a ziploc bag with the tag stapled on

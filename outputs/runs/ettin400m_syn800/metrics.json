@@ -1,0 +1,19 @@
+{
+  "accuracy": 0.9631,
+  "macro_f1": 0.9251,
+  "neg_f1": 0.8717,
+  "neg_precision": 0.8867,
+  "neg_recall": 0.8571,
+  "pos_f1": 0.9785,
+  "best_epoch": 2.0,
+  "train_minutes": 14.9,
+  "val_seconds": 20.7,
+  "peak_gpu_gb": 5.64,
+  "n_train": 6548,
+  "n_val": 1437,
+  "class_weights": [
+    1.0,
+    1.0
+  ],
+  "params_m": 395.8
+}
