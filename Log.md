@@ -23,3 +23,4 @@ Append a concise dated line after substantive vault work. Link the relevant sess
 - 2026-10-26 — Final model trained: val macro-F1 0.940; submission.csv written (1,851 rows).
 - 2026-10-26 — submission.csv (from ettin400m_final, val macro-F1 0.940) set as current submission at repo root.
 - 2026-10-26 — Added src/evaluate.py (confusion/ROC/PR/calibration/per-class) after reviewing alumni repo; figures for ettin400m_final in docs/figures/.
+- 2026-10-26 — Research: Ettin gaps + hybrid methods (docs/ettin_gaps_and_hybrids.md). Verified: averaging 9 Ettin runs' val probs = macro-F1 0.943 (< best single 0.947); 22 reviews wrong in all 9; 21 of 44 final-model errors at >0.99 confidence. Proposal (not decided): Ettin + DeBERTa-v3-large + fine-tuned SiEBERT average.
