@@ -74,10 +74,10 @@ Review text
 - **Pooling:** masked mean of all token vectors (Ettin's default `classifier_pooling = "mean"`), so every word contributes, not just `[CLS]`.
 
 **Loss function**
-- **Class-weighted cross-entropy:** `L = −w_y · log p_y`
-- Balanced weights from the training split, `w_c = N / (2·N_c)`: negative = **3.43**, positive = **0.585**.
-- So misclassifying a negative costs ~5.9× more, which counteracts the 85/15 imbalance.
-- Evidence: on the TF-IDF baseline, class weights raised macro-F1 from 0.766 to 0.841.
+- **Final model: standard cross-entropy,** `L = −log p_y`, with no class weights.
+- Class-weighted cross-entropy `L = −w_y · log p_y` (balanced weights from the training split, `w_c = N / (2·N_c)`:
+  negative **3.43**, positive **0.585**) was the planned default against the 85/15 imbalance. It helps the TF-IDF
+  baseline (macro-F1 0.766 → 0.841) but lowered Ettin's macro-F1 from 0.947 to 0.926, so it was dropped (see (c)).
 
 **Training strategy**
 - Full fine-tuning: all encoder weights plus the randomly initialised head are updated.
@@ -87,7 +87,8 @@ Review text
 - **Precision:** bf16 mixed precision, plus gradient checkpointing to save memory.
 - **Epochs:** up to 3. Evaluate on validation after each epoch and keep the checkpoint with the **best validation macro-F1**, which acts as early stopping.
 - **Final model:** the best checkpoint predicts `test.json` → `submission.csv`.
-- **Hardware:** RTX 4060 Laptop GPU, 8 GB. [TBD: training time from the final run]
+- **Hardware:** RTX 4060 Laptop GPU, 8 GB. The final run took 13.0 min for 3 epochs (1,080 optimizer steps), peak GPU memory 5.6 GB.
+- Full specs and every setting with evidence: `docs/model_architecture_bc.md`.
 
 **Reproducibility**
 - Fixed seed 42 for Python, NumPy and PyTorch (`transformers.set_seed(42)`), plus a deterministic split (`random_state=42`).
@@ -101,7 +102,7 @@ Review text
   ```
   python -m venv --system-site-packages .venv
   .venv/Scripts/python -m pip install -r requirements.txt
-  .venv/Scripts/python src/train.py --run-name FINAL --lr <chosen> --save-model --predict-test
+  .venv/Scripts/python src/train.py --run-name ettin400m_final --save-model --predict-test
   ```
 - Sanity checks before training (measured): initial weighted loss 0.555 (≈ ln 2 = 0.693, as expected for an untrained head); a 16-review batch was overfitted to loss ≈ 0 within 10 steps, confirming the pipeline learns.
 - Memory (measured): plain fp32 AdamW filled the 8 GB GPU (7.9 GB) and stalled; 8-bit AdamW with gradient checkpointing peaked at about 6 GB.

@@ -31,6 +31,9 @@ McNemar p = 0.83), so tuning runs keep the protocol above.
 - **Main model:** `jhu-clsp/ettin-encoder-400m` (fallback `jhu-clsp/ettin-encoder-150m`).
   Same architecture/size/speed as ModernBERT-large (`model_type: modernbert`); Ettin chosen for
   open data, more sizes, and the paired decoder twin.
+- **Submission (owner, 2026-10-26):** repo-root `submission.csv` stays the plain Ettin encoder (`ettin400m_final`).
+  The Ettin + Qwen3-8B cascade (`src/cascade.py`, val macro-F1 0.946 vs 0.940, p = 0.38) is **not** submitted; it is
+  used for report (e) error analysis and as the base for further work.
 - **Baseline to beat:** `microsoft/deberta-v3-large`.
 - **Other arms:** TF-IDF + LogReg; BiLSTM + GloVe; SiEBERT zero-shot
   (`siebert/sentiment-roberta-large-english`); optional Ettin decoder twin

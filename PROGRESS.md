@@ -4,11 +4,16 @@ Updated: 2026-10-26. This file is the authoritative current implementation statu
 
 ## Current state
 
-- Stage: 2 (Ettin fine-tune) pipeline built and first run done; Stage 1 TF-IDF/BiLSTM scripts not yet written. Groupmate is cleaning the data (2026-10-13).
-- Completed and verified: exploratory baselines on the fixed validation split (table below); data facts and token-length statistics recorded in `CLAUDE.md`; report draft for (a)–(c) in `docs/report_draft_abc.md`.
-- In progress: hyperparameter tuning plan in `docs/training_guide.md` §3 (next step: learning-rate sweep).
+- **As of 2026-10-26: report drafting starts.** Stage 2 (Ettin) done; Stage 3 partly done (Ettin decoder twin, cascade experiments); Stage 4 done (synthetic negatives measured, rejected).
+- Submitted: repo-root `submission.csv` = Ettin-400M encoder `ettin400m_final` (val acc 0.969, macro-F1 0.940). Owner decision: keep it; the Ettin + Qwen3-8B cascade (0.946, not significant) is for report (e) only.
+- Report material for the drafter:
+  - (a)–(c): `docs/report_draft_abc.md`; full specs, settings and reasons for (b)/(c): `docs/model_architecture_bc.md`.
+  - (e): `docs/report_draft_e.md` (strength case test id 276, weakness case id 82, limit case id 1479).
+  - Ettin's gaps, hybrid/cascade experiments, benchmark context (useful for (g)/(h)): `docs/ettin_gaps_and_hybrids.md`.
+  - Evaluation figures: `docs/figures/ettin400m_final/`. Team summary page: https://claude.ai/artifact/GPY3XM9ySGpu6TvySQYPgz (owner shares it).
+- Not yet done: DeBERTa-v3-large baseline; TF-IDF and BiLSTM + GloVe as committed scripts (TF-IDF numbers below are from exploratory runs); report (d), (f), (g), (h).
+- Open with instructor: `submission.csv` column format; whether an LLM step counts under "train only on the training set".
 - Failed or blocked: none.
-- Not yet done (as of 2026-10-13; final model and `submission.csv` now exist, see Next action): no TF-IDF/BiLSTM scripts; uncommitted code in `src/`. Baseline numbers below came from exploratory runs, not committed scripts, so reproduce them when Stage 1 lands.
 
 ## Validation results (dedup + stratified 80/20, seed 42, 1,437 reviews)
 
@@ -22,6 +27,8 @@ Updated: 2026-10-26. This file is the authoritative current implementation statu
 | **Ettin-400M fine-tuned, no class weights** (same otherwise, best ep 3) — `ettin400m_lr2e-5_noweights` | **0.973** | **0.947** | **0.909** |
 | Ettin-400M, neg weight 1.5 / pos 1.0 (best ep 3) — `cwsweep_negw1.5` | 0.968 | 0.936 | 0.891 |
 | Ettin-400M, neg weight 2.0 / pos 1.0 (best ep 3) — `cwsweep_negw2.0` | 0.969 | 0.938 | 0.895 |
+| **Cascade** Ettin final + Qwen3-8B (4-bit, 8 nearest training reviews in the prompt) when Ettin confidence < 0.99 (threshold chosen on 5-fold OOF) — `cascade_qwen3-8b` (2026-10-26; 59 val reviews routed; fixed 13 / broke 8 vs Ettin final, McNemar p = 0.38; test: 69 routed, 26 changed, `outputs/runs/cascade_qwen3-8b/submission.csv`). Similarity vote 0.937 and embedding LogReg 0.930 as specialists did not help (`cascade_embed`). Details: `docs/ettin_gaps_and_hybrids.md` | 0.973 | 0.946 | 0.907 |
+| Ettin **decoder**-400M fine-tuned, no weights (lr 2e-5, 3 ep, last-token pooling, best ep 2, 13.2 min) — `ettin_dec400m_lr2e-5` (2026-10-26; vs encoder `ettin400m_final` 0.940, McNemar p = 0.061) | 0.962 | 0.924 | 0.870 |
 
 ### Split comparison with groupmate preprocessing (`--normalize`, no weights, lr 2e-5, 3 ep) — 2026-10-23
 
@@ -53,6 +60,7 @@ Each Ettin run: ~11.9 min for 3 epochs, peak GPU 5.6 GB, 395.8M params. Weighted
 
 ## Next action
 
+- **2026-10-26 owner decision:** submission stays plain Ettin (`ettin400m_final`); the Ettin + Qwen3-8B cascade (`cascade_qwen3-8b`, val 0.946) is used for report (e) and as the base for further work, not submitted. Draft of (e): `docs/report_draft_e.md`.
 - **2026-10-26 evaluation figures:** `src/evaluate.py --run <run>` turns a run's `val_predictions.csv` into confusion matrix, ROC, negative-class PR curve, reliability diagram, `per_class.csv` and `summary.json` under `docs/figures/<run>/` (CPU only). For `ettin400m_final`: confusion [[192, 18], [26, 1201]], ROC-AUC 0.985, negative-class PR-AUC 0.926, Brier 0.029, ECE 0.028; 97.6% of reviews get P > 0.95 or < 0.05, and the mid-range bins hold only 1–5 reviews each, so calibration there is not measurable. Idea taken from the alumni repo (Tonymnugget/IE4483-Sentiment-Analysis-Project); their reported scores use a non-deduplicated 10% split where 35 of 741 validation reviews also appear in train.
 - **2026-10-26 final model:** `ettin400m_final` (lr 2e-5, 3 ep, original protocol, `--save-model --predict-test`): val acc 0.969, macro-F1 **0.940**, neg-F1 0.897, neg P/R 0.881 / 0.914, best epoch 2 (0.921 / 0.940 / 0.937), 13.0 min. Same recipe as the 0.947 run; the gap is GPU non-determinism (98.3% of validation predictions agree). `outputs/runs/ettin400m_final/submission.csv`: 1,851 rows, columns `id,sentiments` (format still unconfirmed with instructor), 13.9% predicted negative (train 14.6%). Model weights in `outputs/runs/ettin400m_final/model` (1.6 GB, not in git). **Current submission (owner, 2026-10-26):** copied to repo-root `submission.csv` from `ettin400m_final`. Can be replaced later (e.g. a `--normalize` retrain to match report (a), or a better method); rerun `src/train.py --run-name <name> --save-model --predict-test` and copy that run's `submission.csv` over the root file.
 
