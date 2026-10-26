@@ -1,0 +1,8 @@
+{
+  "run_name": "cascade_embed",
+  "ettin_run": "ettin400m_final",
+  "cv_run": "ettin400m_5fold",
+  "embedder": "Qwen/Qwen3-Embedding-0.6B",
+  "k": 8,
+  "C": 1.0
+}

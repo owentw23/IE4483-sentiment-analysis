@@ -1,0 +1,9 @@
+{
+  "run_name": "cascade_qwen3-8b",
+  "ettin_run": "ettin400m_final",
+  "cv_run": "ettin400m_5fold",
+  "llm": "Qwen/Qwen3-8B",
+  "embedder": "Qwen/Qwen3-Embedding-0.6B",
+  "shots": 8,
+  "max_chars": 1200
+}
