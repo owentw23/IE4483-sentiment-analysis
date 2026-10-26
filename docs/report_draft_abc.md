@@ -110,9 +110,9 @@ Review text
 
 | Parameter | Value | How and why |
 |---|---|---|
-| Learning rate | [TBD: best of {1e-5, 2e-5, 3e-5}] | Large pretrained encoders forget their pretraining or diverge at high learning rates. Fine-tuning studies (Devlin et al. 2019, Mosbach et al. 2021) recommend 1e-5 to 5e-5. A 3-value sweep, picking the best validation macro-F1 |
+| Learning rate | 2e-5 (best of {1e-5, 2e-5, 3e-5}) | Large pretrained encoders forget their pretraining or diverge at high learning rates. Fine-tuning studies (Devlin et al. 2019, Mosbach et al. 2021) recommend 1e-5 to 5e-5. A 3-value sweep, picking the best validation macro-F1 |
 | Warm-up | 10% of steps | The head starts random, so large early updates would disrupt the pretrained weights. Warm-up stabilises the start (Mosbach et al. 2021) |
-| Epochs | ≤ 3 + best-checkpoint selection | Small dataset (5.7k), so more epochs risk overfitting. Validation macro-F1 decides which epoch to keep |
+| Epochs | 3 + best-checkpoint selection | Small dataset (5.7k), so more epochs risk overfitting. Validation macro-F1 decides which epoch to keep. A 4-epoch run peaked at epoch 2 and scored lower (0.936) |
 | Batch size | 8 × 2 accumulation = 16 | Limited by the 8 GB GPU. 16 is a standard fine-tuning batch size and gives ~360 updates per epoch on 5.7k reviews |
 | Max length | 512 | From token statistics: covers 99.67% of reviews whole. Dynamic padding keeps the cost low |
 | Class weights | none | Balanced weights (3.43 / 0.585, from the 85/15 class ratio) were tested and lowered macro-F1 from 0.947 to 0.926; milder negative weights of 1.5 and 2.0 also lost (0.936, 0.938) |
@@ -121,7 +121,18 @@ Review text
 | Model size | 400M (fallback 150M) | 400M is the largest Ettin encoder that fits 8 GB with 8-bit AdamW and checkpointing. 1B does not fit |
 | Optimizer precision | 8-bit AdamW, bf16 | Purely a memory constraint. 8-bit optimizer states cut memory ~4× with negligible accuracy loss |
 
-[TBD: table of sweep results, learning rate → validation accuracy / macro-F1 / negative-F1]
+**Sweep results** (Ettin-400M, no class weights, 80/20 split, seed 42; macro-F1 on the 1,437 validation reviews after each epoch; the best epoch is kept):
+
+| Learning rate | Epochs | Acc | Macro-F1 | Neg-F1 | Macro-F1 by epoch | Train time |
+|---|---|---|---|---|---|---|
+| 1e-5 | 3 | 0.967 | 0.935 | 0.889 | 0.932 / 0.935 / 0.935 | 12.6 min |
+| **2e-5** | **3** | **0.973** | **0.947** | **0.909** | 0.926 / 0.942 / 0.947 | 11.9 min |
+| 3e-5 | 3 | 0.967 | 0.933 | 0.886 | 0.901 / 0.925 / 0.933 | 12.5 min |
+| 2e-5 | 4 | 0.969 | 0.936 | 0.890 | 0.929 / 0.936 / 0.933 / 0.932 | 16.7 min |
+
+We kept learning rate 2e-5 and 3 epochs. With 1e-5 the model levelled off at a lower score; with 3e-5 the first epoch was clearly worse (0.901), the instability Mosbach et al. (2021) describe for higher rates. Training for 4 epochs peaked at epoch 2 and then declined slightly, a sign of overfitting. A 4-epoch schedule also decays the learning rate more slowly, so its epoch 3 is not the same as the 3-epoch run's.
+
+The gaps to the runner-up settings are 1.1–1.4 macro-F1 points, which are not significant on this validation set (paired McNemar p = 0.11–0.29). The choice is therefore the best measured setting, not a proven winner. Across all eleven Ettin-400M configurations we ran on this split (class weights, preprocessing, training data, learning rate, epochs), macro-F1 ranged from 0.925 to 0.947, so the chosen run is probably near the lucky end of single-seed variation. A realistic expectation for unseen data is about 0.935–0.945.
 
 ### Training-data changes we tried and rejected
 
