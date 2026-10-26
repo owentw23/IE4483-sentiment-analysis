@@ -27,6 +27,9 @@ wandb/
 .DS_Store
 Thumbs.db
 
-# Personal memory vault (own local git repo) and personal Claude Code settings
-Knowledge/
+# Memory vault is tracked with the project (since 2026-10-26); keep its local-only parts out
+Knowledge/.obsidian/
+Knowledge/Inbox/Auto/
+Knowledge/Areas/Learner profile.md
+# Personal Claude Code settings
 .claude/settings.local.json
