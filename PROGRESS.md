@@ -8,7 +8,7 @@ Updated: 2026-10-26. This file is the authoritative current implementation statu
 - Completed and verified: exploratory baselines on the fixed validation split (table below); data facts and token-length statistics recorded in `CLAUDE.md`; report draft for (a)–(c) in `docs/report_draft_abc.md`.
 - In progress: hyperparameter tuning plan in `docs/training_guide.md` §3 (next step: learning-rate sweep).
 - Failed or blocked: none.
-- Not yet done: no saved final model, no `submission.csv`, no TF-IDF/BiLSTM scripts; uncommitted code in `src/`. Baseline numbers below came from exploratory runs, not committed scripts, so reproduce them when Stage 1 lands.
+- Not yet done (as of 2026-10-13; final model and `submission.csv` now exist, see Next action): no TF-IDF/BiLSTM scripts; uncommitted code in `src/`. Baseline numbers below came from exploratory runs, not committed scripts, so reproduce them when Stage 1 lands.
 
 ## Validation results (dedup + stratified 80/20, seed 42, 1,437 reviews)
 
@@ -53,7 +53,7 @@ Each Ettin run: ~11.9 min for 3 epochs, peak GPU 5.6 GB, 395.8M params. Weighted
 
 ## Next action
 
-- **2026-10-26 final model:** `ettin400m_final` (lr 2e-5, 3 ep, original protocol, `--save-model --predict-test`): val acc 0.969, macro-F1 **0.940**, neg-F1 0.897, neg P/R 0.881 / 0.914, best epoch 2 (0.921 / 0.940 / 0.937), 13.0 min. Same recipe as the 0.947 run; the gap is GPU non-determinism (98.3% of validation predictions agree). `outputs/runs/ettin400m_final/submission.csv`: 1,851 rows, columns `id,sentiments` (format still unconfirmed with instructor), 13.9% predicted negative (train 14.6%). Model weights in `outputs/runs/ettin400m_final/model` (1.6 GB, not in git). Open: owner to decide whether to submit this or retrain with `--normalize` to match Richie's preprocessing in report (a).
+- **2026-10-26 final model:** `ettin400m_final` (lr 2e-5, 3 ep, original protocol, `--save-model --predict-test`): val acc 0.969, macro-F1 **0.940**, neg-F1 0.897, neg P/R 0.881 / 0.914, best epoch 2 (0.921 / 0.940 / 0.937), 13.0 min. Same recipe as the 0.947 run; the gap is GPU non-determinism (98.3% of validation predictions agree). `outputs/runs/ettin400m_final/submission.csv`: 1,851 rows, columns `id,sentiments` (format still unconfirmed with instructor), 13.9% predicted negative (train 14.6%). Model weights in `outputs/runs/ettin400m_final/model` (1.6 GB, not in git). **Current submission (owner, 2026-10-26):** copied to repo-root `submission.csv` from `ettin400m_final`. Can be replaced later (e.g. a `--normalize` retrain to match report (a), or a better method); rerun `src/train.py --run-name <name> --save-model --predict-test` and copy that run's `submission.csv` over the root file.
 
 - **2026-10-26:** split fixed at 80/20; both experiment branches merged into `main`. Tuning done (original protocol, McNemar vs baseline): lr 1e-5 0.935 (best ep 2, p = 0.13), lr 3e-5 0.933 (ep 1 only 0.901, p = 0.11), lr 2e-5 × 4 epochs 0.936 (peaked ep 2, p = 0.29). **Final settings: lr 2e-5, 3 epochs (baseline, 0.947).** Eleven configurations on this split span 0.925–0.947, so 0.947 is likely the lucky end of single-seed variation; expect ~0.935–0.945. Report (c) tables filled. Next: final model with `--save-model --predict-test` → `submission.csv`; TF-IDF/BiLSTM scripts for (f); report (d)–(h).
 
