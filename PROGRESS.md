@@ -53,7 +53,7 @@ Each Ettin run: ~11.9 min for 3 epochs, peak GPU 5.6 GB, 395.8M params. Weighted
 
 ## Next action
 
-0. **2026-10-26:** synthetic negatives and label cleaning measured — both hurt (table above). Options left to the owner: synthetic data in the same voice for both classes (removes the style cue), a style-matched rewrite filtered by the detector, a small dose (100–200), or report as a negative result. Richie's `preprocess.py` verified step by step: identical splits to `--normalize`; only deliberate differences are max length 256 vs our 512 and his unused class weights.
+0. **2026-10-26:** synthetic negatives and label cleaning measured — both hurt (table above). **Owner decision: keep the baseline (original training data) and report both as negative findings** — written up in `docs/report_draft_abc.md` (c), "Training-data changes we tried and rejected"; the label-cleaning result also feeds (h). Richie's `preprocess.py` verified step by step: identical splits to `--normalize`; only deliberate differences are max length 256 vs our 512 and his unused class weights.
 0. **2026-10-23:** run the 80/20 vs 90/10 split comparison with the groupmate's preprocessing on branch `exp/split-comparison` — steps in `docs/split_comparison.md`. Groupmate's `PreProcessingPipeline/submission.csv` is a placeholder (all 0) — do not submit it.
 
 1. Class-weight question settled (owner chose the fixed sweep): **no weights** is best (0.947 vs 0.936 / 0.938 / 0.926 for neg weight 1.5 / 2.0 / balanced). `src/train.py` now defaults to `--class-weights none`.

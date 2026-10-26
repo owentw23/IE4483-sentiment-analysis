@@ -115,13 +115,39 @@ Review text
 | Epochs | ≤ 3 + best-checkpoint selection | Small dataset (5.7k), so more epochs risk overfitting. Validation macro-F1 decides which epoch to keep |
 | Batch size | 8 × 2 accumulation = 16 | Limited by the 8 GB GPU. 16 is a standard fine-tuning batch size and gives ~360 updates per epoch on 5.7k reviews |
 | Max length | 512 | From token statistics: covers 99.67% of reviews whole. Dynamic padding keeps the cost low |
-| Class weights | 3.43 / 0.585 | Computed from the class ratio, not tuned. Fixes the 85/15 imbalance |
+| Class weights | none | Balanced weights (3.43 / 0.585, from the 85/15 class ratio) were tested and lowered macro-F1 from 0.947 to 0.926; milder negative weights of 1.5 and 2.0 also lost (0.936, 0.938) |
 | Weight decay | 0.01 | Standard AdamW regularisation for BERT-style fine-tuning |
 | Selection metric | Macro-F1 | Always guessing "positive" already scores 85.4% accuracy, so accuracy hides failure on negatives. Macro-F1 weights both classes equally |
 | Model size | 400M (fallback 150M) | 400M is the largest Ettin encoder that fits 8 GB with 8-bit AdamW and checkpointing. 1B does not fit |
 | Optimizer precision | 8-bit AdamW, bf16 | Purely a memory constraint. 8-bit optimizer states cut memory ~4× with negligible accuracy loss |
 
 [TBD: table of sweep results, learning rate → validation accuracy / macro-F1 / negative-F1]
+
+### Training-data changes we tried and rejected
+
+Most errors were on negative reviews (the minority class) and on reviews whose label seemed to contradict their text, so we tested two changes to the **training data**. The validation set was left untouched, so every run is scored on the same 1,437 reviews. Statistical significance uses McNemar's exact test, which compares two models review by review on that same set.
+
+1. **Synthetic negative reviews.** With the instructor's approval, we added 800 LLM-written negative reviews (Claude, written from 16 reviewer personas after reading the training negatives). We aimed them at the hard cases: 330 mixed ("looks great, but…"), 107 implicit (sarcasm, understatement) and 363 plain. Formatting was matched to the real negatives (missing final punctuation, double spaces, length), and no synthetic review was closer than a TF-IDF cosine of 0.34 to any real review. We did not balance the classes 1:1, because balancing through class weights had already hurt.
+2. **Label cleaning (confident learning).** We trained five Ettin models in 5-fold cross-validation on the training split, so every training review got a prediction from a model that had not seen it (Northcutt et al. 2021). 146 reviews disagreed with their label. We read each one: 32 were relabelled to match their text, 64 mixed or off-topic reviews were dropped, and 50 kept their label.
+
+| Training data | Train size | Macro-F1 | Neg-F1 | Negatives missed | Positives missed | vs baseline |
+|---|---|---|---|---|---|---|
+| **Original (baseline)** | 5,748 | **0.947** | **0.909** | 15 | 24 | — |
+| + 800 synthetic negatives | 6,548 | 0.925 | 0.872 | 30 | 23 | worse, p = 0.013 |
+| Label cleaning | 5,684 | 0.930 | 0.882 | 20 | 31 | worse, p = 0.036 |
+| Both | 6,484 | 0.931 | 0.882 | 19 | 32 | worse, p = 0.036 |
+
+**Both changes made the model worse, so the final model uses the original training data.** Each configuration was trained once (seed 42), so the paired test covers which reviews were scored, not training randomness.
+
+**Why synthetic data hurt: a style shortcut.** A simple TF-IDF + logistic regression detector told the synthetic negatives apart from real ones with 91.8% accuracy (5-fold). The cues were pure style: the LLM used contractions, present-tense stories and phrases like "two weeks later", while real customers wrote "this item was", "product", "Amazon" and "you". Half of the negative class now had a style that no real review has, so the model learned that real-customer writing leans positive (shortcut learning; Geirhos et al. 2020). Missed negatives doubled (15 → 30). The rise happened both for negatives with blunt words such as "junk" or "returned" (2 → 7 of 98) and without them (13 → 23 of 112). So the model became less sensitive to real negatives in general, rather than failing on one type. "Too blunt" is also ruled out: the synthetic reviews contain fewer blunt words than real negatives (19% vs 38%). This matches the finding that LLM-generated data helps least on subjective tasks such as sentiment (Li et al. 2023). Matching surface formatting was not enough; the voice also has to match.
+
+**Why label cleaning hurt: the labels follow a rule, not random mistakes.** Most flagged reviews were not errors. They reflect how this dataset was labelled, apparently from star ratings: a mild complaint with a 4-star rating is labelled positive ("Nice sock, but… I will probably pass"), and praise followed by a deal-breaking flaw is labelled negative. The validation labels (and presumably the test labels) follow the same rule. Relabelling reviews to match their text taught the model a different rule from the one it is graded on, and dropping the mixed reviews removed the very examples that show where this dataset draws the line. The new errors were mostly mild-complaint reviews labelled positive (missed positives 24 → 31).
+
+**Lessons:**
+- Synthetic training data must be indistinguishable from real data. Otherwise its style becomes a feature the model can exploit.
+- Label "noise" that follows the same pattern in training and test is part of the task, and cleaning it moves the model away from what is being measured. Confident learning is meant for random annotation errors.
+
+(The label-cleaning result is also evidence for question (h): with inaccurate ratings, first check whether the errors are random or systematic before "correcting" them.)
 
 ### References
 - Weller et al. 2025, *Seq vs Seq: An Open Suite of Paired Encoders and Decoders* (Ettin), arXiv:2507.11412
@@ -131,3 +157,6 @@ Review text
 - Loshchilov & Hutter 2019, *Decoupled Weight Decay Regularization* (AdamW), arXiv:1711.05101
 - Dettmers et al. 2022, *8-bit Optimizers via Block-wise Quantization*, arXiv:2110.02861
 - King & Zeng 2001, *Logistic Regression in Rare Events Data* (balanced class weights)
+- Northcutt, Jiang & Chuang 2021, *Confident Learning: Estimating Uncertainty in Dataset Labels*, JAIR, arXiv:1911.00068
+- Geirhos et al. 2020, *Shortcut Learning in Deep Neural Networks*, Nature Machine Intelligence, arXiv:2004.07780
+- Li et al. 2023, *Synthetic Data Generation with Large Language Models for Text Classification: Potential and Limitations*, EMNLP, arXiv:2310.07849
