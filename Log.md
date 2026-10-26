@@ -17,3 +17,4 @@ Append a concise dated line after substantive vault work. Link the relevant sess
 - 2026-10-23 — Split comparison (normalised data): 80/20 macro-F1 0.935 vs 90/10 0.936 — no meaningful difference; split decision pending. See PROGRESS.md.
 - 2026-10-23 — Controlled check (normalised text, original split): macro-F1 0.943 vs raw 0.947, McNemar p 0.83 — preprocessing has no measurable effect. See PROGRESS.md.
 - 2026-10-26 — Synthetic negatives (0.925) and label fixes (0.930) both hurt vs 0.947 baseline; Richie's preprocessing verified. [[Projects/Sessions/2026-10-26 Synthetic negatives and label fixes]]
+- 2026-10-26 — Decision: keep baseline; synthetic + label-fix results written up as negative findings in report draft (c). [[Projects/Sessions/2026-10-26 Synthetic negatives and label fixes]]

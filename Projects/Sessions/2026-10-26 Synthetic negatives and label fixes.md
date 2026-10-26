@@ -25,4 +25,4 @@ Owner reported the instructor approved synthetic data. Asked Claude to read the 
 
 ## Next action
 
-Owner to choose: same-voice synthetic data for both classes, detector-filtered rewrite, small dose, or report as a negative result. Then the split decision and `--epochs 4`.
+Owner chose: keep the baseline; report both as negative findings (written into the report draft, section (c)). Then the split decision and `--epochs 4`.
