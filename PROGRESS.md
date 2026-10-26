@@ -30,7 +30,7 @@ Updated: 2026-10-26. This file is the authoritative current implementation statu
 | `ettin400m_8020_norm` | 80/20 (5,745 / 1,437) | 0.968 | 0.935 | 0.889 | 0.902 / 0.876 | 2 | 0.932 / 0.935 / 0.932 | 12.7 |
 | `ettin400m_9010_norm` | 90/10 (6,463 / 719) | 0.969 | 0.936 | 0.889 | 0.946 / 0.838 | 1 | 0.936 / 0.928 / 0.931 | 13.5 |
 
-Gap 0.0005 macro-F1 — well inside noise (±1 / ±1.3 pt), so neither split is better on score. Both are ~1.2 pt below the raw-data reference (0.947), but the normalised 80/20 val set shares only 1,143 of 1,437 reviews with the old one, so that drop is not attributable to preprocessing alone. Split choice still to be recorded by the owner.
+Gap 0.0005 macro-F1 — well inside noise (±1 / ±1.3 pt), so neither split is better on score. Both are ~1.2 pt below the raw-data reference (0.947), but the normalised 80/20 val set shares only 1,143 of 1,437 reviews with the old one, so that drop is not attributable to preprocessing alone. **Owner chose 80/20 (2026-10-26)** — recorded in `CLAUDE.md`.
 
 Controlled check (`ettin400m_8020_normtext_origsplit`, `--normalize-text-only`: original 5,748 / 1,437 split, whitespace normalised afterwards, so preprocessing is the only change): acc 0.972, macro-F1 0.943, neg-F1 0.903, neg P/R 0.901 / 0.905, best ep 3 (0.919 / 0.935 / 0.943), 12.6 min. vs raw 0.947: 41 vs 39 errors on the same 1,437 reviews (29 shared, 10 only raw, 12 only normalised; McNemar exact p = 0.83). **Whitespace normalisation neither helps nor hurts**; the earlier 1.2-pt drop was the changed validation set.
 
@@ -52,6 +52,8 @@ Instructor approved synthetic data. 800 negatives written by Claude from 16 pers
 Each Ettin run: ~11.9 min for 3 epochs, peak GPU 5.6 GB, 395.8M params. Weighted: neg P/R 0.858/0.891. Unweighted: neg P/R 0.890/0.929, so it is better on **both** precision and recall (not just a shifted boundary). Single seed each, so part of the gap may be seed variance. Unweighted was still improving at epoch 3 (0.926 → 0.942 → 0.947).
 
 ## Next action
+
+- **2026-10-26 (running):** split fixed at 80/20; both experiment branches merged into `main`. LR sweep (`ettin400m_lr1e-5`, `ettin400m_lr3e-5`) and 4-epoch run (`ettin400m_lr2e-5_ep4`) on the original protocol, compared with the 0.947 baseline. Then: final model with `--save-model --predict-test` → `submission.csv`; TF-IDF/BiLSTM scripts for (f); report (d)–(h).
 
 0. **2026-10-26:** synthetic negatives and label cleaning measured — both hurt (table above). **Owner decision: keep the baseline (original training data) and report both as negative findings** — written up in `docs/report_draft_abc.md` (c), "Training-data changes we tried and rejected"; the label-cleaning result also feeds (h). Richie's `preprocess.py` verified step by step: identical splits to `--normalize`; only deliberate differences are max length 256 vs our 512 and his unused class weights.
 0. **2026-10-23:** run the 80/20 vs 90/10 split comparison with the groupmate's preprocessing on branch `exp/split-comparison` — steps in `docs/split_comparison.md`. Groupmate's `PreProcessingPipeline/submission.csv` is a placeholder (all 0) — do not submit it.

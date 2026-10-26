@@ -22,6 +22,10 @@ df = pd.read_json("train.json").drop_duplicates("reviews").reset_index(drop=True
 tr, va = train_test_split(df, test_size=0.2, stratify=df.sentiments, random_state=42)
 ```
 Single fixed seed (42). Report accuracy, **macro-F1**, and negative-class F1.
+**Split decided by the owner 2026-10-26: 80/20** (5,748 / 1,437). The 2026-10-23 comparison tied (80/20 0.935 vs
+90/10 0.936 with `--normalize`), so 80/20 was chosen for the more reliable validation score and comparability
+with every earlier run. Richie's whitespace normalisation (`--normalize`) had no measurable effect (0.943 vs 0.947,
+McNemar p = 0.83), so tuning runs keep the protocol above.
 
 ## Decisions made — do not re-propose dropped items
 - **Main model:** `jhu-clsp/ettin-encoder-400m` (fallback `jhu-clsp/ettin-encoder-150m`).
