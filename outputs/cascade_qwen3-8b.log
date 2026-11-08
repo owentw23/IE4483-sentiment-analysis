@@ -1,0 +1,45 @@
+routed candidates: 783 (783 not cached)
+Loading weights:   0%|          | 0/310 [00:00<?, ?it/s]Loading weights:  10%|9         | 30/310 [00:00<00:00, 284.71it/s]Loading weights:  19%|#9        | 59/310 [00:00<00:01, 239.87it/s]Loading weights:  27%|##7       | 84/310 [00:00<00:01, 205.24it/s]Loading weights:  35%|###5      | 109/310 [00:00<00:00, 215.70it/s]Loading weights: 100%|##########| 310/310 [00:00<00:00, 574.17it/s]
+Loading weights:   0%|          | 0/310 [00:00<?, ?it/s]Loading weights:   9%|8         | 27/310 [00:00<00:01, 254.20it/s]Loading weights:  17%|#7        | 53/310 [00:00<00:01, 253.30it/s]Loading weights:  25%|##5       | 79/310 [00:00<00:01, 196.91it/s]Loading weights:  32%|###2      | 100/310 [00:00<00:01, 176.51it/s]Loading weights: 100%|##########| 310/310 [00:00<00:00, 591.90it/s]
+W1026 21:38:38.175000 37192 torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+Loading weights:   0%|          | 0/399 [00:00<?, ?it/s]Loading weights:   0%|          | 1/399 [00:01<09:43,  1.47s/it]Loading weights:   1%|          | 2/399 [00:02<09:18,  1.41s/it]Loading weights:   1%|1         | 4/399 [00:02<03:44,  1.76it/s]Loading weights:   2%|1         | 6/399 [00:03<02:13,  2.95it/s]Loading weights:   4%|3         | 15/399 [00:03<00:37, 10.29it/s]Loading weights:   5%|4         | 18/399 [00:03<00:32, 11.57it/s]Loading weights:   7%|6         | 26/399 [00:03<00:19, 18.93it/s]Loading weights:   8%|7         | 30/399 [00:03<00:18, 19.92it/s]Loading weights:   9%|9         | 37/399 [00:03<00:14, 25.52it/s]Loading weights:  10%|#         | 41/399 [00:04<00:14, 24.94it/s]Loading weights:  12%|#2        | 48/399 [00:04<00:11, 29.84it/s]Loading weights:  13%|#3        | 52/399 [00:04<00:12, 27.47it/s]Loading weights:  15%|#4        | 59/399 [00:04<00:10, 30.98it/s]Loading weights:  16%|#5        | 63/399 [00:04<00:12, 27.52it/s]Loading weights:  18%|#7        | 70/399 [00:05<00:10, 31.07it/s]Loading weights:  19%|#8        | 74/399 [00:05<00:11, 27.36it/s]Loading weights:  20%|##        | 81/399 [00:05<00:10, 29.61it/s]Loading weights:  21%|##1       | 85/399 [00:05<00:12, 25.71it/s]Loading weights:  23%|##3       | 92/399 [00:05<00:10, 28.60it/s]Loading weights:  24%|##3       | 95/399 [00:06<00:12, 24.01it/s]Loading weights:  26%|##5       | 103/399 [00:06<00:10, 28.54it/s]Loading weights:  27%|##6       | 106/399 [00:06<00:12, 24.02it/s]Loading weights:  29%|##8       | 114/399 [00:06<00:09, 28.74it/s]Loading weights:  29%|##9       | 117/399 [00:06<00:11, 24.12it/s]Loading weights:  31%|###1      | 125/399 [00:07<00:09, 28.85it/s]Loading weights:  32%|###2      | 128/399 [00:07<00:11, 24.13it/s]Loading weights:  34%|###4      | 136/399 [00:07<00:09, 28.99it/s]Loading weights:  35%|###4      | 139/399 [00:07<00:10, 24.64it/s]Loading weights:  37%|###6      | 147/399 [00:07<00:08, 28.90it/s]Loading weights:  38%|###7      | 150/399 [00:08<00:10, 22.84it/s]Loading weights:  39%|###9      | 156/399 [00:08<00:08, 28.82it/s]Loading weights:  40%|####      | 160/399 [00:08<00:12, 19.82it/s]Loading weights:  42%|####1     | 167/399 [00:08<00:08, 27.10it/s]Loading weights:  43%|####2     | 171/399 [00:09<00:11, 19.25it/s]Loading weights:  45%|####4     | 178/399 [00:09<00:08, 26.05it/s]Loading weights:  46%|####5     | 183/399 [00:09<00:10, 20.44it/s]Loading weights:  47%|####7     | 189/399 [00:09<00:08, 25.84it/s]Loading weights:  49%|####8     | 194/399 [00:10<00:10, 19.62it/s]Loading weights:  50%|#####     | 200/399 [00:10<00:07, 24.96it/s]Loading weights:  51%|#####1    | 204/399 [00:10<00:10, 18.50it/s]Loading weights:  53%|#####2    | 211/399 [00:10<00:07, 25.27it/s]Loading weights:  54%|#####4    | 216/399 [00:11<00:09, 19.13it/s]Loading weights:  56%|#####5    | 222/399 [00:11<00:07, 24.17it/s]Loading weights:  57%|#####6    | 226/399 [00:11<00:09, 18.08it/s]Loading weights:  58%|#####8    | 233/399 [00:11<00:06, 24.62it/s]Loading weights:  60%|#####9    | 238/399 [00:12<00:08, 19.29it/s]Loading weights:  61%|######    | 243/399 [00:12<00:06, 23.30it/s]Loading weights:  62%|######1   | 247/399 [00:12<00:07, 20.05it/s]Loading weights:  63%|######2   | 251/399 [00:12<00:06, 21.68it/s]Loading weights:  64%|######4   | 257/399 [00:13<00:06, 22.92it/s]Loading weights:  65%|######5   | 260/399 [00:13<00:07, 19.00it/s]Loading weights:  67%|######6   | 266/399 [00:13<00:05, 25.01it/s]Loading weights:  68%|######7   | 270/399 [00:13<00:07, 18.09it/s]Loading weights:  70%|######9   | 279/399 [00:14<00:05, 23.80it/s]Loading weights:  71%|#######   | 282/399 [00:14<00:05, 19.75it/s]Loading weights:  73%|#######2  | 290/399 [00:14<00:04, 25.35it/s]Loading weights:  73%|#######3  | 293/399 [00:14<00:04, 22.87it/s]Loading weights:  75%|#######5  | 301/399 [00:14<00:03, 28.38it/s]Loading weights:  76%|#######6  | 305/399 [00:15<00:03, 26.40it/s]Loading weights:  78%|#######8  | 312/399 [00:15<00:02, 29.85it/s]Loading weights:  79%|#######9  | 316/399 [00:15<00:03, 27.16it/s]Loading weights:  81%|########  | 323/399 [00:15<00:02, 30.38it/s]Loading weights:  82%|########1 | 327/399 [00:15<00:02, 27.17it/s]Loading weights:  84%|########3 | 334/399 [00:15<00:02, 30.42it/s]Loading weights:  85%|########4 | 338/399 [00:16<00:02, 26.74it/s]Loading weights:  86%|########6 | 345/399 [00:16<00:01, 29.03it/s]Loading weights:  87%|########7 | 348/399 [00:16<00:02, 24.00it/s]Loading weights:  89%|########9 | 356/399 [00:16<00:01, 28.51it/s]Loading weights:  90%|########9 | 359/399 [00:17<00:01, 23.68it/s]Loading weights:  92%|#########1| 367/399 [00:17<00:01, 28.13it/s]Loading weights:  93%|#########2| 370/399 [00:17<00:01, 23.51it/s]Loading weights:  95%|#########4| 378/399 [00:17<00:00, 27.95it/s]Loading weights:  95%|#########5| 381/399 [00:17<00:00, 23.27it/s]Loading weights:  97%|#########7| 389/399 [00:18<00:00, 27.59it/s]Loading weights:  98%|#########8| 392/399 [00:18<00:00, 22.90it/s]Loading weights: 100%|##########| 399/399 [00:18<00:00, 21.65it/s]
+  LLM 50/783
+  LLM 100/783
+  LLM 150/783
+  LLM 200/783
+  LLM 250/783
+  LLM 300/783
+  LLM 350/783
+  LLM 400/783
+  LLM 450/783
+  LLM 500/783
+  LLM 550/783
+  LLM 600/783
+  LLM 650/783
+  LLM 700/783
+  LLM 750/783
+  LLM 783/783
+Traceback (most recent call last):
+  File "C:\Users\wirya\AppData\Roaming\Python\Python314\site-packages\pandas\core\indexes\base.py", line 3641, in get_loc
+    return self._engine.get_loc(casted_key)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 168, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 197, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7668, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7676, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'sentiments'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\wirya\OneDrive\Documents\IE4483\IE4483-sentiment-analysis\src\cascade.py", line 163, in <module>
+    main(parse_args())
+    ~~~~^^^^^^^^^^^^^^
+  File "C:\Users\wirya\OneDrive\Documents\IE4483\IE4483-sentiment-analysis\src\cascade.py", line 124, in main
+    y_oof = oof[LABEL].values
+            ~~~^^^^^^^
+  File "C:\Users\wirya\AppData\Roaming\Python\Python314\site-packages\pandas\core\frame.py", line 4378, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "C:\Users\wirya\AppData\Roaming\Python\Python314\site-packages\pandas\core\indexes\base.py", line 3648, in get_loc
+    raise KeyError(key) from err
+KeyError: 'sentiments'

@@ -79,7 +79,7 @@ function stopGate(event, projectRoot) {
     'Memory gate: this turn ' + reasons.join('; ') + ', but no memory file was updated. ' +
     'If something durable happened (agreed decision, verified result with numbers, failure, new user preference, changed next step, answered/new open question), ' +
     'save it proportionately per Knowledge/VAULT-RULES.md: update PROGRESS.md (state/evidence/next action) and/or the relevant Knowledge/ note, ' +
-    'append one line to Knowledge/Log.md, add a dated Knowledge/Projects/Sessions/ note only for substantive work, then commit the explicit vault paths in the project repo (the vault is tracked there). ' +
+    'append one line to Knowledge/Log.md, add a dated Knowledge/Projects/Sessions/ note only for substantive work, do not commit unless the owner asked for a commit in this conversation. ' +
     'Never record unverified results or approvals. If nothing qualifies, stop without comment.' };
 }
 

@@ -1,0 +1,11 @@
+{
+  "name": "ettin400m_5fold",
+  "model": "jhu-clsp/ettin-encoder-400m",
+  "folds": 5,
+  "lr": 2e-05,
+  "epochs": 3,
+  "batch_size": 8,
+  "grad_accum": 2,
+  "max_length": 512,
+  "limit": 0
+}

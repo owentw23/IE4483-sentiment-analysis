@@ -1,35 +1,17 @@
 # Local tool config (machine-specific paths)
 .mcp.json
 
-# Python / notebooks
+# Python environment and caches (recreate with: pip install -r requirements.txt)
 __pycache__/
 *.pyc
 .ipynb_checkpoints/
 .venv/
 venv/
-
-# Model artifacts and run outputs
-*.pt
-*.bin
-*.safetensors
-checkpoints/
-# Run outputs: keep the small findings (ledger, per-run config/metrics/history), ignore models, checkpoints, logs
-outputs/*
-!outputs/results.csv
-!outputs/runs/
-outputs/runs/*/*
-!outputs/runs/*/config.json
-!outputs/runs/*/metrics.json
-!outputs/runs/*/history.json
 wandb/
 
 # OS
 .DS_Store
 Thumbs.db
 
-# Memory vault is tracked with the project (since 2026-10-26); keep its local-only parts out
-Knowledge/.obsidian/
-Knowledge/Inbox/Auto/
-Knowledge/Areas/Learner profile.md
-# Personal Claude Code settings
-.claude/settings.local.json
+# Everything else is tracked, including outputs/, run logs, predictions and the
+# final model weights. Large binaries go through Git LFS (see .gitattributes).

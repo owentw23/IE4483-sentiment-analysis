@@ -1,0 +1,39 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] [1mModernBertForSequenceClassification LOAD REPORT[0m from: jhu-clsp/ettin-encoder-400m
+Key               | Status     | 
+------------------+------------+-
+decoder.bias      | UNEXPECTED | 
+decoder.weight    | UNEXPECTED | 
+classifier.weight | MISSING    | 
+classifier.bias   | MISSING    | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+W1013 22:48:37.578000 18552 torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+                                               [A{'eval_loss': '0.3874', 'eval_accuracy': '0.9631', 'eval_macro_f1': '0.9241', 'eval_neg_f1': '0.8698', 'eval_neg_precision': '0.8985', 'eval_neg_recall': '0.8429', 'eval_pos_f1': '0.9785', 'eval_runtime': '18.67', 'eval_samples_per_second': '76.98', 'eval_steps_per_second': '2.411', 'epoch': '1'}
+                                               [A
+                                               [A{'eval_loss': '0.3128', 'eval_accuracy': '0.9624', 'eval_macro_f1': '0.9259', 'eval_neg_f1': '0.8738', 'eval_neg_precision': '0.8578', 'eval_neg_recall': '0.8905', 'eval_pos_f1': '0.9779', 'eval_runtime': '18.67', 'eval_samples_per_second': '76.99', 'eval_steps_per_second': '2.411', 'epoch': '2'}
+                                               [A
+                                               [A{'eval_loss': '0.3413', 'eval_accuracy': '0.961', 'eval_macro_f1': '0.9243', 'eval_neg_f1': '0.8716', 'eval_neg_precision': '0.8407', 'eval_neg_recall': '0.9048', 'eval_pos_f1': '0.977', 'eval_runtime': '18.76', 'eval_samples_per_second': '76.61', 'eval_steps_per_second': '2.399', 'epoch': '3'}
+                                               [A
+                                                   {'train_runtime': '704.1', 'train_samples_per_second': '24.49', 'train_steps_per_second': '1.534', 'train_loss': '0.3166', 'epoch': '3'}
+{
+  "accuracy": 0.9624,
+  "macro_f1": 0.9259,
+  "neg_f1": 0.8738,
+  "neg_precision": 0.8578,
+  "neg_recall": 0.8905,
+  "pos_f1": 0.9779,
+  "best_epoch": 2.0,
+  "train_minutes": 11.77,
+  "val_seconds": 18.9,
+  "peak_gpu_gb": 5.63,
+  "n_train": 5748,
+  "n_val": 1437,
+  "class_weights": [
+    3.426,
+    0.585
+  ],
+  "params_m": 395.8
+}
