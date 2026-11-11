@@ -5,9 +5,12 @@
   python src/fgh/pretrained_arms.py --arm f10_siebert                 # SiEBERT used as-is
 
 f6 repeats the embedding of src/cascade.py exactly (bf16, left padding, last-token vector, L2-normalised,
-max length 512, no query prompt) with LogisticRegression(C=1.0, max_iter=3000), so it re-creates the 0.908
-macro-F1 recorded in outputs/runs/cascade_embed/metrics.json, this time with timing and a clean log.
-f7 is the same backbone as our submitted model with nothing fine-tuned: masked mean pooling, L2-normalised.
+max length 512, no query prompt). With cascade.py's LogisticRegression(C=1.0) it re-created the 0.908 macro-F1 in
+outputs/runs/cascade_embed/metrics.json (0.906; kept as outputs/runs/f6_qwen3_embedding_frozen_C1).
+f7 is the same backbone as our submitted model with nothing fine-tuned: masked mean pooling, L2-normalised. With
+C = 1.0 it predicted every review positive (kept as outputs/runs/f7_ettin400m_frozen_C1).
+Since 2026-11-08 both use StandardScaler + LogisticRegression with C chosen by 5-fold CV on the training split
+(common.select_c), the same rule as every other logistic-regression head in (f).
 f10 re-creates the draft's SiEBERT row (0.958 / 0.921). SiEBERT was fine-tuned on 15 labelled sentiment
 datasets, including four domains of Blitzer et al. 2007 (our data's corpus), so it is not label-free.
 """
@@ -18,11 +21,12 @@ from pathlib import Path
 import numpy as np
 import torch
 import torch.nn.functional as F
-from sklearn.linear_model import LogisticRegression
+from sklearn.preprocessing import StandardScaler
 from transformers import AutoModel, AutoModelForSequenceClassification, AutoTokenizer
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from common import LABEL, TEXT, Timer, peak_rss_gb, save_arm, splits  # noqa: E402
+from common import (DENSE_C_GRID, LABEL, TEXT, Timer, c_record, peak_rss_gb, save_arm,  # noqa: E402
+                    select_c, splits)
 
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 DTYPE = torch.bfloat16 if DEVICE == "cuda" else torch.float32
@@ -79,28 +83,36 @@ def main():
             p_pos = classify(tok, model, va[TEXT].tolist())
         fit_seconds, trainable, dim, cfg = 0.0, 0, None, {"use": "as-is, no training on our data",
                                                            "labelled_training_data": "15 sentiment datasets"}
+        c_extra, c_search_seconds = {}, None
     else:
         pooling = "last" if a.arm.startswith("f6") else "mean"
         with t("load"):
             tok, model = load(name, padding_side="left") if pooling == "last" else load(name)
-        with t("fit"):
+        with t("features"):
             x_tr = embed(tok, model, tr[TEXT].tolist(), pooling)
-            clf = LogisticRegression(C=1.0, max_iter=3000).fit(x_tr, tr[LABEL].astype(int))
+        with t("search"):
+            search = select_c([("scale", StandardScaler())], x_tr, tr[LABEL].astype(int), DENSE_C_GRID)
+        best = search.best_estimator_
         with t("predict"):
-            p_pos = clf.predict_proba(embed(tok, model, va[TEXT].tolist(), pooling))[:, 1]
-        fit_seconds, dim = t.t["fit"], x_tr.shape[1]
+            p_pos = best.predict_proba(embed(tok, model, va[TEXT].tolist(), pooling))[:, 1]
+        fit_seconds = round(t.t["features"] + search.refit_time_, 3)  # embed train split + final fit once
+        dim = x_tr.shape[1]
         trainable = dim + 1
-        cfg = {"pooling": pooling, "normalise": "L2", "max_length": 512, "classifier": repr(clf),
-               "fitted_on": "training split only"}
+        c_config, c_extra = c_record(search, DENSE_C_GRID)
+        c_search_seconds = t.t["search"]
+        cfg = {"pooling": pooling, "normalise": "L2", "max_length": 512, "classifier": repr(best),
+               "fitted_on": "training split only", **c_config}
 
     n_params = sum(q.numel() for q in model.parameters())
     save_arm(a.arm, va, p_pos,
              config={"family": "pretrained contextual, frozen", "model": name, "dtype": str(DTYPE), **cfg},
              cost={"feature_dim": dim, "trainable_params": trainable, "frozen_params": n_params,
-                   "fit_seconds": fit_seconds, "predict_seconds_per_1k": round(t.t["predict"] / len(va) * 1000, 3),
+                   "fit_seconds": fit_seconds, "c_search_seconds": c_search_seconds,
+                   "predict_seconds_per_1k": round(t.t["predict"] / len(va) * 1000, 3),
                    "model_load_seconds": t.t["load"], "peak_rss_gb": peak_rss_gb(),
                    "peak_gpu_gb": round(torch.cuda.max_memory_allocated() / 1e9, 3) if DEVICE == "cuda" else None,
-                   "model_size_mb": round(n_params * (2 if DTYPE == torch.bfloat16 else 4) / 1e6, 1)})
+                   "model_size_mb": round(n_params * (2 if DTYPE == torch.bfloat16 else 4) / 1e6, 1)},
+             extra=c_extra)
 
 
 if __name__ == "__main__":

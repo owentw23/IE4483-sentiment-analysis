@@ -1,0 +1,24 @@
+{
+  "family": "pretrained contextual, frozen",
+  "model": "Qwen/Qwen3-Embedding-0.6B",
+  "dtype": "torch.bfloat16",
+  "pooling": "last",
+  "normalise": "L2",
+  "max_length": 512,
+  "classifier": "Pipeline(steps=[('scale', StandardScaler()),\n                ('clf', LogisticRegression(C=0.003, max_iter=5000))])",
+  "fitted_on": "training split only",
+  "C_selection": "5-fold stratified CV on the training split (seed 42), metric macro-F1; every step before the classifier (vectoriser or scaler) is refitted inside each fold",
+  "C_grid": [
+    0.0003,
+    0.001,
+    0.003,
+    0.01,
+    0.03,
+    0.1,
+    0.3,
+    1,
+    3,
+    10
+  ],
+  "chosen_C": 0.003
+}

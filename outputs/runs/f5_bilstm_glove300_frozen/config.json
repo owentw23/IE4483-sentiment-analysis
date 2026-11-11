@@ -1,0 +1,16 @@
+{
+  "family": "word sequence + RNN",
+  "embeddings": "glove.6B.300d, frozen",
+  "vocab_size": 13207,
+  "max_words": 256,
+  "hidden_per_direction": 128,
+  "pooling": "max over time",
+  "dropout": 0.3,
+  "loss": "cross-entropy, no class weights",
+  "optimizer": "Adam",
+  "lr": 0.002,
+  "batch_size": 32,
+  "epochs": 10,
+  "seed": 42,
+  "device": "cuda"
+}

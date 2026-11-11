@@ -1,0 +1,48 @@
+{
+  "method": "continue training ettin400m_final on few hotel labels + product reviews",
+  "start": "outputs/runs/ettin400m_final/model",
+  "hotel_labels_used": 16,
+  "k_per_class": 8,
+  "n_train": 32,
+  "lr": 1e-05,
+  "epochs": 10,
+  "batch_size": 8,
+  "grad_accum": 2,
+  "warmup_ratio": 0.1,
+  "weight_decay": 0.01,
+  "optim": "adamw_bnb_8bit",
+  "bf16": true,
+  "max_length": 512,
+  "seed": 42,
+  "product_mix": "1:1, k per class",
+  "train_loss_log": [
+    {
+      "loss": 0.0011407822370529176,
+      "grad_norm": 0.009340045042335987,
+      "learning_rate": 8.888888888888888e-06,
+      "epoch": 2.5,
+      "step": 5
+    },
+    {
+      "loss": 6.202161312103271e-05,
+      "grad_norm": 0.004082003608345985,
+      "learning_rate": 6.111111111111112e-06,
+      "epoch": 5.0,
+      "step": 10
+    },
+    {
+      "loss": 2.3069977760314942e-05,
+      "grad_norm": 0.004424419719725847,
+      "learning_rate": 3.3333333333333333e-06,
+      "epoch": 7.5,
+      "step": 15
+    },
+    {
+      "loss": 1.5091896057128906e-05,
+      "grad_norm": 0.0011734283762052655,
+      "learning_rate": 5.555555555555555e-07,
+      "epoch": 10.0,
+      "step": 20
+    }
+  ]
+}

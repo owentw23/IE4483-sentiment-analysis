@@ -1,0 +1,28 @@
+{
+  "variant": "g5b",
+  "pool": 20000,
+  "threshold": 0.99,
+  "teacher_predicted_negative_share": 0.1489,
+  "confident": {
+    "negative": 2302,
+    "positive": 16377
+  },
+  "agreement_with_g2_whole_pool": 0.9388,
+  "confident_and_agree": {
+    "negative": 2301,
+    "positive": 15692
+  },
+  "kept": {
+    "negative": 2301,
+    "positive": 13147,
+    "total": 15448,
+    "negative_share": 0.149
+  },
+  "pseudo_label_check": {
+    "share_3_star": 0.0948,
+    "error_rate_excl_3_star": 0.0039,
+    "error_rate_negative_pseudo": 0.0214,
+    "error_rate_positive_pseudo": 0.0015,
+    "teacher_error_whole_pool_excl_3_star": 0.0149
+  }
+}

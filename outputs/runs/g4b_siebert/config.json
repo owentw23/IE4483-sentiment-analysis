@@ -1,0 +1,11 @@
+{
+  "method": "siebert",
+  "model": "siebert/sentiment-roberta-large-english",
+  "labelled_data_seen": "15 labelled sentiment datasets incl. Blitzer 2007 and Yelp",
+  "hotel_labels_used": 0,
+  "input": "text",
+  "max_length": 512,
+  "dtype": "torch.bfloat16",
+  "decision_rule": "P(pos) >= 0.5",
+  "positive_index": 1
+}

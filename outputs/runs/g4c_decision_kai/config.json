@@ -1,0 +1,20 @@
+{
+  "method": "decision",
+  "model": "vllm-sr/Decision-2.0-Kai-0.6B",
+  "labelled_data_seen": "not documented",
+  "hotel_labels_used": 0,
+  "input": "text",
+  "max_length": 512,
+  "dtype": "torch.bfloat16",
+  "decision_rule": "P(pos) >= 0.5",
+  "question": {
+    "sentiment": {
+      "type": "choice",
+      "instructions": "What is the sentiment of this review?",
+      "criteria": {
+        "positive": "This review is positive.",
+        "negative": "This review is negative."
+      }
+    }
+  }
+}

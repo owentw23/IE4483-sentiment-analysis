@@ -1,0 +1,11 @@
+{
+  "method": "ettin_final",
+  "model": "/workspace/IE4483-sentiment-analysis/data/external/models/g5b_selftrain_agree",
+  "labelled_data_seen": "as g5, keeping only pseudo-labels that g2 agrees with",
+  "hotel_labels_used": 0,
+  "input": "text",
+  "max_length": 512,
+  "dtype": "torch.bfloat16",
+  "decision_rule": "P(pos) >= 0.5",
+  "positive_index": 1
+}

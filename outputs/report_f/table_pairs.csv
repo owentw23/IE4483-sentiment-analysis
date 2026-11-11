@@ -1,0 +1,7 @@
+run_a,run_b,n,macro_f1_a,macro_f1_b,predictions_changed,only_a_wrong,only_b_wrong,mcnemar_p
+f5_bilstm_glove300_frozen,f5b_bilstm_scratch,1437,0.8334,0.8071,137,60,77,0.1714
+f7_ettin400m_frozen,ettin400m_final_3090,1437,0.9111,0.9398,58,38,20,0.0247
+ettin150m_lr2e-5,ettin400m_final_3090,1437,0.9216,0.9398,36,24,12,0.0652
+f9_ettin3090_len256,f9_ettin3090_len512,1437,0.9398,0.9398,0,0,0,1.0
+f9_ettin3090_len128,f9_ettin3090_len512,1437,0.9386,0.9398,3,2,1,1.0
+ettin400m_final_3090,ettin400m_final,1437,0.9398,0.9396,24,12,12,1.0

@@ -1,0 +1,197 @@
+
+===== .venv/bin/python src/fgh/fewshot.py --method ettin --k 8 16 25 =====
+Loading weights:   0%|          | 0/174 [00:00<?, ?it/s]Loading weights: 100%|██████████| 174/174 [00:00<00:00, 4885.85it/s]
+  0%|          | 0/20 [00:00<?, ?it/s]  5%|▌         | 1/20 [00:00<00:14,  1.33it/s] 10%|█         | 2/20 [00:01<00:12,  1.48it/s] 15%|█▌        | 3/20 [00:01<00:10,  1.69it/s] 20%|██        | 4/20 [00:02<00:07,  2.13it/s] 25%|██▌       | 5/20 [00:02<00:07,  1.96it/s]                                              {'loss': '0.001141', 'grad_norm': '0.00934', 'learning_rate': '8.889e-06', 'epoch': '2.5'}
+ 25%|██▌       | 5/20 [00:02<00:07,  1.96it/s] 30%|███       | 6/20 [00:03<00:06,  2.08it/s] 35%|███▌      | 7/20 [00:03<00:05,  2.38it/s] 40%|████      | 8/20 [00:04<00:05,  2.12it/s] 45%|████▌     | 9/20 [00:04<00:04,  2.25it/s] 50%|█████     | 10/20 [00:05<00:05,  1.98it/s]                                               {'loss': '6.202e-05', 'grad_norm': '0.004082', 'learning_rate': '6.111e-06', 'epoch': '5'}
+ 50%|█████     | 10/20 [00:05<00:05,  1.98it/s] 55%|█████▌    | 11/20 [00:05<00:04,  2.01it/s] 60%|██████    | 12/20 [00:05<00:03,  2.09it/s] 65%|██████▌   | 13/20 [00:06<00:03,  2.17it/s] 70%|███████   | 14/20 [00:06<00:02,  2.16it/s] 75%|███████▌  | 15/20 [00:07<00:02,  2.20it/s]                                               {'loss': '2.307e-05', 'grad_norm': '0.004424', 'learning_rate': '3.333e-06', 'epoch': '7.5'}
+ 75%|███████▌  | 15/20 [00:07<00:02,  2.20it/s] 80%|████████  | 16/20 [00:07<00:01,  2.03it/s] 85%|████████▌ | 17/20 [00:08<00:01,  2.15it/s] 90%|█████████ | 18/20 [00:08<00:00,  2.13it/s] 95%|█████████▌| 19/20 [00:09<00:00,  1.94it/s]100%|██████████| 20/20 [00:09<00:00,  2.25it/s]                                               {'loss': '1.509e-05', 'grad_norm': '0.001173', 'learning_rate': '5.556e-07', 'epoch': '10'}
+100%|██████████| 20/20 [00:09<00:00,  2.25it/s]                                               {'train_runtime': '9.659', 'train_samples_per_second': '33.13', 'train_steps_per_second': '2.071', 'train_loss': '0.0003102', 'epoch': '10'}
+100%|██████████| 20/20 [00:09<00:00,  2.25it/s]100%|██████████| 20/20 [00:09<00:00,  2.07it/s]
+{
+ "arm": "g7a_ettin_k8",
+ "product": {
+  "accuracy": 0.9666,
+  "macro_f1": 0.9368,
+  "neg_f1": 0.8933,
+  "neg_precision": 0.8375,
+  "neg_recall": 0.9571,
+  "macro_f1_contrast": 0.918,
+  "only_arm_wrong": 13,
+  "only_ettin_wrong": 9,
+  "mcnemar_p": 0.5235
+ },
+ "hotel": {
+  "accuracy": 0.9785,
+  "macro_f1": 0.9483,
+  "neg_f1": 0.9087,
+  "neg_precision": 0.8458,
+  "neg_recall": 0.9817,
+  "predicted_negative_share": 0.1265,
+  "true_negative_share": 0.109,
+  "vs_g1": {
+   "only_arm_wrong": 21,
+   "only_ref_wrong": 11,
+   "mcnemar_p": 0.1102
+  }
+ },
+ "stress3": {
+  "n": 300,
+  "share_predicted_positive": 0.43,
+  "mean_p_pos": 0.4391
+ },
+ "drop_macro_f1": -0.0115,
+ "drop_accuracy": -0.0119,
+ "params": 395833346,
+ "fit_seconds": 10.6,
+ "peak_gpu_gb": 5.633
+}
+Loading weights:   0%|          | 0/174 [00:00<?, ?it/s]Loading weights: 100%|██████████| 174/174 [00:00<00:00, 6751.55it/s]
+  0%|          | 0/40 [00:00<?, ?it/s]  2%|▎         | 1/40 [00:00<00:13,  2.82it/s]  5%|▌         | 2/40 [00:00<00:17,  2.17it/s]  8%|▊         | 3/40 [00:01<00:17,  2.14it/s] 10%|█         | 4/40 [00:01<00:17,  2.09it/s] 12%|█▎        | 5/40 [00:02<00:17,  1.97it/s]                                              {'loss': '0.001356', 'grad_norm': '0.01042', 'learning_rate': '1e-05', 'epoch': '1.25'}
+ 12%|█▎        | 5/40 [00:02<00:17,  1.97it/s] 15%|█▌        | 6/40 [00:02<00:17,  1.97it/s] 18%|█▊        | 7/40 [00:03<00:15,  2.18it/s] 20%|██        | 8/40 [00:03<00:13,  2.37it/s] 22%|██▎       | 9/40 [00:04<00:13,  2.38it/s] 25%|██▌       | 10/40 [00:04<00:13,  2.25it/s]                                               {'loss': '0.0001399', 'grad_norm': '0.005619', 'learning_rate': '8.611e-06', 'epoch': '2.5'}
+ 25%|██▌       | 10/40 [00:04<00:13,  2.25it/s] 28%|██▊       | 11/40 [00:04<00:12,  2.26it/s] 30%|███       | 12/40 [00:05<00:10,  2.56it/s] 32%|███▎      | 13/40 [00:05<00:10,  2.47it/s] 35%|███▌      | 14/40 [00:06<00:11,  2.31it/s] 38%|███▊      | 15/40 [00:06<00:10,  2.28it/s]                                               {'loss': '1.084e-05', 'grad_norm': '0.00108', 'learning_rate': '7.222e-06', 'epoch': '3.75'}
+ 38%|███▊      | 15/40 [00:06<00:10,  2.28it/s] 40%|████      | 16/40 [00:07<00:10,  2.22it/s] 42%|████▎     | 17/40 [00:07<00:10,  2.21it/s] 45%|████▌     | 18/40 [00:08<00:11,  1.99it/s] 48%|████▊     | 19/40 [00:08<00:09,  2.24it/s] 50%|█████     | 20/40 [00:08<00:08,  2.30it/s]                                               {'loss': '5.686e-06', 'grad_norm': '0.0003442', 'learning_rate': '5.833e-06', 'epoch': '5'}
+ 50%|█████     | 20/40 [00:08<00:08,  2.30it/s] 52%|█████▎    | 21/40 [00:09<00:08,  2.29it/s] 55%|█████▌    | 22/40 [00:09<00:08,  2.20it/s] 57%|█████▊    | 23/40 [00:10<00:07,  2.33it/s] 60%|██████    | 24/40 [00:10<00:06,  2.42it/s] 62%|██████▎   | 25/40 [00:11<00:06,  2.24it/s]                                               {'loss': '2.849e-06', 'grad_norm': '0.0002198', 'learning_rate': '4.444e-06', 'epoch': '6.25'}
+ 62%|██████▎   | 25/40 [00:11<00:06,  2.24it/s] 65%|██████▌   | 26/40 [00:11<00:06,  2.12it/s] 68%|██████▊   | 27/40 [00:12<00:05,  2.30it/s] 70%|███████   | 28/40 [00:12<00:05,  2.31it/s] 72%|███████▎  | 29/40 [00:12<00:05,  2.12it/s] 75%|███████▌  | 30/40 [00:13<00:04,  2.39it/s]                                               {'loss': '2.113e-06', 'grad_norm': '0.0002386', 'learning_rate': '3.056e-06', 'epoch': '7.5'}
+ 75%|███████▌  | 30/40 [00:13<00:04,  2.39it/s] 78%|███████▊  | 31/40 [00:13<00:03,  2.55it/s] 80%|████████  | 32/40 [00:14<00:03,  2.38it/s] 82%|████████▎ | 33/40 [00:14<00:02,  2.46it/s] 85%|████████▌ | 34/40 [00:14<00:02,  2.46it/s] 88%|████████▊ | 35/40 [00:15<00:01,  2.68it/s]                                               {'loss': '2.42e-06', 'grad_norm': '0.000184', 'learning_rate': '1.667e-06', 'epoch': '8.75'}
+ 88%|████████▊ | 35/40 [00:15<00:01,  2.68it/s] 90%|█████████ | 36/40 [00:15<00:01,  2.28it/s] 92%|█████████▎| 37/40 [00:16<00:01,  2.58it/s] 95%|█████████▌| 38/40 [00:16<00:00,  2.49it/s] 98%|█████████▊| 39/40 [00:16<00:00,  2.38it/s]100%|██████████| 40/40 [00:17<00:00,  2.21it/s]                                               {'loss': '1.776e-06', 'grad_norm': '0.0002332', 'learning_rate': '2.778e-07', 'epoch': '10'}
+100%|██████████| 40/40 [00:17<00:00,  2.21it/s]                                               {'train_runtime': '17.47', 'train_samples_per_second': '36.64', 'train_steps_per_second': '2.29', 'train_loss': '0.0001902', 'epoch': '10'}
+100%|██████████| 40/40 [00:17<00:00,  2.21it/s]100%|██████████| 40/40 [00:17<00:00,  2.29it/s]
+{
+ "arm": "g7a_ettin_k16",
+ "product": {
+  "accuracy": 0.9638,
+  "macro_f1": 0.9305,
+  "neg_f1": 0.8824,
+  "neg_precision": 0.8405,
+  "neg_recall": 0.9286,
+  "macro_f1_contrast": 0.9054,
+  "only_arm_wrong": 11,
+  "only_ettin_wrong": 3,
+  "mcnemar_p": 0.0574
+ },
+ "hotel": {
+  "accuracy": 0.9805,
+  "macro_f1": 0.9525,
+  "neg_f1": 0.9161,
+  "neg_precision": 0.8623,
+  "neg_recall": 0.9771,
+  "predicted_negative_share": 0.1235,
+  "true_negative_share": 0.109,
+  "vs_g1": {
+   "only_arm_wrong": 16,
+   "only_ref_wrong": 10,
+   "mcnemar_p": 0.3269
+  }
+ },
+ "stress3": {
+  "n": 300,
+  "share_predicted_positive": 0.4833,
+  "mean_p_pos": 0.4795
+ },
+ "drop_macro_f1": -0.022,
+ "drop_accuracy": -0.0167,
+ "params": 395833346,
+ "fit_seconds": 17.8,
+ "peak_gpu_gb": 5.732
+}
+Loading weights:   0%|          | 0/174 [00:00<?, ?it/s]Loading weights: 100%|██████████| 174/174 [00:00<00:00, 6919.46it/s]
+  0%|          | 0/70 [00:00<?, ?it/s]  1%|▏         | 1/70 [00:00<00:35,  1.97it/s]  3%|▎         | 2/70 [00:00<00:32,  2.06it/s]  4%|▍         | 3/70 [00:01<00:29,  2.24it/s]  6%|▌         | 4/70 [00:01<00:29,  2.26it/s]  7%|▋         | 5/70 [00:02<00:24,  2.60it/s]                                              {'loss': '0.001374', 'grad_norm': '0.08338', 'learning_rate': '5.714e-06', 'epoch': '0.7692'}
+  7%|▋         | 5/70 [00:02<00:24,  2.60it/s]  9%|▊         | 6/70 [00:02<00:26,  2.45it/s] 10%|█         | 7/70 [00:02<00:20,  3.13it/s] 11%|█▏        | 8/70 [00:03<00:23,  2.65it/s] 13%|█▎        | 9/70 [00:03<00:24,  2.46it/s] 14%|█▍        | 10/70 [00:04<00:24,  2.41it/s]                                               {'loss': '0.0001789', 'grad_norm': '0.01841', 'learning_rate': '9.683e-06', 'epoch': '1.462'}
+ 14%|█▍        | 10/70 [00:04<00:24,  2.41it/s] 16%|█▌        | 11/70 [00:04<00:22,  2.65it/s] 17%|█▋        | 12/70 [00:05<00:26,  2.18it/s] 19%|█▊        | 13/70 [00:05<00:25,  2.26it/s] 20%|██        | 14/70 [00:05<00:19,  2.85it/s] 21%|██▏       | 15/70 [00:06<00:21,  2.60it/s]                                               {'loss': '2.069e-05', 'grad_norm': '0.001737', 'learning_rate': '8.889e-06', 'epoch': '2.154'}
+ 21%|██▏       | 15/70 [00:06<00:21,  2.60it/s] 23%|██▎       | 16/70 [00:06<00:21,  2.49it/s] 24%|██▍       | 17/70 [00:06<00:19,  2.70it/s] 26%|██▌       | 18/70 [00:07<00:22,  2.36it/s] 27%|██▋       | 19/70 [00:07<00:19,  2.66it/s] 29%|██▊       | 20/70 [00:08<00:20,  2.49it/s]                                               {'loss': '6.402e-06', 'grad_norm': '0.000474', 'learning_rate': '8.095e-06', 'epoch': '2.923'}
+ 29%|██▊       | 20/70 [00:08<00:20,  2.49it/s] 30%|███       | 21/70 [00:08<00:15,  3.10it/s] 31%|███▏      | 22/70 [00:08<00:17,  2.80it/s] 33%|███▎      | 23/70 [00:09<00:17,  2.68it/s] 34%|███▍      | 24/70 [00:09<00:18,  2.55it/s] 36%|███▌      | 25/70 [00:09<00:17,  2.54it/s]                                               {'loss': '3.251e-06', 'grad_norm': '0.000269', 'learning_rate': '7.302e-06', 'epoch': '3.615'}
+ 36%|███▌      | 25/70 [00:09<00:17,  2.54it/s] 37%|███▋      | 26/70 [00:10<00:19,  2.28it/s] 39%|███▊      | 27/70 [00:10<00:18,  2.28it/s] 40%|████      | 28/70 [00:11<00:15,  2.71it/s] 41%|████▏     | 29/70 [00:11<00:15,  2.69it/s] 43%|████▎     | 30/70 [00:11<00:14,  2.83it/s]                                               {'loss': '1.311e-06', 'grad_norm': '9.821e-05', 'learning_rate': '6.508e-06', 'epoch': '4.308'}
+ 43%|████▎     | 30/70 [00:11<00:14,  2.83it/s] 44%|████▍     | 31/70 [00:12<00:16,  2.30it/s] 46%|████▌     | 32/70 [00:12<00:15,  2.39it/s] 47%|████▋     | 33/70 [00:13<00:17,  2.17it/s] 49%|████▊     | 34/70 [00:13<00:16,  2.18it/s] 50%|█████     | 35/70 [00:13<00:12,  2.75it/s]                                               {'loss': '1.49e-06', 'grad_norm': '7.002e-05', 'learning_rate': '5.714e-06', 'epoch': '5'}
+ 50%|█████     | 35/70 [00:13<00:12,  2.75it/s] 51%|█████▏    | 36/70 [00:14<00:11,  2.93it/s] 53%|█████▎    | 37/70 [00:14<00:12,  2.70it/s] 54%|█████▍    | 38/70 [00:15<00:13,  2.39it/s] 56%|█████▌    | 39/70 [00:15<00:14,  2.16it/s] 57%|█████▋    | 40/70 [00:16<00:13,  2.22it/s]                                               {'loss': '1.127e-06', 'grad_norm': '0.0001772', 'learning_rate': '4.921e-06', 'epoch': '5.769'}
+ 57%|█████▋    | 40/70 [00:16<00:13,  2.22it/s] 59%|█████▊    | 41/70 [00:16<00:12,  2.30it/s] 60%|██████    | 42/70 [00:16<00:09,  2.88it/s] 61%|██████▏   | 43/70 [00:16<00:08,  3.00it/s] 63%|██████▎   | 44/70 [00:17<00:08,  3.13it/s] 64%|██████▍   | 45/70 [00:17<00:09,  2.69it/s]                                               {'loss': '1.135e-06', 'grad_norm': '5.196e-05', 'learning_rate': '4.127e-06', 'epoch': '6.462'}
+ 64%|██████▍   | 45/70 [00:17<00:09,  2.69it/s] 66%|██████▌   | 46/70 [00:18<00:11,  2.07it/s] 67%|██████▋   | 47/70 [00:18<00:10,  2.12it/s] 69%|██████▊   | 48/70 [00:19<00:10,  2.10it/s] 70%|███████   | 49/70 [00:19<00:07,  2.63it/s] 71%|███████▏  | 50/70 [00:20<00:07,  2.59it/s]                                               {'loss': '1.21e-06', 'grad_norm': '0.0001336', 'learning_rate': '3.333e-06', 'epoch': '7.154'}
+ 71%|███████▏  | 50/70 [00:20<00:07,  2.59it/s] 73%|███████▎  | 51/70 [00:20<00:07,  2.70it/s] 74%|███████▍  | 52/70 [00:20<00:07,  2.51it/s] 76%|███████▌  | 53/70 [00:21<00:07,  2.24it/s] 77%|███████▋  | 54/70 [00:21<00:06,  2.39it/s] 79%|███████▊  | 55/70 [00:22<00:07,  2.08it/s]                                               {'loss': '1.028e-06', 'grad_norm': '0.0002065', 'learning_rate': '2.54e-06', 'epoch': '7.923'}
+ 79%|███████▊  | 55/70 [00:22<00:07,  2.08it/s] 80%|████████  | 56/70 [00:22<00:05,  2.60it/s] 81%|████████▏ | 57/70 [00:22<00:05,  2.43it/s] 83%|████████▎ | 58/70 [00:23<00:04,  2.44it/s] 84%|████████▍ | 59/70 [00:23<00:04,  2.39it/s] 86%|████████▌ | 60/70 [00:24<00:04,  2.28it/s]                                               {'loss': '9.239e-07', 'grad_norm': '0.0001849', 'learning_rate': '1.746e-06', 'epoch': '8.615'}
+ 86%|████████▌ | 60/70 [00:24<00:04,  2.28it/s] 87%|████████▋ | 61/70 [00:24<00:04,  2.23it/s] 89%|████████▊ | 62/70 [00:25<00:03,  2.46it/s] 90%|█████████ | 63/70 [00:25<00:02,  2.94it/s] 91%|█████████▏| 64/70 [00:25<00:02,  2.60it/s] 93%|█████████▎| 65/70 [00:26<00:02,  2.19it/s]                                               {'loss': '1.025e-06', 'grad_norm': '0.0001797', 'learning_rate': '9.524e-07', 'epoch': '9.308'}
+ 93%|█████████▎| 65/70 [00:26<00:02,  2.19it/s] 94%|█████████▍| 66/70 [00:26<00:01,  2.18it/s] 96%|█████████▌| 67/70 [00:27<00:01,  2.45it/s] 97%|█████████▋| 68/70 [00:27<00:00,  2.43it/s] 99%|█████████▊| 69/70 [00:28<00:00,  2.34it/s]100%|██████████| 70/70 [00:28<00:00,  2.94it/s]                                               {'loss': '5.245e-07', 'grad_norm': '1.226e-06', 'learning_rate': '1.587e-07', 'epoch': '10'}
+100%|██████████| 70/70 [00:28<00:00,  2.94it/s]                                               {'train_runtime': '28.16', 'train_samples_per_second': '35.51', 'train_steps_per_second': '2.486', 'train_loss': '0.0001138', 'epoch': '10'}
+100%|██████████| 70/70 [00:28<00:00,  2.94it/s]100%|██████████| 70/70 [00:28<00:00,  2.49it/s]
+{
+ "arm": "g7a_ettin_k25",
+ "product": {
+  "accuracy": 0.9666,
+  "macro_f1": 0.937,
+  "neg_f1": 0.8938,
+  "neg_precision": 0.8347,
+  "neg_recall": 0.9619,
+  "macro_f1_contrast": 0.9211,
+  "only_arm_wrong": 14,
+  "only_ettin_wrong": 10,
+  "mcnemar_p": 0.5413
+ },
+ "hotel": {
+  "accuracy": 0.975,
+  "macro_f1": 0.9408,
+  "neg_f1": 0.8958,
+  "neg_precision": 0.8206,
+  "neg_recall": 0.9862,
+  "predicted_negative_share": 0.131,
+  "true_negative_share": 0.109,
+  "vs_g1": {
+   "only_arm_wrong": 29,
+   "only_ref_wrong": 12,
+   "mcnemar_p": 0.0115
+  }
+ },
+ "stress3": {
+  "n": 300,
+  "share_predicted_positive": 0.4267,
+  "mean_p_pos": 0.4252
+ },
+ "drop_macro_f1": -0.0038,
+ "drop_accuracy": -0.0084,
+ "params": 395833346,
+ "fit_seconds": 28.5,
+ "peak_gpu_gb": 5.842
+}
+
+===== .venv/bin/python src/fgh/fewshot.py --method setfit --k 8 16 25 =====
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/134 [00:00<?, ?it/s]Loading weights: 100%|██████████| 134/134 [00:00<00:00, 7347.75it/s]
+model_head.pkl not found on HuggingFace Hub, initialising classification head with random weights. You should TRAIN this model on a downstream task to use it for predictions and inference.
+Map:   0%|          | 0/16 [00:00<?, ? examples/s]Map: 100%|██████████| 16/16 [00:00<00:00, 5156.67 examples/s]
+***** Running training *****
+  Num unique pairs = 640
+  Batch size = 16
+  Num epochs = 1
+  0%|          | 0/40 [00:00<?, ?it/s]Traceback (most recent call last):
+  File "/workspace/IE4483-sentiment-analysis/src/fgh/fewshot.py", line 130, in <module>
+    main()
+  File "/workspace/IE4483-sentiment-analysis/src/fgh/fewshot.py", line 126, in main
+    (run_ettin if a.method == "ettin" else run_setfit)(k)
+  File "/workspace/IE4483-sentiment-analysis/src/fgh/fewshot.py", line 110, in run_setfit
+    trainer.train()
+  File "/workspace/IE4483-sentiment-analysis/.venv/lib/python3.12/site-packages/setfit/trainer.py", line 536, in train
+    self.train_embeddings(*full_parameters, args=args)
+  File "/workspace/IE4483-sentiment-analysis/.venv/lib/python3.12/site-packages/setfit/trainer.py", line 587, in train_embeddings
+    self.st_trainer.train()
+  File "/workspace/IE4483-sentiment-analysis/.venv/lib/python3.12/site-packages/transformers/trainer.py", line 1562, in train
+    return inner_training_loop(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/IE4483-sentiment-analysis/.venv/lib/python3.12/site-packages/transformers/trainer.py", line 1646, in _inner_training_loop
+    self._run_epoch(
+  File "/workspace/IE4483-sentiment-analysis/.venv/lib/python3.12/site-packages/transformers/trainer.py", line 1892, in _run_epoch
+    tr_loss_step = self.training_step(model, inputs, num_items_in_batch)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/IE4483-sentiment-analysis/.venv/lib/python3.12/site-packages/transformers/trainer.py", line 2101, in training_step
+    self.accelerator.backward(loss, **kwargs)
+  File "/workspace/IE4483-sentiment-analysis/.venv/lib/python3.12/site-packages/accelerate/accelerator.py", line 2861, in backward
+    loss.backward(**kwargs)
+  File "/workspace/IE4483-sentiment-analysis/.venv/lib/python3.12/site-packages/torch/_tensor.py", line 631, in backward
+    torch.autograd.backward(
+  File "/workspace/IE4483-sentiment-analysis/.venv/lib/python3.12/site-packages/torch/autograd/__init__.py", line 381, in backward
+    _engine_run_backward(
+  File "/workspace/IE4483-sentiment-analysis/.venv/lib/python3.12/site-packages/torch/autograd/graph.py", line 869, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Found dtype Float but expected Half
+  0%|          | 0/40 [00:00<?, ?it/s]
+!!!!! FAILED: .venv/bin/python src/fgh/fewshot.py --method setfit --k 8 16 25
+
+FAILED STEPS (1):
+  .venv/bin/python src/fgh/fewshot.py --method setfit --k 8 16 25

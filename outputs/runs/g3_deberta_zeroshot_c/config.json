@@ -1,0 +1,19 @@
+{
+  "method": "nli",
+  "model": "MoritzLaurer/deberta-v3-large-zeroshot-v2.0-c",
+  "labelled_data_seen": "synthetic task data (Mixtral) + MNLI + FEVER-NLI; no human-labelled reviews",
+  "hotel_labels_used": 0,
+  "input": "text",
+  "max_length": 512,
+  "dtype": "torch.bfloat16",
+  "decision_rule": "P(pos) >= 0.5",
+  "id2label": {
+    "0": "entailment",
+    "1": "not_entailment"
+  },
+  "entailment_index": 0,
+  "hypotheses": [
+    "This review is positive.",
+    "This review is negative."
+  ]
+}

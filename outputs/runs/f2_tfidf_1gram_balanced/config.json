@@ -1,0 +1,22 @@
+{
+  "family": "sparse lexical",
+  "vectorizer": "TfidfVectorizer()",
+  "classifier": "LogisticRegression(C=10, class_weight='balanced', max_iter=5000)",
+  "class_weight": "balanced",
+  "fitted_on": "training split only",
+  "C_selection": "5-fold stratified CV on the training split (seed 42), metric macro-F1; every step before the classifier (vectoriser or scaler) is refitted inside each fold",
+  "C_grid": [
+    0.01,
+    0.1,
+    0.3,
+    1,
+    3,
+    10,
+    30,
+    100,
+    300,
+    1000,
+    3000
+  ],
+  "chosen_C": 10
+}

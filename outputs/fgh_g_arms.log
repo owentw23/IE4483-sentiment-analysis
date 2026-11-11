@@ -1,0 +1,409 @@
+
+===== .venv/bin/python src/fgh/hotel_arms.py --arm g1_ettin_final --pool =====
+Loading weights:   0%|          | 0/174 [00:00<?, ?it/s]Loading weights:  49%|████▉     | 86/174 [00:00<00:00, 586.69it/s]Loading weights:  83%|████████▎ | 145/174 [00:00<00:00, 583.32it/s]Loading weights: 100%|██████████| 174/174 [00:00<00:00, 665.47it/s]
+{
+ "arm": "g1_ettin_final",
+ "product": {
+  "accuracy": 0.9687,
+  "macro_f1": 0.9381,
+  "neg_f1": 0.8946,
+  "neg_precision": 0.8802,
+  "neg_recall": 0.9095,
+  "macro_f1_contrast": 0.9164,
+  "only_arm_wrong": 1,
+  "only_ettin_wrong": 0,
+  "mcnemar_p": 1.0
+ },
+ "hotel": {
+  "accuracy": 0.9835,
+  "macro_f1": 0.9578,
+  "neg_f1": 0.9248,
+  "neg_precision": 0.9186,
+  "neg_recall": 0.9312,
+  "predicted_negative_share": 0.1105,
+  "true_negative_share": 0.109
+ },
+ "stress3": {
+  "n": 300,
+  "share_predicted_positive": 0.64,
+  "mean_p_pos": 0.6428
+ },
+ "drop_macro_f1": -0.0197,
+ "drop_accuracy": -0.0148,
+ "params": 395833346,
+ "model_load_seconds": 1.12,
+ "predict_seconds_per_1k_hotel": 3.522,
+ "predict_seconds_per_1k_product": 2.022,
+ "pool_seconds": 71.721,
+ "peak_gpu_gb": 1.33,
+ "peak_rss_gb": 2.99
+}
+
+===== .venv/bin/python src/fgh/hotel_arms.py --arm g2_finecat_nli_v2 --pool =====
+Loading weights:   0%|          | 0/174 [00:00<?, ?it/s]Loading weights:  36%|███▌      | 62/174 [00:00<00:00, 608.61it/s]Loading weights:  71%|███████   | 123/174 [00:00<00:00, 592.80it/s]Loading weights: 100%|██████████| 174/174 [00:00<00:00, 576.68it/s]
+{
+ "arm": "g2_finecat_nli_v2",
+ "product": {
+  "accuracy": 0.9513,
+  "macro_f1": 0.911,
+  "neg_f1": 0.8511,
+  "neg_precision": 0.7692,
+  "neg_recall": 0.9524,
+  "macro_f1_contrast": 0.8814,
+  "only_arm_wrong": 38,
+  "only_ettin_wrong": 12,
+  "mcnemar_p": 0.0003
+ },
+ "hotel": {
+  "accuracy": 0.972,
+  "macro_f1": 0.9344,
+  "neg_f1": 0.8848,
+  "neg_precision": 0.8022,
+  "neg_recall": 0.9862,
+  "predicted_negative_share": 0.134,
+  "true_negative_share": 0.109,
+  "vs_g1": {
+   "only_arm_wrong": 38,
+   "only_ref_wrong": 15,
+   "mcnemar_p": 0.0022
+  }
+ },
+ "stress3": {
+  "n": 300,
+  "share_predicted_positive": 0.3567,
+  "mean_p_pos": 0.3669
+ },
+ "drop_macro_f1": -0.0234,
+ "drop_accuracy": -0.0207,
+ "params": 395834371,
+ "model_load_seconds": 1.92,
+ "predict_seconds_per_1k_hotel": 7.244,
+ "predict_seconds_per_1k_product": 3.814,
+ "pool_seconds": 146.346,
+ "peak_gpu_gb": 1.33,
+ "peak_rss_gb": 2.99
+}
+
+===== .venv/bin/python src/fgh/hotel_arms.py --arm g2s_ettin68m_nli --pool =====
+Invalid model-index. Not loading eval results into CardData.
+Invalid model-index. Not loading eval results into CardData.
+Loading weights:   0%|          | 0/120 [00:00<?, ?it/s]Loading weights: 100%|██████████| 120/120 [00:00<00:00, 3467.35it/s]
+{
+ "arm": "g2s_ettin68m_nli",
+ "product": {
+  "accuracy": 0.9269,
+  "macro_f1": 0.8662,
+  "neg_f1": 0.7761,
+  "neg_precision": 0.7027,
+  "neg_recall": 0.8667,
+  "macro_f1_contrast": 0.8232,
+  "only_arm_wrong": 73,
+  "only_ettin_wrong": 12,
+  "mcnemar_p": 0.0
+ },
+ "hotel": {
+  "accuracy": 0.925,
+  "macro_f1": 0.828,
+  "neg_f1": 0.6988,
+  "neg_precision": 0.6214,
+  "neg_recall": 0.7982,
+  "predicted_negative_share": 0.14,
+  "true_negative_share": 0.109,
+  "vs_g1": {
+   "only_arm_wrong": 132,
+   "only_ref_wrong": 15,
+   "mcnemar_p": 0.0
+  }
+ },
+ "stress3": {
+  "n": 300,
+  "share_predicted_positive": 0.6633,
+  "mean_p_pos": 0.5918
+ },
+ "drop_macro_f1": 0.0382,
+ "drop_accuracy": 0.0019,
+ "params": 68408835,
+ "model_load_seconds": 1.46,
+ "predict_seconds_per_1k_hotel": 1.972,
+ "predict_seconds_per_1k_product": 1.377,
+ "pool_seconds": 40.081,
+ "peak_gpu_gb": 0.417,
+ "peak_rss_gb": 1.5
+}
+
+===== .venv/bin/python src/fgh/hotel_arms.py --arm g0_tfidf_products =====
+{
+ "arm": "g0_tfidf_products",
+ "product": {
+  "accuracy": 0.9214,
+  "macro_f1": 0.8376,
+  "neg_f1": 0.721,
+  "neg_precision": 0.7487,
+  "neg_recall": 0.6952,
+  "macro_f1_contrast": 0.7771,
+  "only_arm_wrong": 88,
+  "only_ettin_wrong": 19,
+  "mcnemar_p": 0.0
+ },
+ "hotel": {
+  "accuracy": 0.9175,
+  "macro_f1": 0.7914,
+  "neg_f1": 0.6292,
+  "neg_precision": 0.6167,
+  "neg_recall": 0.6422,
+  "predicted_negative_share": 0.1135,
+  "true_negative_share": 0.109,
+  "vs_g1": {
+   "only_arm_wrong": 148,
+   "only_ref_wrong": 16,
+   "mcnemar_p": 0.0
+  }
+ },
+ "stress3": {
+  "n": 300,
+  "share_predicted_positive": 0.66,
+  "mean_p_pos": 0.6161
+ },
+ "drop_macro_f1": 0.0462,
+ "drop_accuracy": 0.0039,
+ "params": null,
+ "model_load_seconds": 28.134,
+ "predict_seconds_per_1k_hotel": 0.103,
+ "predict_seconds_per_1k_product": 0.045,
+ "pool_seconds": null,
+ "peak_gpu_gb": 0.0,
+ "peak_rss_gb": 0.83
+}
+
+===== .venv/bin/python src/fgh/hotel_arms.py --arm g1t_ettin_final_title =====
+Loading weights:   0%|          | 0/174 [00:00<?, ?it/s]Loading weights:  61%|██████    | 106/174 [00:00<00:00, 845.58it/s]Loading weights: 100%|██████████| 174/174 [00:00<00:00, 782.57it/s]
+{
+ "arm": "g1t_ettin_final_title",
+ "product": {
+  "accuracy": 0.9687,
+  "macro_f1": 0.9381,
+  "neg_f1": 0.8946,
+  "neg_precision": 0.8802,
+  "neg_recall": 0.9095,
+  "macro_f1_contrast": 0.9164,
+  "only_arm_wrong": 1,
+  "only_ettin_wrong": 0,
+  "mcnemar_p": 1.0
+ },
+ "hotel": {
+  "accuracy": 0.9855,
+  "macro_f1": 0.9627,
+  "neg_f1": 0.9336,
+  "neg_precision": 0.9315,
+  "neg_recall": 0.9358,
+  "predicted_negative_share": 0.1095,
+  "true_negative_share": 0.109,
+  "vs_g1": {
+   "only_arm_wrong": 5,
+   "only_ref_wrong": 9,
+   "mcnemar_p": 0.424
+  }
+ },
+ "stress3": {
+  "n": 300,
+  "share_predicted_positive": 0.65,
+  "mean_p_pos": 0.6449
+ },
+ "drop_macro_f1": -0.0246,
+ "drop_accuracy": -0.0168,
+ "params": 395833346,
+ "model_load_seconds": 1.027,
+ "predict_seconds_per_1k_hotel": 3.671,
+ "predict_seconds_per_1k_product": 2.008,
+ "pool_seconds": null,
+ "peak_gpu_gb": 1.33,
+ "peak_rss_gb": 2.99
+}
+
+===== .venv/bin/python src/fgh/hotel_arms.py --arm g3_deberta_zeroshot_c =====
+Loading weights:   0%|          | 0/394 [00:00<?, ?it/s]Loading weights:   1%|▏         | 5/394 [00:00<00:08, 44.39it/s]Loading weights:  70%|██████▉   | 275/394 [00:00<00:00, 1518.93it/s]Loading weights: 100%|██████████| 394/394 [00:00<00:00, 1277.64it/s]
+{
+ "arm": "g3_deberta_zeroshot_c",
+ "product": {
+  "accuracy": 0.9276,
+  "macro_f1": 0.876,
+  "neg_f1": 0.7961,
+  "neg_precision": 0.6767,
+  "neg_recall": 0.9667,
+  "macro_f1_contrast": 0.8411,
+  "only_arm_wrong": 76,
+  "only_ettin_wrong": 16,
+  "mcnemar_p": 0.0
+ },
+ "hotel": {
+  "accuracy": 0.9415,
+  "macro_f1": 0.8769,
+  "neg_f1": 0.7877,
+  "neg_precision": 0.6517,
+  "neg_recall": 0.9954,
+  "predicted_negative_share": 0.1665,
+  "true_negative_share": 0.109,
+  "vs_g1": {
+   "only_arm_wrong": 98,
+   "only_ref_wrong": 14,
+   "mcnemar_p": 0.0
+  }
+ },
+ "stress3": {
+  "n": 300,
+  "share_predicted_positive": 0.22,
+  "mean_p_pos": 0.252
+ },
+ "drop_macro_f1": -0.0009,
+ "drop_accuracy": -0.0139,
+ "params": 435063810,
+ "model_load_seconds": 2.361,
+ "predict_seconds_per_1k_hotel": 8.979,
+ "predict_seconds_per_1k_product": 4.458,
+ "pool_seconds": null,
+ "peak_gpu_gb": 3.27,
+ "peak_rss_gb": 2.5
+}
+
+===== .venv/bin/python src/fgh/hotel_arms.py --arm g4_gliclass_modern_large =====
+Loading weights:   0%|          | 0/179 [00:00<?, ?it/s]Loading weights: 100%|██████████| 179/179 [00:00<00:00, 6912.63it/s]
+[transformers] You are using a model of type `GLiClass` to instantiate a model of type ``. This may be expected if you are loading a checkpoint that shares a subset of the architecture (e.g., loading a `sam2_video` checkpoint into `Sam2Model`), but is otherwise not supported and can yield errors. Please verify that the checkpoint is compatible with the model you are instantiating.
+[transformers] `use_return_dict` is deprecated! Use `return_dict` instead!
+{
+ "arm": "g4_gliclass_modern_large",
+ "product": {
+  "accuracy": 0.936,
+  "macro_f1": 0.889,
+  "neg_f1": 0.8167,
+  "neg_precision": 0.7021,
+  "neg_recall": 0.9762,
+  "macro_f1_contrast": 0.8619,
+  "only_arm_wrong": 62,
+  "only_ettin_wrong": 14,
+  "mcnemar_p": 0.0
+ },
+ "hotel": {
+  "accuracy": 0.9475,
+  "macro_f1": 0.8874,
+  "neg_f1": 0.8052,
+  "neg_precision": 0.676,
+  "neg_recall": 0.9954,
+  "predicted_negative_share": 0.1605,
+  "true_negative_share": 0.109,
+  "vs_g1": {
+   "only_arm_wrong": 86,
+   "only_ref_wrong": 14,
+   "mcnemar_p": 0.0
+  }
+ },
+ "stress3": {
+  "n": 300,
+  "share_predicted_positive": 0.2533,
+  "mean_p_pos": 0.2777
+ },
+ "drop_macro_f1": 0.0016,
+ "drop_accuracy": -0.0115,
+ "params": 398982145,
+ "model_load_seconds": 1.637,
+ "predict_seconds_per_1k_hotel": 9.854,
+ "predict_seconds_per_1k_product": 4.72,
+ "pool_seconds": null,
+ "peak_gpu_gb": 2.126,
+ "peak_rss_gb": 2.37
+}
+
+===== .venv/bin/python src/fgh/hotel_arms.py --arm g4b_siebert =====
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/393 [00:00<?, ?it/s]Loading weights:  50%|█████     | 197/393 [00:00<00:00, 1313.16it/s]Loading weights:  88%|████████▊ | 345/393 [00:00<00:00, 1394.21it/s]Loading weights: 100%|██████████| 393/393 [00:00<00:00, 1507.64it/s]
+{
+ "arm": "g4b_siebert",
+ "product": {
+  "accuracy": 0.9589,
+  "macro_f1": 0.9221,
+  "neg_f1": 0.8686,
+  "neg_precision": 0.8159,
+  "neg_recall": 0.9286,
+  "macro_f1_contrast": 0.8953,
+  "only_arm_wrong": 28,
+  "only_ettin_wrong": 13,
+  "mcnemar_p": 0.0275
+ },
+ "hotel": {
+  "accuracy": 0.982,
+  "macro_f1": 0.9558,
+  "neg_f1": 0.9217,
+  "neg_precision": 0.876,
+  "neg_recall": 0.9725,
+  "predicted_negative_share": 0.121,
+  "true_negative_share": 0.109,
+  "vs_g1": {
+   "only_arm_wrong": 17,
+   "only_ref_wrong": 14,
+   "mcnemar_p": 0.7201
+  }
+ },
+ "stress3": {
+  "n": 300,
+  "share_predicted_positive": 0.4933,
+  "mean_p_pos": 0.493
+ },
+ "drop_macro_f1": -0.0337,
+ "drop_accuracy": -0.0231,
+ "params": 355361794,
+ "model_load_seconds": 1.887,
+ "predict_seconds_per_1k_hotel": 2.365,
+ "predict_seconds_per_1k_product": 1.431,
+ "pool_seconds": null,
+ "peak_gpu_gb": 1.099,
+ "peak_rss_gb": 2.73
+}
+
+===== .venv/bin/python src/fgh/hotel_arms.py --arm g4c_decision_kai =====
+Fetching 36 files:   0%|          | 0/36 [00:00<?, ?it/s]Fetching 36 files: 100%|██████████| 36/36 [00:00<00:00, 2527.66it/s]
+Loading weights:   0%|          | 0/310 [00:00<?, ?it/s]Loading weights:  23%|██▎       | 70/310 [00:00<00:00, 699.05it/s]Loading weights:  46%|████▌     | 143/310 [00:00<00:00, 712.86it/s]Loading weights:  71%|███████   | 220/310 [00:00<00:00, 738.07it/s]Loading weights:  95%|█████████▍| 294/310 [00:00<00:00, 727.56it/s]Loading weights: 100%|██████████| 310/310 [00:00<00:00, 755.79it/s]
+[transformers] You are using a model of type `decision2` to instantiate a model of type ``. This may be expected if you are loading a checkpoint that shares a subset of the architecture (e.g., loading a `sam2_video` checkpoint into `Sam2Model`), but is otherwise not supported and can yield errors. Please verify that the checkpoint is compatible with the model you are instantiating.
+[transformers] The tokenizer you are loading from '/workspace/.hf_home/hub/models--vllm-sr--Decision-2.0-Kai-0.6B/.decision2-view-m0p4hs3g' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+{
+ "arm": "g4c_decision_kai",
+ "product": {
+  "accuracy": 0.9457,
+  "macro_f1": 0.8961,
+  "neg_f1": 0.8243,
+  "neg_precision": 0.7821,
+  "neg_recall": 0.8714,
+  "macro_f1_contrast": 0.8628,
+  "only_arm_wrong": 46,
+  "only_ettin_wrong": 12,
+  "mcnemar_p": 0.0
+ },
+ "hotel": {
+  "accuracy": 0.975,
+  "macro_f1": 0.9399,
+  "neg_f1": 0.8941,
+  "neg_precision": 0.8307,
+  "neg_recall": 0.9679,
+  "predicted_negative_share": 0.127,
+  "true_negative_share": 0.109,
+  "vs_g1": {
+   "only_arm_wrong": 35,
+   "only_ref_wrong": 18,
+   "mcnemar_p": 0.027
+  }
+ },
+ "stress3": {
+  "n": 300,
+  "share_predicted_positive": 0.4867,
+  "mean_p_pos": 0.5066
+ },
+ "drop_macro_f1": -0.0438,
+ "drop_accuracy": -0.0293,
+ "params": 597103104,
+ "model_load_seconds": 6.15,
+ "predict_seconds_per_1k_hotel": 27.757,
+ "predict_seconds_per_1k_product": 28.565,
+ "pool_seconds": null,
+ "peak_gpu_gb": 1.55,
+ "peak_rss_gb": 3.77
+}
+
+ALL STEPS OK (arms)

@@ -1,0 +1,7 @@
+{
+  "family": "pretrained contextual, frozen",
+  "model": "siebert/sentiment-roberta-large-english",
+  "dtype": "torch.bfloat16",
+  "use": "as-is, no training on our data",
+  "labelled_training_data": "15 sentiment datasets"
+}

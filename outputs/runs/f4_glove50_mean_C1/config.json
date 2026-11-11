@@ -1,0 +1,7 @@
+{
+  "family": "static word vectors",
+  "vectors": "glove.6B.50d",
+  "pooling": "mean",
+  "tokenizer": "[a-z0-9']+ on lower-cased text",
+  "classifier": "LogisticRegression(max_iter=2000)"
+}

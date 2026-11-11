@@ -1,0 +1,12 @@
+ok lets train add the 1. calibrations 2. pseudo labels for relvant arms 
+For per-class recall, update: lets add it in after all. But dont need another column in the table, just a simple presicion recall chart for any points to support anytime we want to make a claim regarding it  
+
+okay lets not edit (g) after this then. Some notes for section g of the report:
+1. make sure a quick sentence or two were made in reference to the simmilar preprocessing methodology 
+2. make the format simmilar to what we did for the final g, you may consult /Users/rikalalo/Desktop/IE4483/IE4483_Report_09112026_1700.docx for the cannonical (f) reference 
+i.e. main data table (only relavant arms like we did in f, not nescesary need the whole run data warehouse) -> hafiz's theoretical claims + narrative, ammended (or correcetd, highlight if corrected, but try to fit into his narrative ) by our runs -> Additional Methodology Remarks -> Conclusion answering the section 
+3. Try to keep hafiz's words also, just try to ammend it with data to back it up, change it only if its wrong or unsupported
+4. make sure any figures are backed up by the main table results that we choose to show in the start of the section
+5. Keep it short and more digestible if possible, try ≤4 pages, ideally 3  
+6. For the calibrations for {the Ettin-based arms (g1, g1t, g5, g5b, g6, g7a); SiEBERT; TF-IDF; SetFit}, lets reference 0-2 sentence about it in each paragraph reporting on the arms that use it
+6. For the pseudo labels for relvant arms, lets reference 0-2 sentence about it in each paragraph reporting on the arms that use it

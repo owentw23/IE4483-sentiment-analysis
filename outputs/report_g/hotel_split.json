@@ -1,0 +1,112 @@
+{
+  "source": "huggingface.co/datasets/jniimi/tripadvisor-review-rating (data/train-00000-of-00001.parquet)",
+  "seed": 42,
+  "raw_rows": 201295,
+  "hotel_id_unique_per_row": true,
+  "filter_steps": [
+    {
+      "step": "english (fastText tag __label__en)",
+      "rows": 201295
+    },
+    {
+      "step": "non-empty text",
+      "rows": 201295
+    },
+    {
+      "step": "exact duplicate texts removed",
+      "rows": 201255
+    },
+    {
+      "step": "overall rating in 1-5",
+      "rows": 201255
+    }
+  ],
+  "rows_without_user_id": 0,
+  "corpus_stars": {
+    "1": 8043,
+    "2": 10786,
+    "3": 28211,
+    "4": 67716,
+    "5": 86499
+  },
+  "corpus_negative_share_excl_3star": 0.1088,
+  "product_train_negative_share": 0.146,
+  "user_overlap_between_parts": {
+    "eval-stress3": 0,
+    "eval-pool": 0,
+    "stress3-pool": 0
+  },
+  "users": {
+    "total": 167012,
+    "eval": 16701,
+    "stress3": 16701,
+    "pool": 133610
+  },
+  "parts": {
+    "eval": {
+      "rows": 2000,
+      "stars": {
+        "1": 95,
+        "2": 123,
+        "4": 754,
+        "5": 1028
+      },
+      "negative_share_excl_3star": 0.109,
+      "words_median": 112.0,
+      "words_p95": 381.3499999999997
+    },
+    "stress3": {
+      "rows": 300,
+      "stars": {
+        "3": 300
+      },
+      "negative_share_excl_3star": null,
+      "words_median": 136.0,
+      "words_p95": 424.0
+    },
+    "pool": {
+      "rows": 20000,
+      "stars": {
+        "1": 815,
+        "2": 1069,
+        "3": 2804,
+        "4": 6697,
+        "5": 8615
+      },
+      "negative_share_excl_3star": 0.1096,
+      "words_median": 115.0,
+      "words_p95": 376.0
+    }
+  },
+  "fewshot": {
+    "per_class": 25,
+    "nested_sets": [
+      8,
+      16,
+      25
+    ],
+    "stars": {
+      "1": 6,
+      "2": 19,
+      "4": 5,
+      "5": 20
+    }
+  },
+  "files": {
+    "eval": [
+      "data/external/hotel/eval_text.csv",
+      "data/external/hotel/eval_key.csv"
+    ],
+    "stress3": [
+      "data/external/hotel/stress3_text.csv",
+      "data/external/hotel/stress3_key.csv"
+    ],
+    "pool": [
+      "data/external/hotel/pool_text.csv",
+      "data/external/hotel/pool_key.csv"
+    ],
+    "fewshot": [
+      "data/external/hotel/fewshot.csv"
+    ]
+  }
+}

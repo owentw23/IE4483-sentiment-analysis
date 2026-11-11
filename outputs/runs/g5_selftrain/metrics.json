@@ -1,0 +1,47 @@
+{
+  "product": {
+    "accuracy": 0.9645,
+    "macro_f1": 0.9307,
+    "neg_f1": 0.8822,
+    "neg_precision": 0.8565,
+    "neg_recall": 0.9095,
+    "macro_f1_contrast": 0.9022,
+    "only_arm_wrong": 17,
+    "only_ettin_wrong": 10,
+    "mcnemar_p": 0.2478
+  },
+  "hotel": {
+    "accuracy": 0.985,
+    "macro_f1": 0.9618,
+    "neg_f1": 0.9321,
+    "neg_precision": 0.9196,
+    "neg_recall": 0.945,
+    "predicted_negative_share": 0.112,
+    "true_negative_share": 0.109,
+    "vs_g1": {
+      "only_arm_wrong": 6,
+      "only_ref_wrong": 9,
+      "mcnemar_p": 0.6072
+    }
+  },
+  "stress3": {
+    "n": 300,
+    "share_predicted_positive": 0.63,
+    "mean_p_pos": 0.6302
+  },
+  "drop_macro_f1": -0.0311,
+  "drop_accuracy": -0.0205,
+  "params": 395833346,
+  "model_load_seconds": 0.99,
+  "predict_seconds_per_1k_hotel": 3.56,
+  "predict_seconds_per_1k_product": 1.995,
+  "pool_seconds": null,
+  "peak_gpu_gb": 1.33,
+  "peak_rss_gb": 3.0,
+  "hardware": {
+    "cpu": "AMD EPYC 7543 32-Core Processor",
+    "gpu": "NVIDIA GeForce RTX 3090",
+    "os": "Linux-6.8.0-138-generic-x86_64-with-glibc2.39",
+    "python": "3.12.15"
+  }
+}

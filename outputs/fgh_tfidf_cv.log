@@ -1,0 +1,76 @@
+===== f1_bow_binary_1gram
+/workspace/IE4483-sentiment-analysis/src/fgh/common.py:109: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
+  mask = va[TEXT].str.contains(CONTRAST).values
+ "macro_f1": 0.8091,
+ "chosen_C": 100,
+ "cv_macro_f1_best": 0.7972,
+===== f2_tfidf_1gram
+/workspace/IE4483-sentiment-analysis/src/fgh/common.py:109: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
+  mask = va[TEXT].str.contains(CONTRAST).values
+/workspace/IE4483-sentiment-analysis/.venv/lib/python3.12/site-packages/joblib/externals/loky/process_executor.py:787: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/workspace/IE4483-sentiment-analysis/src/fgh/common.py:109: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
+  mask = va[TEXT].str.contains(CONTRAST).values
+ "macro_f1": 0.8156,
+ "chosen_C": 100,
+ "cv_macro_f1_best": 0.7954,
+ "macro_f1": 0.8162,
+ "chosen_C": 10,
+ "cv_macro_f1_best": 0.8194,
+===== f2_tfidf_1gram_balanced
+/workspace/IE4483-sentiment-analysis/src/fgh/common.py:109: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
+  mask = va[TEXT].str.contains(CONTRAST).values
+ "macro_f1": 0.8162,
+ "chosen_C": 10,
+ "cv_macro_f1_best": 0.8194,
+===== f2_tfidf_12gram
+/workspace/IE4483-sentiment-analysis/src/fgh/common.py:109: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
+  mask = va[TEXT].str.contains(CONTRAST).values
+/workspace/IE4483-sentiment-analysis/.venv/lib/python3.12/site-packages/joblib/externals/loky/process_executor.py:787: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/workspace/IE4483-sentiment-analysis/src/fgh/common.py:109: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
+  mask = va[TEXT].str.contains(CONTRAST).values
+ "macro_f1": 0.8141,
+ "chosen_C": 100,
+ "cv_macro_f1_best": 0.7941,
+ "macro_f1": 0.8376,
+ "chosen_C": 10,
+ "cv_macro_f1_best": 0.8326,
+===== f2_tfidf_12gram_balanced
+/workspace/IE4483-sentiment-analysis/src/fgh/common.py:109: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
+  mask = va[TEXT].str.contains(CONTRAST).values
+ "macro_f1": 0.8376,
+ "chosen_C": 10,
+ "cv_macro_f1_best": 0.8326,
+===== f3_tfidf_12gram_balanced_max500
+/workspace/IE4483-sentiment-analysis/src/fgh/common.py:109: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
+  mask = va[TEXT].str.contains(CONTRAST).values
+/workspace/IE4483-sentiment-analysis/.venv/lib/python3.12/site-packages/joblib/externals/loky/process_executor.py:787: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/workspace/IE4483-sentiment-analysis/src/fgh/common.py:109: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
+  mask = va[TEXT].str.contains(CONTRAST).values
+ "macro_f1": 0.7426,
+ "chosen_C": 3,
+ "cv_macro_f1_best": 0.7504,
+ "macro_f1": 0.8273,
+ "chosen_C": 30,
+ "cv_macro_f1_best": 0.8234,
+===== f3_tfidf_12gram_balanced_max2000
+/workspace/IE4483-sentiment-analysis/src/fgh/common.py:109: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
+  mask = va[TEXT].str.contains(CONTRAST).values
+ "macro_f1": 0.8121,
+ "chosen_C": 10,
+ "cv_macro_f1_best": 0.8074,
+===== f3_tfidf_12gram_balanced_max5000
+/workspace/IE4483-sentiment-analysis/src/fgh/common.py:109: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
+  mask = va[TEXT].str.contains(CONTRAST).values
+ "macro_f1": 0.8273,
+ "chosen_C": 30,
+ "cv_macro_f1_best": 0.8234,
+===== f3_tfidf_12gram_balanced_max10000
+/workspace/IE4483-sentiment-analysis/src/fgh/common.py:109: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
+  mask = va[TEXT].str.contains(CONTRAST).values
+ "macro_f1": 0.8465,
+ "chosen_C": 30,
+ "cv_macro_f1_best": 0.834,
+REPORT REBUILT

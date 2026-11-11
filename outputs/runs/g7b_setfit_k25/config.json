@@ -1,0 +1,16 @@
+{
+  "method": "SetFit",
+  "hotel_labels_used": 50,
+  "k_per_class": 25,
+  "body": "Alibaba-NLP/gte-modernbert-base",
+  "num_iterations": 20,
+  "num_epochs": 1,
+  "batch_size": 16,
+  "body_learning_rate": 2e-05,
+  "head": "LogisticRegression (setfit default)",
+  "max_length": 512,
+  "seed": 42,
+  "product_reviews_used": 0,
+  "precision": "fp32",
+  "gradient_checkpointing": true
+}

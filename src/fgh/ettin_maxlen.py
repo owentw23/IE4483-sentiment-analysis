@@ -1,6 +1,7 @@
 """(f9) The submitted model (ettin400m_final) predicting validation at max length 128, 256 and 512 tokens.
 
-  python src/fgh/ettin_maxlen.py
+  python src/fgh/ettin_maxlen.py                                                    # submitted model (f9_ettin_final_len*)
+  python src/fgh/ettin_maxlen.py --run ettin400m_final_3090 --arm-prefix f9_ettin3090   # its 3090 retrain (report Table 12)
 Needs the real weights (Git LFS): `git lfs install && git lfs pull`. Inference only: shows how much accuracy
 and time the truncation length costs. 256 was the original setting in PreProcessingPipeline/preprocess.py.
 Token-length coverage is measured with the model's own tokenizer.
@@ -16,7 +17,7 @@ from transformers import AutoModelForSequenceClassification, AutoTokenizer
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from common import ROOT, TEXT, Timer, peak_rss_gb, save_arm, splits  # noqa: E402
 
-MODEL_DIR = ROOT / "outputs" / "runs" / "ettin400m_final" / "model"
+RUNS_DIR = ROOT / "outputs" / "runs"
 
 
 @torch.no_grad()
@@ -32,7 +33,10 @@ def predict(tok, model, texts, max_length, device, bs=32):
 def main():
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     p.add_argument("--lengths", type=int, nargs="+", default=[128, 256, 512])
+    p.add_argument("--run", default="ettin400m_final", help="src/train.py run whose saved model/ is re-scored")
+    p.add_argument("--arm-prefix", default="f9_ettin_final", help="arm names are <prefix>_len<L>")
     a = p.parse_args()
+    MODEL_DIR = RUNS_DIR / a.run / "model"
     weights = MODEL_DIR / "model.safetensors"
     if not weights.exists() or weights.stat().st_size < 10_000_000:
         sys.exit(f"{weights} is missing or still a Git LFS pointer; run `git lfs install && git lfs pull` first")
@@ -50,7 +54,7 @@ def main():
             torch.cuda.reset_peak_memory_stats()
         with t("predict"):
             p_pos = predict(tok, model, va[TEXT].tolist(), L, device)
-        save_arm(f"f9_ettin_final_len{L}", va, p_pos,
+        save_arm(f"{a.arm_prefix}_len{L}", va, p_pos,
                  config={"family": "fine-tuned contextual (inference only)", "model": str(MODEL_DIR),
                          "max_length": L, "dtype": str(dtype)},
                  cost={"feature_dim": 1024, "trainable_params": n_params, "fit_seconds": None,

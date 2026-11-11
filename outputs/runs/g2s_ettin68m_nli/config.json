@@ -1,0 +1,20 @@
+{
+  "method": "nli",
+  "model": "AdamCodd/ettin-nli-classifier",
+  "labelled_data_seen": "SNLI + MultiNLI only (no sentiment labels)",
+  "hotel_labels_used": 0,
+  "input": "text",
+  "max_length": 512,
+  "dtype": "torch.bfloat16",
+  "decision_rule": "P(pos) >= 0.5",
+  "id2label": {
+    "0": "entailment",
+    "1": "neutral",
+    "2": "contradiction"
+  },
+  "entailment_index": 0,
+  "hypotheses": [
+    "This review is positive.",
+    "This review is negative."
+  ]
+}

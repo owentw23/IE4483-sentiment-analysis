@@ -6,11 +6,16 @@ Also re-creates the supporting files for the draft's Table 10 TF-IDF rows (0.911
   * TfidfVectorizer(ngram_range=(1, 2)) (the "1–2 gram" label used in PROGRESS.md).
 Whatever these runs give is what the report uses.
 
-  python src/fgh/tfidf_arms.py --list          # arm names, one per line
-  python src/fgh/tfidf_arms.py --arm f3        # every arm whose name starts with "f3"
-  python src/fgh/tfidf_arms.py                 # all arms (peak memory then accumulates across arms)
+  python src/fgh/tfidf_arms.py --list                  # arm names, one per line
+  python src/fgh/tfidf_arms.py --arm f2_tfidf_1gram    # exactly that arm
+  python src/fgh/tfidf_arms.py --arm f3                # every arm whose name starts with "f3"
+  python src/fgh/tfidf_arms.py                         # all arms (peak memory then accumulates across arms)
 
-Vectoriser and classifier are fitted on the training split only. LogisticRegression: lbfgs, C = 1.0.
+Vectoriser and classifier are fitted on the training split only. LogisticRegression (lbfgs); its C is chosen per
+arm by 5-fold stratified cross-validation on the training split only (macro-F1, the project's selection metric),
+with the vectoriser refitted inside every fold so no held-out text leaks into the vocabulary or IDF weights
+(common.select_c). The chosen pipeline is then refitted on all 5,748 training reviews and scored once on validation.
+Grid extended to 3000 on 2026-11-08 because three unweighted arms chose C = 100, the old upper edge.
 """
 import argparse
 import pickle
@@ -18,10 +23,11 @@ import sys
 from pathlib import Path
 
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
-from sklearn.linear_model import LogisticRegression
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from common import LABEL, TEXT, Timer, peak_rss_gb, save_arm, splits  # noqa: E402
+from common import LABEL, TEXT, Timer, c_record, peak_rss_gb, save_arm, select_c, splits  # noqa: E402
+
+C_GRID = (0.01, 0.1, 0.3, 1, 3, 10, 30, 100, 300, 1000, 3000)
 
 
 def arms():
@@ -40,28 +46,35 @@ def arms():
 
 def run(name, make_vec, class_weight, tr, va):
     t = Timer()
-    with t("fit"):
-        vec = make_vec()
-        x_tr = vec.fit_transform(tr[TEXT])
-        clf = LogisticRegression(max_iter=2000, class_weight=class_weight).fit(x_tr, tr[LABEL].astype(int))
+    with t("search"):  # 5-fold CV over the C grid, then refit of the best pipeline on the whole training split
+        search = select_c([("vec", make_vec())], tr[TEXT], tr[LABEL].astype(int), C_GRID, class_weight=class_weight)
+    best = search.best_estimator_
     with t("predict"):
-        p_pos = clf.predict_proba(vec.transform(va[TEXT]))[:, 1]
+        p_pos = best.predict_proba(va[TEXT])[:, 1]
+    vec, clf = best.named_steps["vec"], best.named_steps["clf"]
     dim = len(vec.vocabulary_)
+    c_config, c_extra = c_record(search, C_GRID)
     save_arm(name, va, p_pos,
              config={"family": "sparse lexical", "vectorizer": repr(vec), "classifier": repr(clf),
-                     "class_weight": class_weight, "fitted_on": "training split only"},
-             cost={"feature_dim": dim, "trainable_params": dim + 1, "fit_seconds": t.t["fit"],
+                     "class_weight": class_weight, "fitted_on": "training split only", **c_config},
+             cost={"feature_dim": dim, "trainable_params": dim + 1,
+                   "fit_seconds": round(search.refit_time_, 3),  # training the final model once (vectoriser + LR)
+                   "c_search_seconds": t.t["search"],             # whole CV search incl. refit (3 parallel workers)
                    "predict_seconds_per_1k": round(t.t["predict"] / len(va) * 1000, 3),
                    "peak_rss_gb": peak_rss_gb(), "peak_gpu_gb": None,
-                   "model_size_mb": round(len(pickle.dumps((vec, clf))) / 1e6, 2)})
+                   "model_size_mb": round(len(pickle.dumps((vec, clf))) / 1e6, 2)},
+             extra=c_extra)
 
 
 def main():
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    p.add_argument("--arm", default="", help="run arms whose name starts with this (default: all)")
+    p.add_argument("--arm", default="", help="an exact arm name, else every arm starting with this (default: all)")
     p.add_argument("--list", action="store_true")
     a = p.parse_args()
-    chosen = {k: v for k, v in arms().items() if k.startswith(a.arm)}
+    all_arms = arms()
+    # exact name first: "f2_tfidf_1gram" must not also run "f2_tfidf_1gram_balanced" in the same process
+    chosen = ({a.arm: all_arms[a.arm]} if a.arm in all_arms
+              else {k: v for k, v in all_arms.items() if k.startswith(a.arm)})
     if a.list:
         print("\n".join(chosen))
         return

@@ -1,0 +1,6 @@
+{
+  "family": "fine-tuned contextual (inference only)",
+  "model": "/workspace/IE4483-sentiment-analysis/outputs/runs/ettin400m_final/model",
+  "max_length": 512,
+  "dtype": "torch.bfloat16"
+}

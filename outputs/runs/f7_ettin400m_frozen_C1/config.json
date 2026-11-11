@@ -1,0 +1,10 @@
+{
+  "family": "pretrained contextual, frozen",
+  "model": "jhu-clsp/ettin-encoder-400m",
+  "dtype": "torch.bfloat16",
+  "pooling": "mean",
+  "normalise": "L2",
+  "max_length": 512,
+  "classifier": "LogisticRegression(max_iter=3000)",
+  "fitted_on": "training split only"
+}

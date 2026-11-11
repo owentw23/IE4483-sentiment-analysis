@@ -1,0 +1,129 @@
+Loading weights:   0%|          | 0/174 [00:00<?, ?it/s]Loading weights:   3%|▎         | 6/174 [00:00<00:02, 57.74it/s]Loading weights:  24%|██▎       | 41/174 [00:00<00:00, 226.89it/s]Loading weights:  37%|███▋      | 64/174 [00:00<00:00, 228.29it/s]Loading weights:  52%|█████▏    | 91/174 [00:00<00:00, 243.34it/s]Loading weights:  67%|██████▋   | 116/174 [00:00<00:00, 243.21it/s]Loading weights:  82%|████████▏ | 142/174 [00:00<00:00, 247.18it/s]Loading weights:  96%|█████████▌| 167/174 [00:00<00:00, 242.89it/s]Loading weights: 100%|██████████| 174/174 [00:00<00:00, 241.23it/s]
+{
+ "arm": "f9_ettin3090_len128",
+ "accuracy": 0.9687,
+ "macro_f1": 0.9386,
+ "neg_f1": 0.8956,
+ "neg_precision": 0.8733,
+ "neg_recall": 0.919,
+ "macro_f1_contrast": 0.9162,
+ "n_contrast": 552,
+ "only_arm_wrong": 14,
+ "only_ettin_wrong": 13,
+ "mcnemar_p": 1.0,
+ "feature_dim": 1024,
+ "trainable_params": 395833346,
+ "fit_seconds": null,
+ "predict_seconds_per_1k": 2.596,
+ "peak_rss_gb": 2.94,
+ "peak_gpu_gb": 0.931,
+ "model_size_mb": 1583.3,
+ "train_reviews_within_length": 0.8843,
+ "val_reviews_within_length": 0.8852
+}
+{
+ "arm": "f9_ettin3090_len256",
+ "accuracy": 0.9694,
+ "macro_f1": 0.9398,
+ "neg_f1": 0.8977,
+ "neg_precision": 0.8773,
+ "neg_recall": 0.919,
+ "macro_f1_contrast": 0.9215,
+ "n_contrast": 552,
+ "only_arm_wrong": 12,
+ "only_ettin_wrong": 12,
+ "mcnemar_p": 1.0,
+ "feature_dim": 1024,
+ "trainable_params": 395833346,
+ "fit_seconds": null,
+ "predict_seconds_per_1k": 3.845,
+ "peak_rss_gb": 2.94,
+ "peak_gpu_gb": 1.063,
+ "model_size_mb": 1583.3,
+ "train_reviews_within_length": 0.9784,
+ "val_reviews_within_length": 0.9784
+}
+{
+ "arm": "f9_ettin3090_len512",
+ "accuracy": 0.9694,
+ "macro_f1": 0.9398,
+ "neg_f1": 0.8977,
+ "neg_precision": 0.8773,
+ "neg_recall": 0.919,
+ "macro_f1_contrast": 0.9215,
+ "n_contrast": 552,
+ "only_arm_wrong": 12,
+ "only_ettin_wrong": 12,
+ "mcnemar_p": 1.0,
+ "feature_dim": 1024,
+ "trainable_params": 395833346,
+ "fit_seconds": null,
+ "predict_seconds_per_1k": 4.738,
+ "peak_rss_gb": 2.94,
+ "peak_gpu_gb": 1.33,
+ "model_size_mb": 1583.3,
+ "train_reviews_within_length": 0.9962,
+ "val_reviews_within_length": 0.9986
+}
+                               arm                               run  n_contrast  n_contrast_neg  n_no_contrast  n_no_contrast_neg  macro_f1  macro_f1_contrast  macro_f1_no_contrast  wrong_contrast  wrong_no_contrast  mcnemar_p  contrast_mcnemar_p
+                   f4_glove50_mean                   f4_glove50_mean         552             102            885                108    0.6325             0.6042                0.6535              92                102     0.0000              0.0000
+                  f4_glove100_mean                  f4_glove100_mean         552             102            885                108    0.7169             0.6547                0.7638              89                 79     0.0000              0.0000
+   f3_tfidf_12gram_balanced_max500   f3_tfidf_12gram_balanced_max500         552             102            885                108    0.7426             0.7013                0.7722             126                108     0.0000              0.0000
+                  f4_glove300_mean                  f4_glove300_mean         552             102            885                108    0.7648             0.7022                0.8155              84                 62     0.0000              0.0000
+               f1_bow_binary_1gram               f1_bow_binary_1gram         552             102            885                108    0.8091             0.7434                0.8660              86                 49     0.0000              0.0000
+                    f2_tfidf_1gram                    f2_tfidf_1gram         552             102            885                108    0.8053             0.7521                0.8491              77                 54     0.0000              0.0000
+                f5b_bilstm_scratch                f5b_bilstm_scratch         552             102            885                108    0.8071             0.7533                0.8515              83                 57     0.0000              0.0000
+                   f2_tfidf_12gram                   f2_tfidf_12gram         552             102            885                108    0.8149             0.7589                0.8598              68                 48     0.0000              0.0000
+           f2_tfidf_1gram_balanced           f2_tfidf_1gram_balanced         552             102            885                108    0.8162             0.7640                0.8590              82                 56     0.0000              0.0000
+  f3_tfidf_12gram_balanced_max2000  f3_tfidf_12gram_balanced_max2000         552             102            885                108    0.8121             0.7708                0.8454              84                 63     0.0000              0.0000
+          f2_tfidf_12gram_balanced          f2_tfidf_12gram_balanced         552             102            885                108    0.8376             0.7771                0.8875              71                 42     0.0000              0.0000
+         f5_bilstm_glove300_frozen         f5_bilstm_glove300_frozen         552             102            885                108    0.8334             0.7830                0.8741              73                 50     0.0000              0.0000
+  f3_tfidf_12gram_balanced_max5000  f3_tfidf_12gram_balanced_max5000         552             102            885                108    0.8273             0.7846                0.8620              73                 54     0.0000              0.0000
+ f3_tfidf_12gram_balanced_max10000 f3_tfidf_12gram_balanced_max10000         552             102            885                108    0.8465             0.7978                0.8875              67                 42     0.0000              0.0000
+         f6_qwen3_embedding_frozen         f6_qwen3_embedding_frozen         552             102            885                108    0.9143             0.8892                0.9352              36                 24     0.0195              0.1221
+               f7_ettin400m_frozen               f7_ettin400m_frozen         552             102            885                108    0.9111             0.8927                0.9261              35                 27     0.0247              0.2005
+                       f10_siebert                       f10_siebert         552             102            885                108    0.9207             0.8953                0.9419              37                 23     0.0195              0.0525
+           f11_ettin150m_finetuned                  ettin150m_lr2e-5         552             102            885                108    0.9216             0.9012                0.9386              33                 23     0.0652              0.2863
+             f9_ettin_final_len128             f9_ettin_final_len128         552             102            885                108    0.9356             0.9085                0.9585              31                 16     0.7011              0.4807
+               f9_ettin3090_len128               f9_ettin3090_len128         552             102            885                108    0.9386             0.9162                0.9578              29                 16     1.0000              0.5000
+             f9_ettin_final_len512             f9_ettin_final_len512         552             102            885                108    0.9381             0.9164                0.9561              28                 17     1.0000              1.0000
+             f9_ettin_final_len256             f9_ettin_final_len256         552             102            885                108    0.9381             0.9164                0.9561              28                 17     1.0000              1.0000
+f8_ettin400m_finetuned (submitted)                   ettin400m_final         552             102            885                108    0.9396             0.9197                0.9561              27                 17     1.0000              1.0000
+               f9_ettin3090_len256               f9_ettin3090_len256         552             102            885                108    0.9398             0.9215                0.9554              27                 17     1.0000              1.0000
+               f9_ettin3090_len512               f9_ettin3090_len512         552             102            885                108    0.9398             0.9215                0.9554              27                 17     1.0000              1.0000
+      f8b_ettin400m_finetuned_3090              ettin400m_final_3090         552             102            885                108    0.9398             0.9215                0.9554              27                 17        NaN                 NaN
+                    run_a                run_b    n  macro_f1_a  macro_f1_b  predictions_changed  only_a_wrong  only_b_wrong  mcnemar_p
+f5_bilstm_glove300_frozen   f5b_bilstm_scratch 1437      0.8334      0.8071                  137            60            77     0.1714
+      f7_ettin400m_frozen ettin400m_final_3090 1437      0.9111      0.9398                   58            38            20     0.0247
+         ettin150m_lr2e-5 ettin400m_final_3090 1437      0.9216      0.9398                   36            24            12     0.0652
+      f9_ettin3090_len256  f9_ettin3090_len512 1437      0.9398      0.9398                    0             0             0     1.0000
+      f9_ettin3090_len128  f9_ettin3090_len512 1437      0.9386      0.9398                    3             2             1     1.0000
+     ettin400m_final_3090      ettin400m_final 1437      0.9398      0.9396                   24            12            12     1.0000
+                               arm  accuracy  macro_f1  neg_f1  macro_f1_contrast  chosen_C  feature_dim  trainable_params  fit_seconds  c_search_seconds  predict_seconds_per_1k  peak_rss_gb  peak_gpu_gb  model_size_mb  disk_mb  mcnemar_p                            gpu                             cpu    mcnemar_reference
+                   f4_glove50_mean    0.8650    0.6325  0.3401             0.6042     3.000         50.0              51.0        0.212             2.118                   0.037         0.16          NaN         0.0004   171.35     0.0000        NVIDIA GeForce RTX 3090 AMD EPYC 7543 32-Core Processor ettin400m_final_3090
+                  f4_glove100_mean    0.8831    0.7169  0.5000             0.6547     3.000        100.0             101.0        0.217             2.408                   0.042         0.17          NaN         0.0008   347.12     0.0000        NVIDIA GeForce RTX 3090 AMD EPYC 7543 32-Core Processor ettin400m_final_3090
+   f3_tfidf_12gram_balanced_max500    0.8372    0.7426  0.5866             0.7013     3.000        500.0             501.0        0.478            10.625                   0.040         0.20          NaN         0.0200     0.02     0.0000        NVIDIA GeForce RTX 3090 AMD EPYC 7543 32-Core Processor ettin400m_final_3090
+                  f4_glove300_mean    0.8984    0.7648  0.5876             0.7022     0.300        300.0             301.0        0.315             6.450                   0.046         0.20          NaN         0.0024  1037.97     0.0000        NVIDIA GeForce RTX 3090 AMD EPYC 7543 32-Core Processor ettin400m_final_3090
+                    f2_tfidf_1gram    0.9088    0.8053  0.6632             0.7521  1000.000      12787.0           12788.0        0.279            10.251                   0.025         0.16          NaN         0.3700     0.37     0.0000        NVIDIA GeForce RTX 3090 AMD EPYC 7543 32-Core Processor ettin400m_final_3090
+                f5b_bilstm_scratch    0.9026    0.8071  0.6714             0.7533       NaN        300.0         4402934.0       33.526               NaN                   0.070         1.34        0.240        17.6000    17.60     0.0000        NVIDIA GeForce RTX 3090 AMD EPYC 7543 32-Core Processor ettin400m_final_3090
+               f1_bow_binary_1gram    0.9061    0.8091  0.6731             0.7434   100.000      12787.0           12788.0        0.282            10.014                   0.022         0.17          NaN         0.2700     0.27     0.0000        NVIDIA GeForce RTX 3090 AMD EPYC 7543 32-Core Processor ettin400m_final_3090
+  f3_tfidf_12gram_balanced_max2000    0.8977    0.8121  0.6852             0.7708    10.000       2000.0            2001.0        0.586            10.895                   0.045         0.20          NaN         0.0900     0.09     0.0000        NVIDIA GeForce RTX 3090 AMD EPYC 7543 32-Core Processor ettin400m_final_3090
+                   f2_tfidf_12gram    0.9193    0.8149  0.6760             0.7589  1000.000     127682.0          127683.0        1.000            33.090                   0.093         0.23          NaN         4.2700     4.27     0.0000        NVIDIA GeForce RTX 3090 AMD EPYC 7543 32-Core Processor ettin400m_final_3090
+           f2_tfidf_1gram_balanced    0.9040    0.8162  0.6892             0.7640    10.000      12787.0           12788.0        0.191             8.524                   0.022         0.17          NaN         0.3700     0.37     0.0000        NVIDIA GeForce RTX 3090 AMD EPYC 7543 32-Core Processor ettin400m_final_3090
+  f3_tfidf_12gram_balanced_max5000    0.9116    0.8273  0.7067             0.7846    30.000       5000.0            5001.0        0.486            11.094                   0.042         0.19          NaN         0.2300     0.23     0.0000        NVIDIA GeForce RTX 3090 AMD EPYC 7543 32-Core Processor ettin400m_final_3090
+         f5_bilstm_glove300_frozen    0.9144    0.8334  0.7172             0.7830       NaN        300.0          440834.0       28.462               NaN                   0.065         1.34        0.191        17.6000    17.60     0.0000        NVIDIA GeForce RTX 3090 AMD EPYC 7543 32-Core Processor ettin400m_final_3090
+          f2_tfidf_12gram_balanced    0.9214    0.8376  0.7210             0.7771    10.000     127682.0          127683.0        0.995            25.643                   0.094         0.23          NaN         4.2700     4.27     0.0000        NVIDIA GeForce RTX 3090 AMD EPYC 7543 32-Core Processor ettin400m_final_3090
+ f3_tfidf_12gram_balanced_max10000    0.9241    0.8465  0.7373             0.7978    30.000      10000.0           10001.0        0.764            11.667                   0.076         0.20          NaN         0.4600     0.46     0.0000        NVIDIA GeForce RTX 3090 AMD EPYC 7543 32-Core Processor ettin400m_final_3090
+               f7_ettin400m_frozen    0.9569    0.9111  0.8473             0.8927     0.010       1024.0            1025.0       30.451             9.563                   4.796         2.96        1.394       789.6000  1583.54     0.0247        NVIDIA GeForce RTX 3090 AMD EPYC 7543 32-Core Processor ettin400m_final_3090
+         f6_qwen3_embedding_frozen    0.9582    0.9143  0.8529             0.8892     0.003       1024.0            1025.0       46.041             8.113                   7.138         2.02        3.591      1191.6000  1191.59     0.0195        NVIDIA GeForce RTX 3090 AMD EPYC 7543 32-Core Processor ettin400m_final_3090
+                       f10_siebert    0.9582    0.9207  0.8661             0.8953       NaN          NaN               0.0        0.000               NaN                   3.473         2.68        1.099       710.7000  1421.50     0.0195        NVIDIA GeForce RTX 3090 AMD EPYC 7543 32-Core Processor ettin400m_final_3090
+           f11_ettin150m_finetuned    0.9610    0.9216  0.8660             0.9012       NaN        768.0       149600000.0      238.800               NaN                   2.366          NaN        2.420       598.4000   598.40     0.0652 RTX 3090 24 GB (rented server)                             NaN ettin400m_final_3090
+             f9_ettin_final_len128    0.9673    0.9356  0.8904             0.9085       NaN       1024.0       395833346.0          NaN               NaN                   2.622         2.93        0.931      1583.3000  1583.35     0.7011        NVIDIA GeForce RTX 3090 AMD EPYC 7543 32-Core Processor ettin400m_final_3090
+             f9_ettin_final_len256    0.9687    0.9381  0.8946             0.9164       NaN       1024.0       395833346.0          NaN               NaN                   3.917         2.93        1.063      1583.3000  1583.35     1.0000        NVIDIA GeForce RTX 3090 AMD EPYC 7543 32-Core Processor ettin400m_final_3090
+             f9_ettin_final_len512    0.9687    0.9381  0.8946             0.9164       NaN       1024.0       395833346.0          NaN               NaN                   4.818         2.93        1.330      1583.3000  1583.35     1.0000        NVIDIA GeForce RTX 3090 AMD EPYC 7543 32-Core Processor ettin400m_final_3090
+               f9_ettin3090_len128    0.9687    0.9386  0.8956             0.9162       NaN       1024.0       395833346.0          NaN               NaN                   2.596         2.94        0.931      1583.3000  1583.35     1.0000        NVIDIA GeForce RTX 3090 AMD EPYC 7543 32-Core Processor ettin400m_final_3090
+f8_ettin400m_finetuned (submitted)    0.9694    0.9396  0.8972             0.9197       NaN       1024.0       395800000.0      778.200               NaN                  14.196          NaN        5.630      1583.2000  1583.35     1.0000           RTX 4060 Laptop 8 GB                             NaN ettin400m_final_3090
+               f9_ettin3090_len256    0.9694    0.9398  0.8977             0.9215       NaN       1024.0       395833346.0          NaN               NaN                   3.845         2.94        1.063      1583.3000  1583.35     1.0000        NVIDIA GeForce RTX 3090 AMD EPYC 7543 32-Core Processor ettin400m_final_3090
+               f9_ettin3090_len512    0.9694    0.9398  0.8977             0.9215       NaN       1024.0       395833346.0          NaN               NaN                   4.738         2.94        1.330      1583.3000  1583.35     1.0000        NVIDIA GeForce RTX 3090 AMD EPYC 7543 32-Core Processor ettin400m_final_3090
+      f8b_ettin400m_finetuned_3090    0.9694    0.9398  0.8977             0.9215       NaN       1024.0       395800000.0      373.200               NaN                   5.080          NaN        5.630      1583.2000  1583.35        NaN RTX 3090 24 GB (rented server)                             NaN ettin400m_final_3090
+wrote Table F1, the contrast table and three figures to /workspace/IE4483-sentiment-analysis/outputs/report_f

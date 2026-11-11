@@ -1,0 +1,195 @@
+{
+ "class_balance": {
+  "product_train_negative_share": 0.146,
+  "hotel_corpus_negative_share_excl_3star": 0.1088,
+  "hotel_eval_negative_share": 0.109,
+  "hotel_corpus_3star_share": 0.1402
+ },
+ "length": {
+  "product_train": {
+   "n": 5748,
+   "words_median": 42.0,
+   "tokens_median": 53.5,
+   "tokens_p95": 181.0,
+   "share_over_512_tokens": 0.0038
+  },
+  "product_val": {
+   "n": 1437,
+   "words_median": 43.0,
+   "tokens_median": 55.0,
+   "tokens_p95": 176.60000000000014,
+   "share_over_512_tokens": 0.0014
+  },
+  "hotel_eval": {
+   "n": 2000,
+   "words_median": 112.0,
+   "tokens_median": 138.0,
+   "tokens_p95": 458.39999999999964,
+   "share_over_512_tokens": 0.0395
+  },
+  "hotel_pool": {
+   "n": 20000,
+   "words_median": 115.0,
+   "tokens_median": 141.0,
+   "tokens_p95": 459.0,
+   "share_over_512_tokens": 0.0353
+  }
+ },
+ "vocabulary": {
+  "product_train_vocab_size": 12787,
+  "product_val_vs_train": {
+   "token_oov_share": 0.0197,
+   "type_oov_share": 0.2169,
+   "n_tokens": 74981,
+   "n_types": 6119,
+   "n_unseen_tokens": 1476,
+   "n_unseen_types": 1327
+  },
+  "hotel_eval_vs_product_train": {
+   "token_oov_share": 0.0692,
+   "type_oov_share": 0.5185,
+   "n_tokens": 279367,
+   "n_types": 11598,
+   "n_unseen_tokens": 19319,
+   "n_unseen_types": 6014
+  }
+ },
+ "typical_words": {
+  "product": [
+   {
+    "word": "them",
+    "z": 61.8
+   },
+   {
+    "word": "these",
+    "z": 58.4
+   },
+   {
+    "word": "they",
+    "z": 49.5
+   },
+   {
+    "word": "it",
+    "z": 41.8
+   },
+   {
+    "word": "size",
+    "z": 39.5
+   },
+   {
+    "word": "my",
+    "z": 39.1
+   },
+   {
+    "word": "are",
+    "z": 36.7
+   },
+   {
+    "word": "love",
+    "z": 34.7
+   },
+   {
+    "word": "fit",
+    "z": 32.7
+   },
+   {
+    "word": "quality",
+    "z": 31.3
+   },
+   {
+    "word": "look",
+    "z": 30.3
+   },
+   {
+    "word": "bought",
+    "z": 29.7
+   },
+   {
+    "word": "wear",
+    "z": 29.6
+   },
+   {
+    "word": "this",
+    "z": 29.0
+   },
+   {
+    "word": "buy",
+    "z": 28.8
+   }
+  ],
+  "hotel": [
+   {
+    "word": "was",
+    "z": -53.0
+   },
+   {
+    "word": "we",
+    "z": -53.0
+   },
+   {
+    "word": "the",
+    "z": -40.8
+   },
+   {
+    "word": "room",
+    "z": -40.6
+   },
+   {
+    "word": "our",
+    "z": -33.1
+   },
+   {
+    "word": "were",
+    "z": -31.6
+   },
+   {
+    "word": "stay",
+    "z": -30.1
+   },
+   {
+    "word": "there",
+    "z": -28.8
+   },
+   {
+    "word": "at",
+    "z": -27.6
+   },
+   {
+    "word": "us",
+    "z": -22.9
+   },
+   {
+    "word": "clean",
+    "z": -22.6
+   },
+   {
+    "word": "night",
+    "z": -22.3
+   },
+   {
+    "word": "service",
+    "z": -21.9
+   },
+   {
+    "word": "hotel",
+    "z": -21.8
+   },
+   {
+    "word": "here",
+    "z": -21.7
+   }
+  ]
+ },
+ "proxy_a_distance": {
+  "product_vs_hotel": {
+   "n_per_domain": 7185,
+   "cv_error": 0.0051,
+   "pad": 1.98
+  },
+  "reference_product_train_vs_val": {
+   "n_per_domain": 1437,
+   "cv_error": 0.5111,
+   "pad": -0.045
+  }
+ }
+}

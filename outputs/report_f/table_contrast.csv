@@ -1,0 +1,27 @@
+arm,run,n_contrast,n_contrast_neg,n_no_contrast,n_no_contrast_neg,macro_f1,macro_f1_contrast,macro_f1_no_contrast,wrong_contrast,wrong_no_contrast,mcnemar_p,contrast_mcnemar_p
+f4_glove50_mean,f4_glove50_mean,552,102,885,108,0.6325,0.6042,0.6535,92,102,0.0,0.0
+f4_glove100_mean,f4_glove100_mean,552,102,885,108,0.7169,0.6547,0.7638,89,79,0.0,0.0
+f3_tfidf_12gram_balanced_max500,f3_tfidf_12gram_balanced_max500,552,102,885,108,0.7426,0.7013,0.7722,126,108,0.0,0.0
+f4_glove300_mean,f4_glove300_mean,552,102,885,108,0.7648,0.7022,0.8155,84,62,0.0,0.0
+f1_bow_binary_1gram,f1_bow_binary_1gram,552,102,885,108,0.8091,0.7434,0.866,86,49,0.0,0.0
+f2_tfidf_1gram,f2_tfidf_1gram,552,102,885,108,0.8053,0.7521,0.8491,77,54,0.0,0.0
+f5b_bilstm_scratch,f5b_bilstm_scratch,552,102,885,108,0.8071,0.7533,0.8515,83,57,0.0,0.0
+f2_tfidf_12gram,f2_tfidf_12gram,552,102,885,108,0.8149,0.7589,0.8598,68,48,0.0,0.0
+f2_tfidf_1gram_balanced,f2_tfidf_1gram_balanced,552,102,885,108,0.8162,0.764,0.859,82,56,0.0,0.0
+f3_tfidf_12gram_balanced_max2000,f3_tfidf_12gram_balanced_max2000,552,102,885,108,0.8121,0.7708,0.8454,84,63,0.0,0.0
+f2_tfidf_12gram_balanced,f2_tfidf_12gram_balanced,552,102,885,108,0.8376,0.7771,0.8875,71,42,0.0,0.0
+f5_bilstm_glove300_frozen,f5_bilstm_glove300_frozen,552,102,885,108,0.8334,0.783,0.8741,73,50,0.0,0.0
+f3_tfidf_12gram_balanced_max5000,f3_tfidf_12gram_balanced_max5000,552,102,885,108,0.8273,0.7846,0.862,73,54,0.0,0.0
+f3_tfidf_12gram_balanced_max10000,f3_tfidf_12gram_balanced_max10000,552,102,885,108,0.8465,0.7978,0.8875,67,42,0.0,0.0
+f6_qwen3_embedding_frozen,f6_qwen3_embedding_frozen,552,102,885,108,0.9143,0.8892,0.9352,36,24,0.0195,0.1221
+f7_ettin400m_frozen,f7_ettin400m_frozen,552,102,885,108,0.9111,0.8927,0.9261,35,27,0.0247,0.2005
+f10_siebert,f10_siebert,552,102,885,108,0.9207,0.8953,0.9419,37,23,0.0195,0.0525
+f11_ettin150m_finetuned,ettin150m_lr2e-5,552,102,885,108,0.9216,0.9012,0.9386,33,23,0.0652,0.2863
+f9_ettin_final_len128,f9_ettin_final_len128,552,102,885,108,0.9356,0.9085,0.9585,31,16,0.7011,0.4807
+f9_ettin3090_len128,f9_ettin3090_len128,552,102,885,108,0.9386,0.9162,0.9578,29,16,1.0,0.5
+f9_ettin_final_len512,f9_ettin_final_len512,552,102,885,108,0.9381,0.9164,0.9561,28,17,1.0,1.0
+f9_ettin_final_len256,f9_ettin_final_len256,552,102,885,108,0.9381,0.9164,0.9561,28,17,1.0,1.0
+f8_ettin400m_finetuned (submitted),ettin400m_final,552,102,885,108,0.9396,0.9197,0.9561,27,17,1.0,1.0
+f9_ettin3090_len256,f9_ettin3090_len256,552,102,885,108,0.9398,0.9215,0.9554,27,17,1.0,1.0
+f9_ettin3090_len512,f9_ettin3090_len512,552,102,885,108,0.9398,0.9215,0.9554,27,17,1.0,1.0
+f8b_ettin400m_finetuned_3090,ettin400m_final_3090,552,102,885,108,0.9398,0.9215,0.9554,27,17,,

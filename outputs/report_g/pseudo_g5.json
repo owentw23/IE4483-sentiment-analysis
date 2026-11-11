@@ -1,0 +1,23 @@
+{
+  "variant": "g5",
+  "pool": 20000,
+  "threshold": 0.99,
+  "teacher_predicted_negative_share": 0.1489,
+  "confident": {
+    "negative": 2302,
+    "positive": 16377
+  },
+  "kept": {
+    "negative": 2302,
+    "positive": 13153,
+    "total": 15455,
+    "negative_share": 0.1489
+  },
+  "pseudo_label_check": {
+    "share_3_star": 0.1115,
+    "error_rate_excl_3_star": 0.005,
+    "error_rate_negative_pseudo": 0.0214,
+    "error_rate_positive_pseudo": 0.0027,
+    "teacher_error_whole_pool_excl_3_star": 0.0149
+  }
+}

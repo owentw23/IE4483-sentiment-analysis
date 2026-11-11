@@ -1,0 +1,76 @@
+{
+  "method": "continue training ettin400m_final on few hotel labels + product reviews",
+  "start": "outputs/runs/ettin400m_final/model",
+  "hotel_labels_used": 32,
+  "k_per_class": 16,
+  "n_train": 64,
+  "lr": 1e-05,
+  "epochs": 10,
+  "batch_size": 8,
+  "grad_accum": 2,
+  "warmup_ratio": 0.1,
+  "weight_decay": 0.01,
+  "optim": "adamw_bnb_8bit",
+  "bf16": true,
+  "max_length": 512,
+  "seed": 42,
+  "product_mix": "1:1, k per class",
+  "train_loss_log": [
+    {
+      "loss": 0.001356351375579834,
+      "grad_norm": 0.010417855344712734,
+      "learning_rate": 1e-05,
+      "epoch": 1.25,
+      "step": 5
+    },
+    {
+      "loss": 0.00013993680477142334,
+      "grad_norm": 0.0056194947101175785,
+      "learning_rate": 8.611111111111112e-06,
+      "epoch": 2.5,
+      "step": 10
+    },
+    {
+      "loss": 1.0839104652404785e-05,
+      "grad_norm": 0.0010800751624628901,
+      "learning_rate": 7.222222222222223e-06,
+      "epoch": 3.75,
+      "step": 15
+    },
+    {
+      "loss": 5.686283111572266e-06,
+      "grad_norm": 0.00034420363954268396,
+      "learning_rate": 5.833333333333334e-06,
+      "epoch": 5.0,
+      "step": 20
+    },
+    {
+      "loss": 2.8491020202636717e-06,
+      "grad_norm": 0.00021978910081088543,
+      "learning_rate": 4.444444444444444e-06,
+      "epoch": 6.25,
+      "step": 25
+    },
+    {
+      "loss": 2.112984657287598e-06,
+      "grad_norm": 0.00023864544345997274,
+      "learning_rate": 3.055555555555556e-06,
+      "epoch": 7.5,
+      "step": 30
+    },
+    {
+      "loss": 2.4199485778808595e-06,
+      "grad_norm": 0.00018398041720502079,
+      "learning_rate": 1.6666666666666667e-06,
+      "epoch": 8.75,
+      "step": 35
+    },
+    {
+      "loss": 1.7762184143066407e-06,
+      "grad_norm": 0.00023316527949646115,
+      "learning_rate": 2.7777777777777776e-07,
+      "epoch": 10.0,
+      "step": 40
+    }
+  ]
+}

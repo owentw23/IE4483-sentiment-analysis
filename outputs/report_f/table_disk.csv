@@ -1,0 +1,27 @@
+arm,run,stored,how,disk_mb
+f5_bilstm_glove300_frozen,f5_bilstm_glove300_frozen,"BiLSTM weights incl. vocabulary embeddings, 32-bit",parameters x 4 bytes,17.6
+f5b_bilstm_scratch,f5b_bilstm_scratch,"BiLSTM weights incl. vocabulary embeddings, 32-bit",parameters x 4 bytes,17.6
+f10_siebert,f10_siebert,pretrained checkpoint siebert/sentiment-roberta-large-english plus classifier,measured,1421.5
+f9_ettin_final_len128,f9_ettin_final_len128,fine-tuned weights saved in outputs/runs/ettin400m_final/model,measured,1583.35
+f9_ettin_final_len256,f9_ettin_final_len256,fine-tuned weights saved in outputs/runs/ettin400m_final/model,measured,1583.35
+f9_ettin_final_len512,f9_ettin_final_len512,fine-tuned weights saved in outputs/runs/ettin400m_final/model,measured,1583.35
+f6_qwen3_embedding_frozen,f6_qwen3_embedding_frozen,pretrained checkpoint Qwen/Qwen3-Embedding-0.6B plus classifier,measured,1191.59
+f7_ettin400m_frozen,f7_ettin400m_frozen,pretrained checkpoint jhu-clsp/ettin-encoder-400m plus classifier,measured,1583.54
+f4_glove50_mean,f4_glove50_mean,GloVe 50-d text file plus classifier,measured,171.35
+f4_glove100_mean,f4_glove100_mean,GloVe 100-d text file plus classifier,measured,347.12
+f4_glove300_mean,f4_glove300_mean,GloVe 300-d text file plus classifier,measured,1037.97
+f1_bow_binary_1gram,f1_bow_binary_1gram,saved vectoriser and classifier (pickle),measured,0.27
+f2_tfidf_1gram,f2_tfidf_1gram,saved vectoriser and classifier (pickle),measured,0.37
+f2_tfidf_1gram_balanced,f2_tfidf_1gram_balanced,saved vectoriser and classifier (pickle),measured,0.37
+f2_tfidf_12gram,f2_tfidf_12gram,saved vectoriser and classifier (pickle),measured,4.27
+f2_tfidf_12gram_balanced,f2_tfidf_12gram_balanced,saved vectoriser and classifier (pickle),measured,4.27
+f3_tfidf_12gram_balanced_max500,f3_tfidf_12gram_balanced_max500,saved vectoriser and classifier (pickle),measured,0.02
+f3_tfidf_12gram_balanced_max2000,f3_tfidf_12gram_balanced_max2000,saved vectoriser and classifier (pickle),measured,0.09
+f3_tfidf_12gram_balanced_max5000,f3_tfidf_12gram_balanced_max5000,saved vectoriser and classifier (pickle),measured,0.23
+f3_tfidf_12gram_balanced_max10000,f3_tfidf_12gram_balanced_max10000,saved vectoriser and classifier (pickle),measured,0.46
+f9_ettin3090_len128,f9_ettin3090_len128,fine-tuned weights saved in outputs/runs/ettin400m_final_3090/model,measured,1583.35
+f9_ettin3090_len256,f9_ettin3090_len256,fine-tuned weights saved in outputs/runs/ettin400m_final_3090/model,measured,1583.35
+f9_ettin3090_len512,f9_ettin3090_len512,fine-tuned weights saved in outputs/runs/ettin400m_final_3090/model,measured,1583.35
+f8_ettin400m_finetuned (submitted),ettin400m_final,fine-tuned weights saved in outputs/runs/ettin400m_final/model,measured,1583.35
+f11_ettin150m_finetuned,ettin150m_lr2e-5,"fine-tuned weights (not saved), 32-bit",parameters x 4 bytes,598.4
+f8b_ettin400m_finetuned_3090,ettin400m_final_3090,fine-tuned weights saved in outputs/runs/ettin400m_final_3090/model,measured,1583.35

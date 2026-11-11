@@ -1,0 +1,27 @@
+{
+  "accuracy": 0.9555,
+  "macro_f1": 0.9059,
+  "neg_f1": 0.8376,
+  "neg_precision": 0.8967,
+  "neg_recall": 0.7857,
+  "macro_f1_contrast": 0.8755,
+  "n_contrast": 552,
+  "only_arm_wrong": 37,
+  "only_ettin_wrong": 17,
+  "mcnemar_p": 0.0091,
+  "feature_dim": 1024,
+  "trainable_params": 1025,
+  "frozen_params": 595776512,
+  "fit_seconds": 46.758,
+  "predict_seconds_per_1k": 7.179,
+  "model_load_seconds": 10.18,
+  "peak_rss_gb": 2.02,
+  "peak_gpu_gb": 3.591,
+  "model_size_mb": 1191.6,
+  "hardware": {
+    "cpu": "AMD EPYC 7543 32-Core Processor",
+    "gpu": "NVIDIA GeForce RTX 3090",
+    "os": "Linux-6.8.0-138-generic-x86_64-with-glibc2.39",
+    "python": "3.12.15"
+  }
+}

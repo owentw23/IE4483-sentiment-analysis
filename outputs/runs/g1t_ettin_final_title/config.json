@@ -1,0 +1,11 @@
+{
+  "method": "ettin_final",
+  "model": "/workspace/IE4483-sentiment-analysis/outputs/runs/ettin400m_final/model",
+  "labelled_data_seen": "our 5,748 product reviews",
+  "hotel_labels_used": 0,
+  "input": "title_text",
+  "max_length": 512,
+  "dtype": "torch.bfloat16",
+  "decision_rule": "P(pos) >= 0.5",
+  "positive_index": 1
+}

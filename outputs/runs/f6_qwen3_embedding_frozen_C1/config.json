@@ -1,0 +1,10 @@
+{
+  "family": "pretrained contextual, frozen",
+  "model": "Qwen/Qwen3-Embedding-0.6B",
+  "dtype": "torch.bfloat16",
+  "pooling": "last",
+  "normalise": "L2",
+  "max_length": 512,
+  "classifier": "LogisticRegression(max_iter=3000)",
+  "fitted_on": "training split only"
+}

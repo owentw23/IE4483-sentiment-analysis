@@ -1,0 +1,42 @@
+{
+  "accuracy": 0.9193,
+  "macro_f1": 0.8149,
+  "neg_f1": 0.676,
+  "neg_precision": 0.8176,
+  "neg_recall": 0.5762,
+  "macro_f1_contrast": 0.7589,
+  "n_contrast": 552,
+  "only_arm_wrong": 91,
+  "only_ettin_wrong": 19,
+  "mcnemar_p": 0.0,
+  "feature_dim": 127682,
+  "trainable_params": 127683,
+  "fit_seconds": 1.0,
+  "c_search_seconds": 33.09,
+  "predict_seconds_per_1k": 0.093,
+  "peak_rss_gb": 0.23,
+  "peak_gpu_gb": null,
+  "model_size_mb": 4.27,
+  "chosen_C": 1000,
+  "chosen_C_at_grid_edge": false,
+  "cv_macro_f1_best": 0.8026,
+  "cv_macro_f1_by_C": {
+    "0.01": 0.4606,
+    "0.1": 0.4606,
+    "0.3": 0.4606,
+    "1": 0.5386,
+    "3": 0.6743,
+    "10": 0.7483,
+    "30": 0.7751,
+    "100": 0.7941,
+    "300": 0.7876,
+    "1000": 0.8026,
+    "3000": 0.7958
+  },
+  "hardware": {
+    "cpu": "AMD EPYC 7543 32-Core Processor",
+    "gpu": "NVIDIA GeForce RTX 3090",
+    "os": "Linux-6.8.0-138-generic-x86_64-with-glibc2.39",
+    "python": "3.12.15"
+  }
+}

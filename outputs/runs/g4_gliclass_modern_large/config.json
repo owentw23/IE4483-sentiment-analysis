@@ -1,0 +1,15 @@
+{
+  "method": "gliclass",
+  "model": "knowledgator/gliclass-modern-large-v3.0",
+  "labelled_data_seen": "synthetic + logic data",
+  "hotel_labels_used": 0,
+  "input": "text",
+  "max_length": 512,
+  "dtype": "torch.bfloat16",
+  "decision_rule": "P(pos) >= 0.5",
+  "labels": [
+    "positive",
+    "negative"
+  ],
+  "score": "sigmoid scores, normalised pos / (pos + neg)"
+}
